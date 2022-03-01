@@ -13,6 +13,9 @@
   "keywords": [],
   "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "eslint": ">=7.4.0"
   },
