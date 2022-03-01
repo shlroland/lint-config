@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const eslint_config_basic_1 = __importDefault(require("@shlroland/eslint-config-basic"));
 const config = {
-    extends: ['@antfu/eslint-config-basic', 'plugin:@typescript-eslint/recommended'],
+    extends: ['@shlroland/eslint-config-basic', 'plugin:@typescript-eslint/recommended'],
     overrides: eslint_config_basic_1.default.overrides,
     rules: {
         'import/named': 'off',

@@ -2,7 +2,7 @@ import { Linter } from 'eslint'
 import basic from '@shlroland/eslint-config-basic'
 
 const config: Linter.BaseConfig = {
-  extends: ['@antfu/eslint-config-basic', 'plugin:@typescript-eslint/recommended'],
+  extends: ['@shlroland/eslint-config-basic', 'plugin:@typescript-eslint/recommended'],
   overrides: basic.overrides,
   rules: {
     'import/named': 'off',
