@@ -1,0 +1,29 @@
+{
+  "name": "@shlroland/eslint-config",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "./lib"
+  ],
+  "scripts": {
+    "dev": "tsc -p tsconfig.json -w"
+  },
+  "keywords": [],
+  "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0"
+  },
+  "dependencies": {
+    "@shlroland/eslint-config-react": "workspace:^0.0.1",
+    "@shlroland/eslint-config-vue": "workspace:^0.0.1"
+  }
+}
