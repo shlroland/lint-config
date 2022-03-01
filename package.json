@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "pnpm run dev --stream --parallel --filter {packages}",
     "fix:lint": "eslint packages --ext .ts  --fix"
-
   },
   "author": "",
   "license": "MIT",
@@ -15,6 +14,7 @@
   },
   "devDependencies": {
     "@shlroland/eslint-config-ts": "workspace:^0.0.1",
+    "@shlroland/eslint-config-prettier": "workspace:^0.0.1",
     "@types/eslint": "^8.4.1",
     "@types/node": "^17.0.21",
     "eslint": "^8.10.0"

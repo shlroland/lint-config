@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@shlroland/eslint-config-ts'],
+  extends: ['@shlroland/eslint-config-ts', '@shlroland/eslint-config-prettier'],
   rules: {
     'import/no-default-export': 'off',
   },
