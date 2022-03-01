@@ -1,4 +1,4 @@
-import { Linter } from 'eslint'
+import type { Linter } from 'eslint'
 import basic from '@shlroland/eslint-config-basic'
 
 const config: Linter.BaseConfig = {
@@ -28,7 +28,7 @@ const config: Linter.BaseConfig = {
 
     // Override JS
     'no-useless-constructor': 'off',
-    indent: 'off',
+    'indent': 'off',
     '@typescript-eslint/indent': ['error', 2],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
