@@ -4,7 +4,7 @@
   "description": "前端lint工具大集合",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm dev -r"
+    "dev": "pnpm run dev --stream --parallel --filter {packages}"
   },
   "author": "",
   "license": "MIT",
