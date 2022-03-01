@@ -1,1 +1,3 @@
-declare const x = 1;
+import { Linter } from 'eslint';
+declare const config: Linter.BaseConfig;
+export default config;

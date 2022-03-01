@@ -4,7 +4,7 @@
   "description": "前端lint工具大集合",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm dev -r"
   },
   "author": "",
   "license": "MIT",
