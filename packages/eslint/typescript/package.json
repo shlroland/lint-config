@@ -2,14 +2,30 @@
   "name": "@shlroland/eslint-config-ts",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "./lib"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc -p tsconfig.json -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0",
+    "typescript": ">=3.9"
+  },
+  "devDependencies": {
+    "eslint": "^8.10.0"
+  },
   "dependencies": {
-    "@shlroland/eslint-config-basic": "workspace:^0.0.1"
+    "@shlroland/eslint-config-basic": "workspace:^0.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0"
   }
 }
