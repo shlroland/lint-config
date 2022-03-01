@@ -5,7 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const eslint_config_basic_1 = __importDefault(require("@shlroland/eslint-config-basic"));
 const config = {
-    extends: ['@shlroland/eslint-config-basic', 'plugin:@typescript-eslint/recommended'],
+    extends: [
+        '@shlroland/eslint-config-basic',
+        'plugin:@typescript-eslint/recommended',
+    ],
     overrides: eslint_config_basic_1.default.overrides,
     rules: {
         'import/named': 'off',
@@ -29,7 +32,7 @@ const config = {
         '@typescript-eslint/prefer-ts-expect-error': 'error',
         // Override JS
         'no-useless-constructor': 'off',
-        'indent': 'off',
+        indent: 'off',
         '@typescript-eslint/indent': ['error', 2],
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'error',
@@ -41,7 +44,11 @@ const config = {
             { functions: false, classes: false, variables: true },
         ],
         'brace-style': 'off',
-        '@typescript-eslint/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+        '@typescript-eslint/brace-style': [
+            'error',
+            'stroustrup',
+            { allowSingleLine: true },
+        ],
         'comma-dangle': 'off',
         '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
         'object-curly-spacing': 'off',
