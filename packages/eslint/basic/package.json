@@ -2,13 +2,14 @@
   "name": "@shlroland/eslint-config-basic",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": ["./lib"],
   "scripts": {
-    "dev": "tsc -p tsconfig.json -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc -p tsconfig.json -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
   "license": "MIT",
   "peerDependencies": {
     "eslint": ">=7.4.0"
