@@ -17,10 +17,12 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": ">=8.0.0",
+    "@types/eslint": "^8.4.1"
   },
   "devDependencies": {
-    "eslint": "^8.10.0"
+    "eslint": "^8.10.0",
+    "@types/eslint": "^8.4.1"
   },
   "dependencies": {
     "eslint-config-standard": "^17.0.0-1",

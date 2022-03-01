@@ -18,10 +18,12 @@
   },
   "peerDependencies": {
     "eslint": ">=7.4.0",
-    "typescript": ">=3.9"
+    "typescript": ">=3.9",
+    "@types/eslint": "^8.4.1"
   },
   "devDependencies": {
-    "eslint": "^8.10.0"
+    "eslint": "^8.10.0",
+    "@types/eslint": "^8.4.1"
   },
   "dependencies": {
     "@shlroland/eslint-config-basic": "workspace:^0.0.1",
