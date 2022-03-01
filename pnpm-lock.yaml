@@ -113,6 +113,14 @@ importers:
     devDependencies:
       eslint: 8.10.0
 
+  packages/prettier:
+    specifiers:
+      '@types/prettier': ^2.4.4
+      prettier: ^2.5.1
+    devDependencies:
+      '@types/prettier': registry.npmmirror.com/@types/prettier/2.4.4
+      prettier: registry.npmmirror.com/prettier/2.5.1
+
 packages:
 
   /@eslint/eslintrc/1.2.0:
@@ -1486,6 +1494,12 @@ packages:
     name: '@types/normalize-package-data'
     version: 2.4.1
     dev: false
+
+  registry.npmmirror.com/@types/prettier/2.4.4:
+    resolution: {integrity: sha512-ReVR2rLTV1kvtlWFyuot+d1pkpG2Fw/XKE3PDAdj57rbM97ttSp9JZ2UsP+2EHTylra9cUf6JA7tGwW1INzUrA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/prettier/-/prettier-2.4.4.tgz}
+    name: '@types/prettier'
+    version: 2.4.4
+    dev: true
 
   registry.npmmirror.com/acorn-jsx/5.3.2_acorn@8.7.0:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz}
