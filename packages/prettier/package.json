@@ -17,11 +17,9 @@
     "access": "public"
   },
   "peerDependencies": {
-    "prettier": ">=2.5.1",
-    "@types/prettier": ">=2.4.4"
+    "prettier": ">=2.5.1"
   },
   "devDependencies": {
-    "@types/prettier": "^2.4.4",
     "prettier": "^2.5.1"
   }
 }

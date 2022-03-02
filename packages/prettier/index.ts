@@ -1,4 +1,4 @@
-import type { Options } from 'prettier'
+import type { Options } from './types'
 
 const config: Options = {
   singleQuote: true,

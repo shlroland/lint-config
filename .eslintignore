@@ -1,2 +1,2 @@
 *.d.ts
-packages/**/lib/index.js
+packages/**/lib/*.js
