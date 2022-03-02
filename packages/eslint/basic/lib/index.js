@@ -108,7 +108,7 @@ const config = {
         'import/no-absolute-path': 'off',
         'import/no-extraneous-dependencies': [
             'error',
-            { devDependencies: ['*.config.ts', 'config/*'] },
+            { devDependencies: ['*.config.js', '*.config.ts', 'config/*'] },
         ],
         'import/no-default-export': 'error',
         // Common

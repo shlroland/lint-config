@@ -1,0 +1,25 @@
+{
+  "name": "@shlroland/lint-staged",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "./lib"
+  ],
+  "scripts": {
+    "dev": "tsc -p tsconfig.json -w"
+  },
+  "keywords": [],
+  "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "lint-staged": "^12.3.4"
+  },
+  "devDependencies": {
+    "lint-staged": "^12.3.4"
+  }
+}
