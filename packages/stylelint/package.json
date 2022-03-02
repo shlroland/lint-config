@@ -1,0 +1,29 @@
+{
+  "name": "@shlroland/stylelint-config",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "./lib"
+  ],
+  "scripts": {
+    "dev": "tsc -p tsconfig.json -w"
+  },
+  "keywords": [],
+  "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "stylelint": ">=14.5.3"
+  },
+  "devDependencies": {
+    "stylelint": "^14.5.3"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-order": "^5.0.0"
+  }
+}
