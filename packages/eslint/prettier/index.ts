@@ -1,6 +1,4 @@
-import type { Linter } from 'eslint'
-
-const config: Linter.BaseConfig = {
+const config = {
   extends: ['prettier'],
   plugins: ['prettier'],
   rules: {

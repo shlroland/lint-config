@@ -1,6 +1,4 @@
-import type { Linter } from 'eslint'
-
-const config: Linter.BaseConfig = {
+const config = {
   extends: ['plugin:react/recommended', '@shlroland/eslint-config-ts'],
   plugins: ['react-hooks'],
   settings: {

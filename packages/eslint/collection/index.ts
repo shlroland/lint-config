@@ -1,6 +1,4 @@
-import type { Linter } from 'eslint'
-
-const config: Linter.BaseConfig = {
+const config = {
   extends: [
     '@shlroland/eslint-config-react',
     '@shlroland/eslint-config-vue',

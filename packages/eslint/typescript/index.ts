@@ -1,7 +1,6 @@
-import type { Linter } from 'eslint'
 import basic from '@shlroland/eslint-config-basic'
 
-const config: Linter.BaseConfig = {
+const config = {
   extends: [
     '@shlroland/eslint-config-basic',
     'plugin:@typescript-eslint/recommended',

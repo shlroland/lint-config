@@ -18,12 +18,10 @@
   },
   "peerDependencies": {
     "eslint": ">=7.4.0",
-    "@types/eslint": "^8.4.1",
     "prettier": ">=2.5.1"
   },
   "devDependencies": {
     "eslint": "^8.10.0",
-    "@types/eslint": "^8.4.1",
     "prettier": "^2.5.1"
   },
   "dependencies": {
