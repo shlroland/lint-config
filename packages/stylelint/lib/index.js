@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const config = {
-    extends: 'stylelint-config-standard',
+    extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
     plugins: ['stylelint-order'],
     rules: {
         'order/order': [
@@ -282,7 +282,20 @@ const config = {
         'at-rule-no-unknown': [
             true,
             {
-                ignoreAtRules: ['function', 'if', 'else', 'include', 'extend', 'mixin'],
+                ignoreAtRules: [
+                    'function',
+                    'if',
+                    'else',
+                    'include',
+                    'extend',
+                    'mixin',
+                    'tailwind',
+                    'apply',
+                    'variants',
+                    'responsive',
+                    'screen',
+                    'layer',
+                ],
             },
         ],
         'color-no-invalid-hex': true,
