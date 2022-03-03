@@ -18,3 +18,12 @@ export const eslint = wrap((filenames) => {
 
   return [`pnpm eslint ${cliFileNames}`]
 })
+
+export const stylelint = wrap((filenames) => {
+  if (!filenames.length) return []
+  const cliFileNames = fileNamesToCliArg(filenames)
+
+  return [
+    `stylelint --fix --formatter verbose --allow-empty-input ${cliFileNames}`,
+  ]
+})
