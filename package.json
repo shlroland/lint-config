@@ -1,5 +1,6 @@
 {
   "name": "@shlroland/lint-config",
+  "private": true,
   "version": "0.0.1",
   "description": "前端lint工具大集合",
   "main": "index.js",
