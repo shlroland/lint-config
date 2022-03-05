@@ -10,7 +10,7 @@
     "fix:lint": "eslint packages --ext .ts  --fix",
     "fix:prettier": "prettier \"packages/**/*.ts\" --write",
     "lint-staged": "lint-staged",
-    "commit": "cz"
+    "cm": "cz"
   },
   "author": "",
   "license": "MIT",
