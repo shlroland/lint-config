@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@commitlint/cli": "^16.2.1",
-    "@commitlint/config-conventional": "^16.2.1"
+    "@commitlint/config-conventional": "^16.2.1",
+    "commitizen": "^4.2.4",
+    "cz-git": "^1.1.8"
   }
 }

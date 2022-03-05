@@ -23,11 +23,11 @@
   "devDependencies": {
     "eslint": "^8.10.0",
     "react": "^17.0.2",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.2"
   },
   "dependencies": {
-    "@shlroland/eslint-config-ts": "workspace:^0.0.1",
-    "eslint-plugin-react": "^7.28.0",
+    "@shlroland/eslint-config-ts": "workspace:^0.0.2",
+    "eslint-plugin-react": "^7.29.3",
     "eslint-plugin-react-hooks": "^4.3.0"
   }
 }

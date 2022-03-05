@@ -24,8 +24,8 @@
     "eslint": "^8.10.0"
   },
   "dependencies": {
-    "@shlroland/eslint-config-react": "workspace:^0.0.1",
-    "@shlroland/eslint-config-vue": "workspace:^0.0.1",
-    "@shlroland/eslint-config-prettier": "workspace:^0.0.1"
+    "@shlroland/eslint-config-prettier": "workspace:^0.0.2",
+    "@shlroland/eslint-config-react": "workspace:^0.0.2",
+    "@shlroland/eslint-config-vue": "workspace:^0.0.2"
   }
 }
