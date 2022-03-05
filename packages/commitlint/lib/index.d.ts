@@ -1,8 +1,3 @@
-declare const config: {
-    extends: string[];
-    rules: {
-        'subject-case': number[];
-        'scope-case': number[];
-    };
-};
+import type { UserConfig } from 'cz-git';
+declare const config: UserConfig;
 export default config;

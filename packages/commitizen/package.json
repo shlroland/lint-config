@@ -1,5 +1,5 @@
 {
-  "name": "@shlroland/commitlint-config",
+  "name": "@shlroland/commitizen-config",
   "version": "0.0.1",
   "description": "",
   "main": "./lib/index.js",
