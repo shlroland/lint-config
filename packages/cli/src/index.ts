@@ -1,7 +1,7 @@
 import * as path from 'path'
 import fs from 'fs-extra'
-import { loading } from './utils/loading'
-import { exec } from './utils/exec'
+import { createTasks } from './tasks'
+// import { exec } from './utils/exec'
 
 export const init = async () => {
   process.chdir(process.cwd())
@@ -12,10 +12,11 @@ export const init = async () => {
     throw new Error(`No package.json find in ${process.cwd()}`)
   }
 
-  const spinner = loading({ text: 'Install lint-config...' }).start()
-  await exec('pnpm i ramrif')
-  setTimeout(() => {
-    spinner.stop()
-  }, 3000)
+  const tasks = await createTasks()
+
+  tasks.run().catch((err) => {
+    console.error(err)
+  })
 }
+
 init()
