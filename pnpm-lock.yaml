@@ -9,17 +9,17 @@ importers:
       '@shlroland/commitizen-config': workspace:^0.0.1
       '@shlroland/commitlint-config': workspace:^0.0.2
       '@shlroland/eslint-config-prettier': workspace:^0.0.2
-      '@shlroland/eslint-config-ts': workspace:^0.0.2
+      '@shlroland/eslint-config-ts': workspace:^0.0.3
       '@shlroland/lint-staged': workspace:^0.0.2
       '@shlroland/prettier-config': workspace:^0.0.2
       '@shlroland/stylelint-config': workspace:^0.0.2
       '@types/eslint': ^8.4.1
       '@types/node': ^17.0.21
       commitizen: ^4.2.4
-      cz-git: ^1.1.8
+      cz-git: ^1.2.0
       eslint: ^8.10.0
       husky: ^7.0.4
-      lint-staged: ^12.3.4
+      lint-staged: ^12.3.5
       prettier: ^2.5.1
       stylelint: ^14.5.3
       typescript: ^4.6.2
@@ -38,10 +38,10 @@ importers:
       '@types/eslint': 8.4.1
       '@types/node': 17.0.21
       commitizen: 4.2.4
-      cz-git: 1.1.8_commitizen@4.2.4
+      cz-git: 1.2.0_commitizen@4.2.4
       eslint: 8.10.0
       husky: 7.0.4
-      lint-staged: 12.3.4
+      lint-staged: 12.3.5
       prettier: 2.5.1
       stylelint: 14.5.3
 
@@ -49,11 +49,11 @@ importers:
     specifiers:
       '@shlroland/commitizen-config': workspace:^0.0.1
       '@shlroland/commitlint-config': workspace:^0.0.2
-      '@shlroland/eslint-config': workspace:^0.0.2
-      '@shlroland/eslint-config-basic': workspace:^0.0.2
+      '@shlroland/eslint-config': workspace:^0.0.3
+      '@shlroland/eslint-config-basic': workspace:^0.0.3
       '@shlroland/eslint-config-prettier': workspace:^0.0.2
       '@shlroland/eslint-config-react': workspace:^0.0.2
-      '@shlroland/eslint-config-ts': workspace:^0.0.2
+      '@shlroland/eslint-config-ts': workspace:^0.0.3
       '@shlroland/eslint-config-vue': workspace:^0.0.2
       '@shlroland/husky-config': workspace:^0.0.1
       '@shlroland/lint-staged': workspace:^0.0.2
@@ -93,21 +93,21 @@ importers:
   packages/commitizen:
     specifiers:
       commitizen: ^4.2.4
-      cz-git: ^1.1.8
+      cz-git: ^1.2.0
     dependencies:
       commitizen: 4.2.4
-      cz-git: 1.1.8_commitizen@4.2.4
+      cz-git: 1.2.0_commitizen@4.2.4
 
   packages/commitlint:
     specifiers:
       '@commitlint/cli': ^16.2.1
       '@commitlint/config-conventional': ^16.2.1
-      cz-git: ^1.1.8
+      cz-git: ^1.2.0
     dependencies:
       '@commitlint/cli': 16.2.1
       '@commitlint/config-conventional': 16.2.1
     devDependencies:
-      cz-git: 1.1.8_commitizen@4.2.4
+      cz-git: 1.2.0_commitizen@4.2.4
 
   packages/eslint/basic:
     specifiers:
@@ -166,7 +166,7 @@ importers:
 
   packages/eslint/react:
     specifiers:
-      '@shlroland/eslint-config-ts': workspace:^0.0.2
+      '@shlroland/eslint-config-ts': workspace:^0.0.3
       eslint: ^8.10.0
       eslint-plugin-react: ^7.29.3
       eslint-plugin-react-hooks: ^4.3.0
@@ -183,7 +183,7 @@ importers:
 
   packages/eslint/typescript:
     specifiers:
-      '@shlroland/eslint-config-basic': workspace:^0.0.2
+      '@shlroland/eslint-config-basic': workspace:^0.0.3
       '@typescript-eslint/eslint-plugin': ^5.13.0
       '@typescript-eslint/parser': ^5.13.0
       eslint: ^8.10.0
@@ -196,7 +196,7 @@ importers:
 
   packages/eslint/vue:
     specifiers:
-      '@shlroland/eslint-config-ts': workspace:^0.0.2
+      '@shlroland/eslint-config-ts': workspace:^0.0.3
       eslint: ^8.10.0
       eslint-plugin-vue: ^8.5.0
     dependencies:
@@ -213,9 +213,9 @@ importers:
 
   packages/lint-staged:
     specifiers:
-      lint-staged: ^12.3.4
+      lint-staged: ^12.3.5
     devDependencies:
-      lint-staged: 12.3.4
+      lint-staged: 12.3.5
 
   packages/prettier:
     specifiers:
@@ -408,8 +408,8 @@ packages:
     dependencies:
       '@cspotcode/source-map-consumer': 0.8.0
 
-  /@cz-git/loader/1.1.6:
-    resolution: {integrity: sha512-rwdpiqD3D3SrRkzb8RMpNcGs1Zg0RlTzYRmNStLiUpYzyQjB+Qwe9yrB3Y14sFTdQW3T07nI6rNWXtboHj47OQ==}
+  /@cz-git/loader/1.2.0:
+    resolution: {integrity: sha512-V6uk3COLh+VZX4/S5sSmTuk87m6opSsuXqGbyLKhdFkXGVgktS6UIAs12k3daJ2GcBtW+3vvxR5mlYwkcMFPng==}
     dependencies:
       '@commitlint/load': 16.2.1
       strip-json-comments: 3.1.1
@@ -1086,7 +1086,7 @@ packages:
     dependencies:
       '@types/node': 17.0.21
       cosmiconfig: 7.0.1
-      ts-node: 10.6.0_e79e62fe450383fd2d418267dc75e645
+      ts-node: 10.7.0_e79e62fe450383fd2d418267dc75e645
       typescript: 4.6.2
     transitivePeerDependencies:
       - '@swc/core'
@@ -1140,12 +1140,12 @@ packages:
       - '@swc/core'
       - '@swc/wasm'
 
-  /cz-git/1.1.8_commitizen@4.2.4:
-    resolution: {integrity: sha512-mIOpdtbFr2oJqqKK/KuDKKDb6fDtEcxaOWR9XzIENUWB15EhHwOvw7IR8DF/HiioICY1EeEZSZXEI8fDtNlUSA==}
+  /cz-git/1.2.0_commitizen@4.2.4:
+    resolution: {integrity: sha512-tXSwnOtYWfjpwkoRMtUgjnbQc4+C2QvOcgqttRjqeoJLF5EgwzsaymqkSAC9MYMcr2QmbikCoTJHAVv8er3owA==}
     peerDependencies:
       commitizen: '>=2'
     dependencies:
-      '@cz-git/loader': 1.1.6
+      '@cz-git/loader': 1.2.0
       commitizen: 4.2.4
       inquirer: 7.3.3
       inquirer-autocomplete-prompt: 1.4.0_inquirer@7.3.3
@@ -2507,8 +2507,8 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /lint-staged/12.3.4:
-    resolution: {integrity: sha512-yv/iK4WwZ7/v0GtVkNb3R82pdL9M+ScpIbJLJNyCXkJ1FGaXvRCOg/SeL59SZtPpqZhE7BD6kPKFLIDUhDx2/w==}
+  /lint-staged/12.3.5:
+    resolution: {integrity: sha512-oOH36RUs1It7b9U/C7Nl/a0sLfoIBcMB8ramiB3nuJ6brBqzsWiUAFSR5DQ3yyP/OR7XKMpijtgKl2DV1lQ3lA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -3064,13 +3064,13 @@ packages:
     resolution: {integrity: sha1-Kcy8fDfe36wwTp//C/FZaz9qDk4=}
     dev: true
 
-  /postcss-safe-parser/6.0.0_postcss@8.4.7:
+  /postcss-safe-parser/6.0.0_postcss@8.4.8:
     resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.3.3
     dependencies:
-      postcss: 8.4.7
+      postcss: 8.4.8
     dev: true
 
   /postcss-selector-parser/6.0.9:
@@ -3081,20 +3081,20 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss-sorting/7.0.1_postcss@8.4.7:
+  /postcss-sorting/7.0.1_postcss@8.4.8:
     resolution: {integrity: sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==}
     peerDependencies:
       postcss: ^8.3.9
     dependencies:
-      postcss: 8.4.7
+      postcss: 8.4.8
     dev: false
 
   /postcss-value-parser/4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
 
-  /postcss/8.4.7:
-    resolution: {integrity: sha512-L9Ye3r6hkkCeOETQX6iOaWZgjp3LL6Lpqm6EtgbKrgqGGteRMNb9vzBfRL96YOSu8o7x3MfIH9Mo5cPJFGrW6A==}
+  /postcss/8.4.8:
+    resolution: {integrity: sha512-2tXEqGxrjvAO6U+CJzDL2Fk2kPHTv1jQsYkSoMeOis2SsYaXRO2COxTdQp99cYvif9JTXaAk9lYGc3VhJt7JPQ==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.1
@@ -3583,8 +3583,8 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0
     dependencies:
-      postcss: 8.4.7
-      postcss-sorting: 7.0.1_postcss@8.4.7
+      postcss: 8.4.8
+      postcss-sorting: 7.0.1_postcss@8.4.8
       stylelint: 14.5.3
     dev: false
 
@@ -3618,10 +3618,10 @@ packages:
       normalize-path: 3.0.0
       normalize-selector: 0.2.0
       picocolors: 1.0.0
-      postcss: 8.4.7
+      postcss: 8.4.8
       postcss-media-query-parser: 0.2.3
       postcss-resolve-nested-selector: 0.1.1
-      postcss-safe-parser: 6.0.0_postcss@8.4.7
+      postcss-safe-parser: 6.0.0_postcss@8.4.8
       postcss-selector-parser: 6.0.9
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
@@ -3724,8 +3724,8 @@ packages:
     resolution: {integrity: sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==}
     engines: {node: '>=8'}
 
-  /ts-node/10.6.0_e79e62fe450383fd2d418267dc75e645:
-    resolution: {integrity: sha512-CJen6+dfOXolxudBQXnVjRVvYTmTWbyz7cn+xq2XTsvnaXbHqr4gXSCNbS2Jj8yTZMuGwUoBESLaOkLascVVvg==}
+  /ts-node/10.7.0_e79e62fe450383fd2d418267dc75e645:
+    resolution: {integrity: sha512-TbIGS4xgJoX2i3do417KSaep1uRAW/Lu+WAL2doDHC0D6ummjirVOXU5/7aiZotbQ5p1Zp9tP7U6cYhA0O7M8A==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'

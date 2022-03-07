@@ -22,6 +22,6 @@
     "@commitlint/config-conventional": "^16.2.1"
   },
   "devDependencies": {
-    "cz-git": "^1.1.8"
+    "cz-git": "^1.2.0"
   }
 }

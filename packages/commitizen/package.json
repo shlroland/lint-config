@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "commitizen": "^4.2.4",
-    "cz-git": "^1.1.8"
+    "cz-git": "^1.2.0"
   }
 }
