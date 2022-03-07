@@ -16,3 +16,13 @@ export const createDepsNameWithVersion = (
 
   return [`${pkgName}@${pkgVersion}`, ...peerDepsNames]
 }
+
+const COMMON_EXT = ['json', 'json5', 'yml', 'yaml', 'js', 'cjs', 'toml']
+
+export const jointConfigurationExt = (
+  name: string | string[],
+  exts: string[] = COMMON_EXT,
+) => {
+  const names = Array.isArray(name) ? name : [name]
+  return exts.map((ext) => names.map((name) => `${name}.${ext}`)).flat(2)
+}

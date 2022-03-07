@@ -3,6 +3,7 @@ import { installDep } from '../utils/exec'
 import { createFile, createRootPath, removeFile } from '../utils/file'
 import type { DepWithVersion } from '../utils/types'
 import { eslint } from './eslint'
+import { prettier } from './prettier'
 
 interface Task {
   installDepsList: DepWithVersion[]
@@ -20,7 +21,7 @@ interface TodoItem {
 
 const createTodoList = () => {
   const todoList: TodoItem[] = []
-  ;[eslint].forEach((cfgFn) => {
+  ;[eslint, prettier].forEach((cfgFn) => {
     const cfg = cfgFn()
     const name = cfg.name
 
