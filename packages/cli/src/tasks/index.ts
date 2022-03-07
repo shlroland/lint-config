@@ -56,15 +56,9 @@ export const createTasks = async () => {
           return new Lister([
             {
               title: `InstallDepsList about ${name}`,
-              task: () =>
-                new Lister(
-                  task.installDepsList.map((value) => {
-                    return {
-                      title: `installing ${value}`,
-                      task: () => installDep(value),
-                    }
-                  }),
-                ),
+              task: () => {
+                return installDep(task.installDepsList.join(' '))
+              },
             },
             {
               title: `RemoveFileList  about ${name}`,

@@ -1,6 +1,5 @@
 import type { Options } from 'execa'
 import { execa } from 'execa'
-import type { DepWithVersion } from './types'
 
 export const exec = async (cmd: string, options: Options = {}) => {
   const [shell, ...args] = cmd.split(' ')
@@ -8,6 +7,6 @@ export const exec = async (cmd: string, options: Options = {}) => {
   return child
 }
 
-export const installDep = async (dep: DepWithVersion) => {
+export const installDep = async (dep: string) => {
   return exec(`pnpm i -D ${dep}`)
 }
