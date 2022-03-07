@@ -49,7 +49,7 @@ importers:
     specifiers:
       '@shlroland/commitizen-config': workspace:^0.0.1
       '@shlroland/commitlint-config': workspace:^0.0.2
-      '@shlroland/eslint-config': workspace:^0.0.4
+      '@shlroland/eslint-config': workspace:^0.0.5
       '@shlroland/eslint-config-basic': workspace:^0.0.4
       '@shlroland/eslint-config-prettier': workspace:^0.0.3
       '@shlroland/eslint-config-react': workspace:^0.0.3

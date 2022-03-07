@@ -18,7 +18,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0",
+    "eslint": ">=8.10.0",
     "prettier": ">=2.5.1"
   },
   "devDependencies": {
