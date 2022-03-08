@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@shlroland/eslint-config-basic": "workspace:^0.0.4",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0"
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0"
   }
 }
