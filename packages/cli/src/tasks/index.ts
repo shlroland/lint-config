@@ -4,6 +4,7 @@ import { createFile, createRootPath, removeFile } from '../utils/file'
 import type { DepWithVersion } from '../utils/types'
 import { eslint } from './eslint'
 import { prettier } from './prettier'
+import { stylelint } from './stylelint'
 
 interface Task {
   installDepsList: DepWithVersion[]
@@ -21,7 +22,7 @@ interface TodoItem {
 
 const createTodoList = () => {
   const todoList: TodoItem[] = []
-  ;[eslint, prettier].forEach((cfgFn) => {
+  ;[eslint, prettier, stylelint].forEach((cfgFn) => {
     const cfg = cfgFn()
     const name = cfg.name
 
