@@ -4,6 +4,7 @@ import { createFile, createRootPath, removeFile } from '../utils/file'
 import type { DepWithVersion } from '../utils/types'
 import { commitlint } from './commilint'
 import { eslint } from './eslint'
+import { lintStaged } from './lint-staged'
 import { prettier } from './prettier'
 import { stylelint } from './stylelint'
 
@@ -23,7 +24,7 @@ interface TodoItem {
 
 const createTodoList = () => {
   const todoList: TodoItem[] = []
-  ;[eslint, prettier, stylelint, commitlint].forEach((cfgFn) => {
+  ;[eslint, prettier, stylelint, commitlint, lintStaged].forEach((cfgFn) => {
     const cfg = cfgFn()
     const name = cfg.name
 
