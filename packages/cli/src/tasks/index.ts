@@ -3,6 +3,7 @@ import { installDep } from '../utils/exec'
 import { createFile, createRootPath, removeFile } from '../utils/file'
 import type { DepWithVersion } from '../utils/types'
 import { commitlint } from './commilint'
+import { commitizen } from './commitizen'
 import { eslint } from './eslint'
 import { lintStaged } from './lint-staged'
 import { prettier } from './prettier'
@@ -24,27 +25,29 @@ interface TodoItem {
 
 const createTodoList = () => {
   const todoList: TodoItem[] = []
-  ;[eslint, prettier, stylelint, commitlint, lintStaged].forEach((cfgFn) => {
-    const cfg = cfgFn()
-    const name = cfg.name
+  ;[eslint, prettier, stylelint, commitlint, lintStaged, commitizen].forEach(
+    (cfgFn) => {
+      const cfg = cfgFn()
+      const name = cfg.name
 
-    const installDepsList = cfg.toInstallDeps
-    const removeFileList = cfg.toRemoveFiles ?? []
-    const addFileList: Task['addFileList'] =
-      cfg.toAddFiles?.map((item) => ({
-        path: createRootPath(item.name, item.path),
-        content: item.content,
-      })) ?? []
+      const installDepsList = cfg.toInstallDeps
+      const removeFileList = cfg.toRemoveFiles ?? []
+      const addFileList: Task['addFileList'] =
+        cfg.toAddFiles?.map((item) => ({
+          path: createRootPath(item.name, item.path),
+          content: item.content,
+        })) ?? []
 
-    todoList.push({
-      name,
-      task: {
-        installDepsList,
-        removeFileList,
-        addFileList,
-      },
-    })
-  })
+      todoList.push({
+        name,
+        task: {
+          installDepsList,
+          removeFileList,
+          addFileList,
+        },
+      })
+    },
+  )
 
   return todoList
 }
