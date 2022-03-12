@@ -1,6 +1,6 @@
 {
   "name": "@shlroland/lint-config-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
