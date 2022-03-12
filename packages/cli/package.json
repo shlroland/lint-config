@@ -31,7 +31,7 @@
     "@shlroland/eslint-config-react": "workspace:^0.0.3",
     "@shlroland/eslint-config-ts": "workspace:^0.0.4",
     "@shlroland/eslint-config-vue": "workspace:^0.0.3",
-    "@shlroland/husky-config": "workspace:^0.0.1",
+    "@shlroland/husky-config": "workspace:^0.0.2",
     "@shlroland/lint-staged": "workspace:^0.0.2",
     "@shlroland/prettier-config": "workspace:^0.0.2",
     "@shlroland/stylelint-config": "workspace:^0.0.4",

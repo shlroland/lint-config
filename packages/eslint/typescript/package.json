@@ -22,7 +22,7 @@
     "typescript": ">=3.9"
   },
   "devDependencies": {
-    "eslint": "^8.10.0"
+    "eslint": "^8.11.0"
   },
   "dependencies": {
     "@shlroland/eslint-config-basic": "workspace:^0.0.4",
