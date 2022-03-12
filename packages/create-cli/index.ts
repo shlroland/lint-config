@@ -1,2 +1,1 @@
-import { init } from '@shlroland/lint-config-cli'
-init()
+require('@shlroland/lint-config-cli/lib/cli')
