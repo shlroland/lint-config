@@ -115,6 +115,15 @@ importers:
     devDependencies:
       cz-git: 1.2.1_commitizen@4.2.4
 
+  packages/create-cli:
+    specifiers:
+      '@shlroland/lint-config-cli': workspace:^0.0.3
+      husky: ^7.0.4
+    dependencies:
+      '@shlroland/lint-config-cli': link:../cli
+    devDependencies:
+      husky: 7.0.4
+
   packages/eslint/basic:
     specifiers:
       eslint: ^8.11.0
