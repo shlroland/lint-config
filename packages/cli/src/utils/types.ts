@@ -19,3 +19,13 @@ export type DepWithVersion<
 > = `${Dep}@${Version}`
 
 export type Fn = (...args: any[]) => void
+
+export interface Task {
+  installDepsList: DepWithVersion[]
+  removeFileList: string[]
+  addFileList: {
+    path: string
+    content: string
+  }[]
+  extraTasks?: Fn[]
+}

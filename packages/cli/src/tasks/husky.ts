@@ -5,6 +5,7 @@ import execa from 'execa'
 import type { TaskReturn } from '../utils/types'
 import { createDepsNameWithVersion } from '../utils/generate'
 import { exec } from '../utils/exec'
+import { removeFile } from '../utils/file'
 
 export const husky = (): TaskReturn => {
   return {
@@ -13,6 +14,14 @@ export const husky = (): TaskReturn => {
     extraTasks: [
       async () => {
         return exec('pnpm husky install')
+      },
+      async () => {
+        const paths = Object.keys(config.hooks)
+        return Promise.all(
+          paths.map((path) => {
+            return removeFile(`.husky/${path}`)
+          }),
+        )
       },
       async () => {
         return Promise.all(
