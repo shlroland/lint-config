@@ -18,5 +18,3 @@ export const init = async () => {
     console.error(err)
   })
 }
-
-init()

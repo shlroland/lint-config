@@ -1,3 +1,4 @@
+'use strict'
 var __awaiter =
   (this && this.__awaiter) ||
   function (thisArg, _arguments, P, generator) {
@@ -31,79 +32,74 @@ var __awaiter =
       step((generator = generator.apply(thisArg, _arguments || [])).next())
     })
   }
-import Lister from 'listr'
-import { installDep } from '../utils/exec'
-import { createFile, createRootPath, removeFile } from '../utils/file'
-import { commitlint } from './commilint'
-import { commitizen } from './commitizen'
-import { eslint } from './eslint'
-import { lintStaged } from './lint-staged'
-import { prettier } from './prettier'
-import { stylelint } from './stylelint'
+var __importDefault =
+  (this && this.__importDefault) ||
+  function (mod) {
+    return mod && mod.__esModule ? mod : { default: mod }
+  }
+Object.defineProperty(exports, '__esModule', { value: true })
+exports.createTasks = void 0
+const listr_1 = __importDefault(require('listr'))
+const file_1 = require('../utils/file')
+const generate_1 = require('../utils/generate')
+const commilint_1 = require('./commilint')
+const commitizen_1 = require('./commitizen')
+const eslint_1 = require('./eslint')
+const husky_1 = require('./husky')
+const lint_staged_1 = require('./lint-staged')
+const prettier_1 = require('./prettier')
+const stylelint_1 = require('./stylelint')
 const createTodoList = () => {
   const todoList = []
-  ;[eslint, prettier, stylelint, commitlint, lintStaged, commitizen].forEach(
-    (cfgFn) => {
-      var _a, _b, _c
-      const cfg = cfgFn()
-      const name = cfg.name
-      const installDepsList = cfg.toInstallDeps
-      const removeFileList =
-        (_a = cfg.toRemoveFiles) !== null && _a !== void 0 ? _a : []
-      const addFileList =
-        (_c =
-          (_b = cfg.toAddFiles) === null || _b === void 0
-            ? void 0
-            : _b.map((item) => ({
-                path: createRootPath(item.name, item.path),
-                content: item.content,
-              }))) !== null && _c !== void 0
-          ? _c
-          : []
-      todoList.push({
-        name,
-        task: {
-          installDepsList,
-          removeFileList,
-          addFileList,
-        },
-      })
-    },
-  )
+  ;[
+    eslint_1.eslint,
+    prettier_1.prettier,
+    stylelint_1.stylelint,
+    commilint_1.commitlint,
+    lint_staged_1.lintStaged,
+    commitizen_1.commitizen,
+    husky_1.husky,
+  ].forEach((cfgFn) => {
+    var _a
+    const cfg = cfgFn()
+    const name = cfg.name
+    const installDepsList = cfg.toInstallDeps
+    const removeFileList = cfg.toRemoveFiles
+    const addFileList =
+      (_a = cfg.toAddFiles) === null || _a === void 0
+        ? void 0
+        : _a.map((item) => ({
+            path: (0, file_1.createRootPath)(item.name, item.path),
+            content: item.content,
+          }))
+    const extraTasks = cfg.extraTasks
+    todoList.push({
+      name,
+      task: {
+        installDepsList,
+        removeFileList,
+        addFileList,
+        extraTasks,
+      },
+    })
+  })
   return todoList
 }
-export const createTasks = () =>
+const createTasks = () =>
   __awaiter(void 0, void 0, void 0, function* () {
     const todoList = createTodoList()
-    return new Lister(
+    return new listr_1.default(
       todoList.map((todo) => {
         const { name, task } = todo
         return {
           title: `setting ${name}`,
           task: () => {
-            return new Lister([
-              {
-                title: `InstallDepsList about ${name}`,
-                task: () => {
-                  return installDep(task.installDepsList.join(' '))
-                },
-              },
-              {
-                title: `RemoveFileList  about ${name}`,
-                task: () => Promise.all(task.removeFileList.map(removeFile)),
-              },
-              {
-                title: `AddFileList about ${name}`,
-                task: () =>
-                  Promise.all(
-                    task.addFileList.map((item) =>
-                      createFile(item.path, item.content),
-                    ),
-                  ),
-              },
-            ])
+            return new listr_1.default(
+              (0, generate_1.createListrTask)(name, task),
+            )
           },
         }
       }),
     )
   })
+exports.createTasks = createTasks
