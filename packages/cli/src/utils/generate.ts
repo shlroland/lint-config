@@ -3,7 +3,7 @@ import semver from 'semver'
 import { omit } from 'lodash'
 import type { ListrTask } from 'listr'
 import type { DepWithVersion, Task } from './types'
-import { modifyPkg, removeFile } from './file'
+import { createFile, modifyPkg, removeFile } from './file'
 import { installDep } from './exec'
 import { BooleanT } from './F'
 
@@ -54,7 +54,10 @@ export const createListrTask = (name: string, task: Task): ListrTask[] => {
 
   const addFilesTask: ListrTask | false = task.addFileList && {
     title: `RemoveFileList  about ${name}`,
-    task: () => Promise.all(task.removeFileList.map(removeFile)),
+    task: () =>
+      Promise.all(
+        task.addFileList.map((item) => createFile(item.path, item.content)),
+      ),
   }
 
   const extraTasksTask: ListrTask | false = task.extraTasks && {

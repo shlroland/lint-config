@@ -88,7 +88,12 @@ const createListrTask = (name, task) => {
   }
   const addFilesTask = task.addFileList && {
     title: `RemoveFileList  about ${name}`,
-    task: () => Promise.all(task.removeFileList.map(file_1.removeFile)),
+    task: () =>
+      Promise.all(
+        task.addFileList.map((item) =>
+          (0, file_1.createFile)(item.path, item.content),
+        ),
+      ),
   }
   const extraTasksTask = task.extraTasks && {
     title: `Execute tasks about ${name}`,

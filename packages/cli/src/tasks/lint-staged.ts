@@ -24,12 +24,10 @@ export const lintStaged = (): TaskReturn => {
     ],
     extraTasks: [
       async () => {
-        modifyPkg((pkg) => {
+        await modifyPkg((pkg) => {
           pkg.scripts['lint-staged'] = 'lint-staged'
           return pkg
         })
-      },
-      async () => {
         await deletePropAboutPkg('lint-staged')
       },
     ],

@@ -14,7 +14,8 @@
   "bin": "./lib/cli.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "dev": "node --experimental-specifier-resolution=node  --loader ts-node/esm src/index.ts"
+    "dev": "tsc -p tsconfig.json -w",
+    "test": "node --experimental-specifier-resolution=node  --loader ts-node/esm src/index.ts"
   },
   "keywords": [],
   "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",

@@ -56,10 +56,6 @@ const husky = () => {
     extraTasks: [
       () =>
         __awaiter(void 0, void 0, void 0, function* () {
-          return (0, exec_1.exec)('pnpm husky install')
-        }),
-      () =>
-        __awaiter(void 0, void 0, void 0, function* () {
           const paths = Object.keys(husky_config_1.default.hooks)
           return Promise.all(
             paths.map((path) => {
@@ -69,7 +65,8 @@ const husky = () => {
         }),
       () =>
         __awaiter(void 0, void 0, void 0, function* () {
-          return Promise.all(
+          yield (0, exec_1.exec)('pnpm husky install')
+          Promise.all(
             Object.entries(husky_config_1.default.hooks).map(([name, hook]) => {
               const cli = [
                 `husky`,

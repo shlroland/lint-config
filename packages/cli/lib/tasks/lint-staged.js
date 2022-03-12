@@ -63,13 +63,10 @@ const lintStaged = () => {
     extraTasks: [
       () =>
         __awaiter(void 0, void 0, void 0, function* () {
-          ;(0, file_1.modifyPkg)((pkg) => {
+          yield (0, file_1.modifyPkg)((pkg) => {
             pkg.scripts['lint-staged'] = 'lint-staged'
             return pkg
           })
-        }),
-      () =>
-        __awaiter(void 0, void 0, void 0, function* () {
           yield (0, generate_1.deletePropAboutPkg)('lint-staged')
         }),
     ],

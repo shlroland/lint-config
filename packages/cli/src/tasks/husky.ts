@@ -13,9 +13,6 @@ export const husky = (): TaskReturn => {
     toInstallDeps: [...createDepsNameWithVersion(pkg as PackageJson)],
     extraTasks: [
       async () => {
-        return exec('pnpm husky install')
-      },
-      async () => {
         const paths = Object.keys(config.hooks)
         return Promise.all(
           paths.map((path) => {
@@ -24,7 +21,8 @@ export const husky = (): TaskReturn => {
         )
       },
       async () => {
-        return Promise.all(
+        await exec('pnpm husky install')
+        Promise.all(
           Object.entries(config.hooks).map(([name, hook]) => {
             const cli = [`husky`, `add`, `.husky/${name}`, `"${`npx ${hook}`}"`]
             return execa('npx', cli)
