@@ -1,6 +1,6 @@
 {
   "name": "@shlroland/commitlint-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -16,6 +16,10 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1"
   },
   "dependencies": {
     "@commitlint/cli": "^16.2.1",
