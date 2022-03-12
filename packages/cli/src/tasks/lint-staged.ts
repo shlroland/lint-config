@@ -3,8 +3,10 @@ import type { PackageJson } from 'type-fest'
 import type { TaskReturn } from '../utils/types'
 import {
   createDepsNameWithVersion,
+  deletePropAboutPkg,
   jointConfigurationExt,
 } from '../utils/generate'
+import { modifyPkg } from '../utils/file'
 
 export const lintStaged = (): TaskReturn => {
   return {
@@ -18,6 +20,17 @@ export const lintStaged = (): TaskReturn => {
       {
         name: 'lint-staged.config.js',
         content: `module.exports = require('@shlroland/lint-staged')`,
+      },
+    ],
+    extraTasks: [
+      async () => {
+        modifyPkg((pkg) => {
+          pkg.scripts['lint-staged'] = 'lint-staged'
+          return pkg
+        })
+      },
+      async () => {
+        await deletePropAboutPkg('lint-staged')
       },
     ],
   }

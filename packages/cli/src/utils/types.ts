@@ -10,9 +10,12 @@ export interface TaskReturn {
   toInstallDeps: DepWithVersion[]
   toRemoveFiles?: string[]
   toAddFiles?: AddFileItem[]
+  extraTasks?: Fn[]
 }
 
 export type DepWithVersion<
   Dep extends string = string,
   Version extends string = string,
 > = `${Dep}@${Version}`
+
+export type Fn = (...args: any[]) => void

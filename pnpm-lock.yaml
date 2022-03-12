@@ -7,7 +7,7 @@ importers:
       '@commitlint/cli': ^16.2.1
       '@commitlint/config-conventional': ^16.2.1
       '@shlroland/commitizen-config': workspace:^0.0.1
-      '@shlroland/commitlint-config': workspace:^0.0.2
+      '@shlroland/commitlint-config': workspace:^0.0.3
       '@shlroland/eslint-config-prettier': workspace:^0.0.3
       '@shlroland/eslint-config-ts': workspace:^0.0.4
       '@shlroland/lint-staged': workspace:^0.0.2
@@ -48,7 +48,7 @@ importers:
   packages/cli:
     specifiers:
       '@shlroland/commitizen-config': workspace:^0.0.1
-      '@shlroland/commitlint-config': workspace:^0.0.2
+      '@shlroland/commitlint-config': workspace:^0.0.3
       '@shlroland/eslint-config': workspace:^0.0.5
       '@shlroland/eslint-config-basic': workspace:^0.0.4
       '@shlroland/eslint-config-prettier': workspace:^0.0.3
@@ -61,10 +61,12 @@ importers:
       '@shlroland/stylelint-config': workspace:^0.0.4
       '@types/fs-extra': ^9.0.13
       '@types/listr': ^0.14.4
+      '@types/lodash': ^4.14.179
       '@types/semver': ^7.3.9
       execa: ^5.1.1
       fs-extra: ^10.0.1
       listr: ^0.14.3
+      lodash: ^4.17.21
       semver: ^7.3.5
       type-fest: ^2.12.0
     dependencies:
@@ -83,11 +85,13 @@ importers:
       execa: 5.1.1
       fs-extra: 10.0.1
       listr: 0.14.3
+      lodash: 4.17.21
       semver: 7.3.5
       type-fest: 2.12.0
     devDependencies:
       '@types/fs-extra': 9.0.13
       '@types/listr': 0.14.4
+      '@types/lodash': 4.14.179
       '@types/semver': 7.3.9
 
   packages/commitizen:
@@ -524,6 +528,10 @@ packages:
     dependencies:
       '@types/node': 17.0.21
       rxjs: 6.6.7
+    dev: true
+
+  /@types/lodash/4.14.179:
+    resolution: {integrity: sha512-uwc1x90yCKqGcIOAT6DwOSuxnrAbpkdPsUOZtwrXb4D/6wZs+6qG7QnIawDuZWg0sWpxl+ltIKCaLoMlna678w==}
     dev: true
 
   /@types/minimist/1.2.2:

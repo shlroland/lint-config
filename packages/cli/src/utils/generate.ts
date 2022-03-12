@@ -1,6 +1,8 @@
 import type { PackageJson } from 'type-fest'
 import semver from 'semver'
+import { omit } from 'lodash'
 import type { DepWithVersion } from './types'
+import { modifyPkg } from './file'
 
 export const createDepsNameWithVersion = (
   pkg: PackageJson,
@@ -25,4 +27,11 @@ export const jointConfigurationExt = (
 ) => {
   const names = Array.isArray(name) ? name : [name]
   return exts.map((ext) => names.map((name) => `${name}.${ext}`)).flat(2)
+}
+
+export const deletePropAboutPkg = async (prop: string | keyof PackageJson) => {
+  await modifyPkg((pkg) => {
+    pkg = omit(pkg, prop)
+    return pkg
+  })
 }

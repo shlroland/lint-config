@@ -1,7 +1,7 @@
 import Lister from 'listr'
 import { installDep } from '../utils/exec'
 import { createFile, createRootPath, removeFile } from '../utils/file'
-import type { DepWithVersion } from '../utils/types'
+import type { DepWithVersion, Fn } from '../utils/types'
 import { commitlint } from './commilint'
 import { commitizen } from './commitizen'
 import { eslint } from './eslint'
@@ -17,6 +17,7 @@ interface Task {
     path: string
     content: string
   }[]
+  extraTasks?: Fn[]
 }
 
 interface TodoItem {
@@ -45,13 +46,14 @@ const createTodoList = () => {
         path: createRootPath(item.name, item.path),
         content: item.content,
       })) ?? []
-
+    const extraTasks = cfg.extraTasks ?? []
     todoList.push({
       name,
       task: {
         installDepsList,
         removeFileList,
         addFileList,
+        extraTasks,
       },
     })
   })
@@ -87,6 +89,10 @@ export const createTasks = async () => {
                     createFile(item.path, item.content),
                   ),
                 ),
+            },
+            {
+              title: `Execute tasks about ${name}`,
+              task: () => Promise.all(task.extraTasks.map((item) => item())),
             },
           ])
         },

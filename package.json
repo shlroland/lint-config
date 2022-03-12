@@ -22,7 +22,7 @@
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
     "@shlroland/commitizen-config": "workspace:^0.0.1",
-    "@shlroland/commitlint-config": "workspace:^0.0.2",
+    "@shlroland/commitlint-config": "workspace:^0.0.3",
     "@shlroland/eslint-config-prettier": "workspace:^0.0.3",
     "@shlroland/eslint-config-ts": "workspace:^0.0.4",
     "@shlroland/lint-staged": "workspace:^0.0.2",

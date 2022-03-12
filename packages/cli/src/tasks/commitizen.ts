@@ -3,6 +3,7 @@ import type { PackageJson } from 'type-fest'
 import type { TaskReturn } from '../utils/types'
 import {
   createDepsNameWithVersion,
+  deletePropAboutPkg,
   jointConfigurationExt,
 } from '../utils/generate'
 
@@ -18,6 +19,11 @@ export const commitizen = (): TaskReturn => {
             "path": "node_modules/cz-git",
             "useEmoji": true
           }`,
+      },
+    ],
+    extraTasks: [
+      async () => {
+        await deletePropAboutPkg('config.commitizen')
       },
     ],
   }

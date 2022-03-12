@@ -2,6 +2,7 @@ import pkg from '@shlroland/eslint-config/package.json'
 import type { PackageJson } from 'type-fest'
 import {
   createDepsNameWithVersion,
+  deletePropAboutPkg,
   jointConfigurationExt,
 } from '../utils/generate'
 import type { TaskReturn } from '../utils/types'
@@ -15,6 +16,11 @@ export const eslint = (): TaskReturn => {
       {
         name: '.eslintrc.js',
         content: `module.exports = {extends: ['@shlroland']}`,
+      },
+    ],
+    extraTasks: [
+      async () => {
+        await deletePropAboutPkg('eslintConfig')
       },
     ],
   }

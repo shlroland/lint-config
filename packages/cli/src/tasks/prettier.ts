@@ -3,6 +3,7 @@ import type { PackageJson } from 'type-fest'
 import type { TaskReturn } from '../utils/types'
 import {
   createDepsNameWithVersion,
+  deletePropAboutPkg,
   jointConfigurationExt,
 } from '../utils/generate'
 
@@ -15,6 +16,11 @@ export const prettier = (): TaskReturn => {
       {
         name: 'prettier.config.js',
         content: 'module.exports = require("@shlroland/prettier-config")',
+      },
+    ],
+    extraTasks: [
+      async () => {
+        await deletePropAboutPkg('prettier')
       },
     ],
   }
