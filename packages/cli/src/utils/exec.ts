@@ -1,5 +1,5 @@
 import type { Options } from 'execa'
-import { execa } from 'execa'
+import execa from 'execa'
 
 export const exec = async (cmd: string, options: Options = {}) => {
   const [shell, ...args] = cmd.split(' ')

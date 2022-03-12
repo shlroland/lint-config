@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "lib",
-    "module": "ESNext",
+    "module": "commonjs",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
