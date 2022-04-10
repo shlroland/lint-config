@@ -35,11 +35,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = void 0;
+exports.cli = exports.init = void 0;
 const path = __importStar(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const tasks_1 = require("./tasks");
-// import { exec } from './utils/exec'
 const init = () => __awaiter(void 0, void 0, void 0, function* () {
     process.chdir(process.cwd());
     const pkgPath = path.join(process.cwd(), 'package.json');
@@ -52,3 +51,5 @@ const init = () => __awaiter(void 0, void 0, void 0, function* () {
     });
 });
 exports.init = init;
+var task_1 = require("./cli/task");
+Object.defineProperty(exports, "cli", { enumerable: true, get: function () { return task_1.cli; } });
