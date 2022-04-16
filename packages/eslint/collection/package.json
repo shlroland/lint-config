@@ -1,6 +1,6 @@
 {
   "name": "@shlroland/eslint-config",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -25,8 +25,8 @@
     "eslint": "^8.11.0"
   },
   "dependencies": {
-    "@shlroland/eslint-config-prettier": "workspace:^0.0.3",
-    "@shlroland/eslint-config-react": "workspace:^0.0.3",
-    "@shlroland/eslint-config-vue": "workspace:^0.0.3"
+    "@shlroland/eslint-config-prettier": "workspace:^0.1.0",
+    "@shlroland/eslint-config-react": "workspace:^0.1.0",
+    "@shlroland/eslint-config-vue": "workspace:^0.1.0"
   }
 }

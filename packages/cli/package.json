@@ -1,6 +1,6 @@
 {
   "name": "@shlroland/lint-config-cli",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "",
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
@@ -24,18 +24,18 @@
     "access": "public"
   },
   "dependencies": {
-    "@shlroland/commitizen-config": "workspace:^0.0.1",
-    "@shlroland/commitlint-config": "workspace:^0.0.3",
-    "@shlroland/eslint-config": "workspace:^0.0.5",
-    "@shlroland/eslint-config-basic": "workspace:^0.0.4",
-    "@shlroland/eslint-config-prettier": "workspace:^0.0.3",
-    "@shlroland/eslint-config-react": "workspace:^0.0.3",
-    "@shlroland/eslint-config-ts": "workspace:^0.0.4",
-    "@shlroland/eslint-config-vue": "workspace:^0.0.3",
-    "@shlroland/husky-config": "workspace:^0.0.2",
-    "@shlroland/lint-staged": "workspace:^0.0.2",
-    "@shlroland/prettier-config": "workspace:^0.0.2",
-    "@shlroland/stylelint-config": "workspace:^0.0.4",
+    "@shlroland/commitizen-config": "workspace:^0.1.0",
+    "@shlroland/commitlint-config": "workspace:^0.1.0",
+    "@shlroland/eslint-config": "workspace:^0.1.0",
+    "@shlroland/eslint-config-basic": "workspace:^0.1.0",
+    "@shlroland/eslint-config-prettier": "workspace:^0.1.0",
+    "@shlroland/eslint-config-react": "workspace:^0.1.0",
+    "@shlroland/eslint-config-ts": "workspace:^0.1.0",
+    "@shlroland/eslint-config-vue": "workspace:^0.1.0",
+    "@shlroland/husky-config": "workspace:^0.1.0",
+    "@shlroland/lint-staged": "workspace:^0.1.0",
+    "@shlroland/prettier-config": "workspace:^0.1.0",
+    "@shlroland/stylelint-config": "workspace:^0.1.0",
     "commander": "^9.0.0",
     "execa": "^5.1.1",
     "fs-extra": "^10.0.1",
