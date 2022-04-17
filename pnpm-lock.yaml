@@ -84,7 +84,7 @@ importers:
       '@shlroland/eslint-config-react': link:../eslint/react
       '@shlroland/eslint-config-ts': link:../eslint/typescript
       '@shlroland/eslint-config-vue': link:../eslint/vue
-      '@shlroland/git-hooks': link:../gitHooks
+      '@shlroland/git-hooks': link:../githooks
       '@shlroland/husky-config': link:../husky
       '@shlroland/lint-staged': link:../lint-staged
       '@shlroland/prettier-config': link:../prettier
@@ -222,6 +222,12 @@ importers:
       eslint-plugin-vue: 8.6.0_eslint@8.13.0
     devDependencies:
       eslint: 8.13.0
+
+  packages/githooks:
+    specifiers:
+      git-hook-pure: ^3.2.0
+    devDependencies:
+      git-hook-pure: 3.2.0
 
   packages/husky:
     specifiers:
