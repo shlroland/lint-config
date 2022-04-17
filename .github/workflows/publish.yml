@@ -6,6 +6,7 @@ on:
       - master
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   version:
