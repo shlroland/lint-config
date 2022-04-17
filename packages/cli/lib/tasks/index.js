@@ -45,7 +45,7 @@ const generate_1 = require('../utils/generate')
 const commilint_1 = require('./commilint')
 const commitizen_1 = require('./commitizen')
 const eslint_1 = require('./eslint')
-const husky_1 = require('./husky')
+const gitHooks_1 = require('./gitHooks')
 const lint_staged_1 = require('./lint-staged')
 const prettier_1 = require('./prettier')
 const stylelint_1 = require('./stylelint')
@@ -58,7 +58,7 @@ const createTodoList = () => {
     commilint_1.commitlint,
     lint_staged_1.lintStaged,
     commitizen_1.commitizen,
-    husky_1.husky,
+    gitHooks_1.gitHooks,
   ].forEach((cfgFn) => {
     var _a
     const cfg = cfgFn()
