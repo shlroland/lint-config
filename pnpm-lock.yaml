@@ -19,7 +19,6 @@ importers:
       commitizen: ^4.2.4
       cz-git: ^1.2.3
       eslint: ^8.13.0
-      git-hook-pure: ^3.2.0
       husky: ^7.0.4
       lint-staged: ^12.3.8
       prettier: ^2.6.2
@@ -43,7 +42,6 @@ importers:
       commitizen: 4.2.4
       cz-git: 1.2.3_commitizen@4.2.4
       eslint: 8.13.0
-      git-hook-pure: 3.2.0
       husky: 7.0.4
       lint-staged: 12.3.8
       prettier: 2.6.2
@@ -59,7 +57,6 @@ importers:
       '@shlroland/eslint-config-react': workspace:^0.1.0
       '@shlroland/eslint-config-ts': workspace:^0.1.0
       '@shlroland/eslint-config-vue': workspace:^0.1.0
-      '@shlroland/git-hooks': workspace:^0.1.0
       '@shlroland/husky-config': workspace:^0.1.0
       '@shlroland/lint-staged': workspace:^0.1.0
       '@shlroland/prettier-config': workspace:^0.1.0
@@ -2325,11 +2322,6 @@ packages:
       call-bind: 1.0.2
       get-intrinsic: 1.1.1
     dev: false
-
-  /git-hook-pure/3.2.0:
-    resolution: {integrity: sha512-ocn6O+99LoviaqL7Vn6/IuQAlkCjscBRKYw5Hw3XiYhvZjYgilE7+CsvOLR6tNh/84ho/2AYIUh3WUvNVPImVw==}
-    requiresBuild: true
-    dev: true
 
   /git-raw-commits/2.0.11:
     resolution: {integrity: sha512-VnctFhw+xfj8Va1xtfEqCUD2XDrbAPSJx+hSrE5K7fGdjZruW7XV+QOrN7LF/RJyvspRiD2I0asWsxFp0ya26A==}
