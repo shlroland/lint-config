@@ -22,11 +22,11 @@
     "typescript": ">=3.9"
   },
   "devDependencies": {
-    "eslint": "^8.11.0"
+    "eslint": "^8.13.0"
   },
   "dependencies": {
     "@shlroland/eslint-config-basic": "workspace:^0.1.0",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0"
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0"
   }
 }
