@@ -11,6 +11,8 @@
     "fix:prettier": "prettier \"packages/**/*.ts\" --write",
     "lint-staged": "lint-staged",
     "cm": "cz",
+    "ci:version": "pnpm build && changeset version",
+    "ci:publish": "changeset publish",
     "prepare": "husky install"
   },
   "author": "",
