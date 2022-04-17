@@ -1,5 +1,13 @@
 # @shlroland/lint-config-cli
 
+## 0.1.1
+
+### Patch Changes
+
+- 97d5ecb3: 添加 git-hooks-pure
+- Updated dependencies [97d5ecb3]
+  - @shlroland/git-hooks@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+aaaa
+
+# ===== git-hook-pure start ===
+
+code content
+
+# === git-hook-pure end =

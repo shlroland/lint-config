@@ -59,7 +59,7 @@ importers:
       '@shlroland/eslint-config-react': workspace:^0.1.0
       '@shlroland/eslint-config-ts': workspace:^0.1.0
       '@shlroland/eslint-config-vue': workspace:^0.1.0
-      '@shlroland/git-hooks': workspace:^0.1.0
+      '@shlroland/git-hooks': workspace:^0.1.1
       '@shlroland/husky-config': workspace:^0.1.0
       '@shlroland/lint-staged': workspace:^0.1.0
       '@shlroland/prettier-config': workspace:^0.1.0
