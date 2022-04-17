@@ -51,19 +51,19 @@ importers:
 
   packages/cli:
     specifiers:
-      '@shlroland/commitizen-config': workspace:^0.1.0
-      '@shlroland/commitlint-config': workspace:^0.1.0
-      '@shlroland/eslint-config': workspace:^0.1.0
-      '@shlroland/eslint-config-basic': workspace:^0.1.0
-      '@shlroland/eslint-config-prettier': workspace:^0.1.0
-      '@shlroland/eslint-config-react': workspace:^0.1.0
-      '@shlroland/eslint-config-ts': workspace:^0.1.0
-      '@shlroland/eslint-config-vue': workspace:^0.1.0
-      '@shlroland/git-hooks': workspace:^0.1.0
-      '@shlroland/husky-config': workspace:^0.1.0
-      '@shlroland/lint-staged': workspace:^0.1.0
-      '@shlroland/prettier-config': workspace:^0.1.0
-      '@shlroland/stylelint-config': workspace:^0.1.0
+      '@shlroland/commitizen-config': workspace:^0.1.1
+      '@shlroland/commitlint-config': workspace:^0.1.1
+      '@shlroland/eslint-config': workspace:^0.1.1
+      '@shlroland/eslint-config-basic': workspace:^0.1.1
+      '@shlroland/eslint-config-prettier': workspace:^0.1.1
+      '@shlroland/eslint-config-react': workspace:^0.1.1
+      '@shlroland/eslint-config-ts': workspace:^0.1.1
+      '@shlroland/eslint-config-vue': workspace:^0.1.1
+      '@shlroland/git-hooks': workspace:^0.1.1
+      '@shlroland/husky-config': workspace:^0.1.1
+      '@shlroland/lint-staged': workspace:^0.1.1
+      '@shlroland/prettier-config': workspace:^0.1.1
+      '@shlroland/stylelint-config': workspace:^0.1.1
       '@types/fs-extra': ^9.0.13
       '@types/listr': ^0.14.4
       '@types/lodash': ^4.14.181
@@ -123,7 +123,7 @@ importers:
 
   packages/create-cli:
     specifiers:
-      '@shlroland/lint-config-cli': workspace:^0.1.0
+      '@shlroland/lint-config-cli': workspace:^0.1.1
     dependencies:
       '@shlroland/lint-config-cli': link:../cli
 
@@ -158,9 +158,9 @@ importers:
 
   packages/eslint/collection:
     specifiers:
-      '@shlroland/eslint-config-prettier': workspace:^0.1.0
-      '@shlroland/eslint-config-react': workspace:^0.1.0
-      '@shlroland/eslint-config-vue': workspace:^0.1.0
+      '@shlroland/eslint-config-prettier': workspace:^0.1.1
+      '@shlroland/eslint-config-react': workspace:^0.1.1
+      '@shlroland/eslint-config-vue': workspace:^0.1.1
       eslint: ^8.13.0
     dependencies:
       '@shlroland/eslint-config-prettier': link:../prettier
@@ -184,7 +184,7 @@ importers:
 
   packages/eslint/react:
     specifiers:
-      '@shlroland/eslint-config-ts': workspace:^0.1.0
+      '@shlroland/eslint-config-ts': workspace:^0.1.1
       eslint: ^8.13.0
       eslint-plugin-react: ^7.29.4
       eslint-plugin-react-hooks: ^4.4.0
@@ -201,7 +201,7 @@ importers:
 
   packages/eslint/typescript:
     specifiers:
-      '@shlroland/eslint-config-basic': workspace:^0.1.0
+      '@shlroland/eslint-config-basic': workspace:^0.1.1
       '@typescript-eslint/eslint-plugin': ^5.19.0
       '@typescript-eslint/parser': ^5.19.0
       eslint: ^8.13.0
@@ -214,7 +214,7 @@ importers:
 
   packages/eslint/vue:
     specifiers:
-      '@shlroland/eslint-config-ts': workspace:^0.1.0
+      '@shlroland/eslint-config-ts': workspace:^0.1.1
       eslint: ^8.13.0
       eslint-plugin-vue: ^8.6.0
     dependencies:

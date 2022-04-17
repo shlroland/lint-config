@@ -1,6 +1,6 @@
 {
   "name": "@shlroland/create-lint-config-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -22,6 +22,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@shlroland/lint-config-cli": "workspace:^0.1.0"
+    "@shlroland/lint-config-cli": "workspace:^0.1.1"
   }
 }
