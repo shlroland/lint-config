@@ -40,4 +40,7 @@ jobs:
           title: 'chore: update versions'
           publish: pnpm ci:publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN:
+            ${{ secrets.GITHUB_TOKEN }}
+            # npm publish token required for publishing. Set this in secrets
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
