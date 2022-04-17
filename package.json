@@ -12,7 +12,7 @@
     "lint-staged": "lint-staged",
     "cm": "cz",
     "ci:version": "changeset version && pnpm install --no-frozen-lockfile && git add .",
-    "ci:publish": "pnpm build && pnpm publish -r && pnpm changeset tag",
+    "ci:publish": "pnpm build && changeset publish && pnpm changeset tag",
     "prepare": "husky install",
     "changeset-publish": "changeset publish",
     "changeset-tag": "changeset tag"
