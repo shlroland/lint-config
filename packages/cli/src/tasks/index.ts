@@ -5,7 +5,7 @@ import type { Task } from '../utils/types'
 import { commitlint } from './commilint'
 import { commitizen } from './commitizen'
 import { eslint } from './eslint'
-import { gitHooks } from './githooks'
+import { husky } from './husky'
 import { lintStaged } from './lint-staged'
 import { prettier } from './prettier'
 import { stylelint } from './stylelint'
@@ -24,7 +24,7 @@ const createTodoList = () => {
     commitlint,
     lintStaged,
     commitizen,
-    gitHooks,
+    husky,
   ].forEach((cfgFn) => {
     const cfg = cfgFn()
     const name = cfg.name
