@@ -20,7 +20,6 @@ importers:
       cz-git: ^1.2.3
       eslint: ^8.13.0
       git-hook-pure: ^3.2.0
-      husky: ^7.0.4
       lint-staged: ^12.3.8
       prettier: ^2.6.2
       stylelint: ^14.7.0
@@ -44,7 +43,6 @@ importers:
       cz-git: 1.2.3_commitizen@4.2.4
       eslint: 8.13.0
       git-hook-pure: 3.2.0
-      husky: 7.0.4
       lint-staged: 12.3.8
       prettier: 2.6.2
       stylelint: 14.7.0
