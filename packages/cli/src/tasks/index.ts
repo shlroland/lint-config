@@ -1,4 +1,5 @@
 import Lister from 'listr'
+import type { ListerCtx } from '../types'
 import { createRootPath } from '../utils/file'
 import { createListrTask } from '../utils/generate'
 import type { Task } from '../utils/types'
@@ -53,13 +54,13 @@ const createTodoList = () => {
 export const createTasks = async () => {
   const todoList = createTodoList()
 
-  return new Lister(
+  return new Lister<ListerCtx>(
     todoList.map((todo) => {
       const { name, task } = todo
       return {
         title: `setting ${name}`,
-        task: () => {
-          return new Lister(createListrTask(name, task))
+        task: (ctx) => {
+          return new Lister<ListerCtx>(createListrTask(name, task, ctx))
         },
       }
     }),

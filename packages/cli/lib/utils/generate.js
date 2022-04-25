@@ -1,37 +1,4 @@
 'use strict'
-var __awaiter =
-  (this && this.__awaiter) ||
-  function (thisArg, _arguments, P, generator) {
-    function adopt(value) {
-      return value instanceof P
-        ? value
-        : new P(function (resolve) {
-            resolve(value)
-          })
-    }
-    return new (P || (P = Promise))(function (resolve, reject) {
-      function fulfilled(value) {
-        try {
-          step(generator.next(value))
-        } catch (e) {
-          reject(e)
-        }
-      }
-      function rejected(value) {
-        try {
-          step(generator['throw'](value))
-        } catch (e) {
-          reject(e)
-        }
-      }
-      function step(result) {
-        result.done
-          ? resolve(result.value)
-          : adopt(result.value).then(fulfilled, rejected)
-      }
-      step((generator = generator.apply(thisArg, _arguments || [])).next())
-    })
-  }
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -67,19 +34,18 @@ const jointConfigurationExt = (name, exts = COMMON_EXT) => {
   return exts.map((ext) => names.map((name) => `${name}.${ext}`)).flat(2)
 }
 exports.jointConfigurationExt = jointConfigurationExt
-const deletePropAboutPkg = (prop) =>
-  __awaiter(void 0, void 0, void 0, function* () {
-    yield (0, file_1.modifyPkg)((pkg) => {
-      pkg = (0, lodash_1.omit)(pkg, prop)
-      return pkg
-    })
+const deletePropAboutPkg = async (prop) => {
+  await (0, file_1.modifyPkg)((pkg) => {
+    pkg = (0, lodash_1.omit)(pkg, prop)
+    return pkg
   })
+}
 exports.deletePropAboutPkg = deletePropAboutPkg
-const createListrTask = (name, task) => {
+const createListrTask = (name, task, ctx) => {
   const installTask = task.installDepsList && {
     title: `InstallDepsList about ${name}`,
     task: () => {
-      return (0, exec_1.installDep)(task.installDepsList.join(' '))
+      return (0, exec_1.installDep)(ctx.client, task.installDepsList.join(' '))
     },
   }
   const removeFilesTask = task.removeFileList && {

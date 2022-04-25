@@ -1,5 +1,6 @@
 import type { PackageJson } from 'type-fest'
 import type { ListrTask } from 'listr'
+import type { ListerCtx } from '../types'
 import type { DepWithVersion, Task } from './types'
 export declare const createDepsNameWithVersion: (
   pkg: PackageJson,
@@ -11,4 +12,8 @@ export declare const jointConfigurationExt: (
 export declare const deletePropAboutPkg: (
   prop: string | keyof PackageJson,
 ) => Promise<void>
-export declare const createListrTask: (name: string, task: Task) => ListrTask[]
+export declare const createListrTask: (
+  name: string,
+  task: Task,
+  ctx: ListerCtx,
+) => ListrTask<ListerCtx>[]

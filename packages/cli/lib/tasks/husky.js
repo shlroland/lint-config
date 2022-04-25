@@ -1,37 +1,4 @@
 'use strict'
-var __awaiter =
-  (this && this.__awaiter) ||
-  function (thisArg, _arguments, P, generator) {
-    function adopt(value) {
-      return value instanceof P
-        ? value
-        : new P(function (resolve) {
-            resolve(value)
-          })
-    }
-    return new (P || (P = Promise))(function (resolve, reject) {
-      function fulfilled(value) {
-        try {
-          step(generator.next(value))
-        } catch (e) {
-          reject(e)
-        }
-      }
-      function rejected(value) {
-        try {
-          step(generator['throw'](value))
-        } catch (e) {
-          reject(e)
-        }
-      }
-      function step(result) {
-        result.done
-          ? resolve(result.value)
-          : adopt(result.value).then(fulfilled, rejected)
-      }
-      step((generator = generator.apply(thisArg, _arguments || [])).next())
-    })
-  }
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -54,30 +21,23 @@ const husky = () => {
       ...(0, generate_1.createDepsNameWithVersion)(package_json_1.default),
     ],
     extraTasks: [
-      () =>
-        __awaiter(void 0, void 0, void 0, function* () {
-          const paths = Object.keys(husky_config_1.default.hooks)
-          return Promise.all(
-            paths.map((path) => {
-              return (0, file_1.removeFile)(`.husky/${path}`)
-            }),
-          )
-        }),
-      () =>
-        __awaiter(void 0, void 0, void 0, function* () {
-          yield (0, exec_1.exec)('pnpm husky install')
-          Promise.all(
-            Object.entries(husky_config_1.default.hooks).map(([name, hook]) => {
-              const cli = [
-                `husky`,
-                `add`,
-                `.husky/${name}`,
-                `"${`npx ${hook}`}"`,
-              ]
-              return (0, execa_1.default)('npx', cli)
-            }),
-          )
-        }),
+      async () => {
+        const paths = Object.keys(husky_config_1.default.hooks)
+        return Promise.all(
+          paths.map((path) => {
+            return (0, file_1.removeFile)(`.husky/${path}`)
+          }),
+        )
+      },
+      async () => {
+        await (0, exec_1.exec)('pnpm husky install')
+        Promise.all(
+          Object.entries(husky_config_1.default.hooks).map(([name, hook]) => {
+            const cli = [`husky`, `add`, `.husky/${name}`, `"${`npx ${hook}`}"`]
+            return (0, execa_1.default)('npx', cli)
+          }),
+        )
+      },
     ],
   }
 }
