@@ -2,6 +2,7 @@ import type { PackageJson } from 'type-fest'
 import semver from 'semver'
 import { omit } from 'lodash'
 import type { ListrTask } from 'listr'
+import type { ListerCtx } from '../types'
 import type { DepWithVersion, Task } from './types'
 import { createFile, modifyPkg, removeFile } from './file'
 import { installDep } from './exec'
@@ -39,20 +40,24 @@ export const deletePropAboutPkg = async (prop: string | keyof PackageJson) => {
   })
 }
 
-export const createListrTask = (name: string, task: Task): ListrTask[] => {
-  const installTask: ListrTask | false = task.installDepsList && {
+export const createListrTask = (
+  name: string,
+  task: Task,
+  ctx: ListerCtx,
+): ListrTask<ListerCtx>[] => {
+  const installTask: ListrTask<ListerCtx> | false = task.installDepsList && {
     title: `InstallDepsList about ${name}`,
     task: () => {
-      return installDep(task.installDepsList.join(' '))
+      return installDep(ctx.client, task.installDepsList.join(' '))
     },
   }
 
-  const removeFilesTask: ListrTask | false = task.removeFileList && {
+  const removeFilesTask: ListrTask<ListerCtx> | false = task.removeFileList && {
     title: `RemoveFileList  about ${name}`,
     task: () => Promise.all(task.removeFileList.map(removeFile)),
   }
 
-  const addFilesTask: ListrTask | false = task.addFileList && {
+  const addFilesTask: ListrTask<ListerCtx> | false = task.addFileList && {
     title: `RemoveFileList  about ${name}`,
     task: () =>
       Promise.all(
@@ -60,7 +65,7 @@ export const createListrTask = (name: string, task: Task): ListrTask[] => {
       ),
   }
 
-  const extraTasksTask: ListrTask | false = task.extraTasks && {
+  const extraTasksTask: ListrTask<ListerCtx> | false = task.extraTasks && {
     title: `Execute tasks about ${name}`,
     task: () => Promise.all(task.extraTasks.map((item) => item())),
   }

@@ -1,6 +1,9 @@
 import * as path from 'path'
 import fs from 'fs-extra'
 import { createTasks } from './tasks'
+import { detectClient } from './utils/detectClient'
+
+const client = detectClient()
 
 export const init = async () => {
   process.chdir(process.cwd())
@@ -13,7 +16,7 @@ export const init = async () => {
 
   const tasks = await createTasks()
 
-  tasks.run().catch((err) => {
+  tasks.run({ client }).catch((err) => {
     console.error(err)
   })
 }

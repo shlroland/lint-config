@@ -1,37 +1,4 @@
 'use strict'
-var __awaiter =
-  (this && this.__awaiter) ||
-  function (thisArg, _arguments, P, generator) {
-    function adopt(value) {
-      return value instanceof P
-        ? value
-        : new P(function (resolve) {
-            resolve(value)
-          })
-    }
-    return new (P || (P = Promise))(function (resolve, reject) {
-      function fulfilled(value) {
-        try {
-          step(generator.next(value))
-        } catch (e) {
-          reject(e)
-        }
-      }
-      function rejected(value) {
-        try {
-          step(generator['throw'](value))
-        } catch (e) {
-          reject(e)
-        }
-      }
-      function step(result) {
-        result.done
-          ? resolve(result.value)
-          : adopt(result.value).then(fulfilled, rejected)
-      }
-      step((generator = generator.apply(thisArg, _arguments || [])).next())
-    })
-  }
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -85,21 +52,20 @@ const createTodoList = () => {
   })
   return todoList
 }
-const createTasks = () =>
-  __awaiter(void 0, void 0, void 0, function* () {
-    const todoList = createTodoList()
-    return new listr_1.default(
-      todoList.map((todo) => {
-        const { name, task } = todo
-        return {
-          title: `setting ${name}`,
-          task: () => {
-            return new listr_1.default(
-              (0, generate_1.createListrTask)(name, task),
-            )
-          },
-        }
-      }),
-    )
-  })
+const createTasks = async () => {
+  const todoList = createTodoList()
+  return new listr_1.default(
+    todoList.map((todo) => {
+      const { name, task } = todo
+      return {
+        title: `setting ${name}`,
+        task: (ctx) => {
+          return new listr_1.default(
+            (0, generate_1.createListrTask)(name, task, ctx),
+          )
+        },
+      }
+    }),
+  )
+}
 exports.createTasks = createTasks

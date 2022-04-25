@@ -1,2 +1,3 @@
-import Lister from 'listr';
-export declare const createTasks: () => Promise<Lister<any>>;
+import Lister from 'listr'
+import type { ListerCtx } from '../types'
+export declare const createTasks: () => Promise<Lister<ListerCtx>>
