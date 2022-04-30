@@ -1,5 +1,11 @@
 # @shlroland/lint-config-cli
 
+## 0.1.2
+
+### Patch Changes
+
+- 218c27d: 添加一个识别 npm 客户端的方法,可以使用不同客户端安装了
+
 ## 0.1.1
 
 ### Patch Changes
