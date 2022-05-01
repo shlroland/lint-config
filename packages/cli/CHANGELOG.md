@@ -1,5 +1,15 @@
 # @shlroland/lint-config-cli
 
+## 1.0.0
+
+### Major Changes
+
+- c7c2b97: 完成任务选择功能
+
+### Patch Changes
+
+- 7d7e5e1: 修复了 git pure hooks 安装报错,可以选择安装客户端
+
 ## 0.1.2
 
 ### Patch Changes

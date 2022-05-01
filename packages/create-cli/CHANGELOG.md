@@ -1,5 +1,13 @@
 # @shlroland/create-lint-config-cli
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies [c7c2b97]
+- Updated dependencies [7d7e5e1]
+  - @shlroland/lint-config-cli@1.0.0
+
 ## 0.1.2
 
 ### Patch Changes
