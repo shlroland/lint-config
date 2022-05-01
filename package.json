@@ -11,7 +11,7 @@
     "fix:prettier": "prettier \"packages/**/*.ts\" --write",
     "lint-staged": "lint-staged",
     "cm": "cz",
-    "ci:version": "changeset version && pnpm install --frozen-lockfile && git add .",
+    "ci:version": "changeset version && pnpm install --no-frozen-lockfile && git add .",
     "ci:publish": "pnpm build && pnpm changeset-publish && pnpm changeset-tag",
     "changeset-publish": "changeset publish",
     "changeset-tag": "changeset tag"
