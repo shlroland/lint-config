@@ -1,7 +1,7 @@
 import * as path from 'path'
 import fs from 'fs-extra'
-import { createTasks } from './tasks'
 import { detectClient } from './utils/detect'
+import { createTasks } from './createTasks'
 
 export const init = async () => {
   process.chdir(process.cwd())

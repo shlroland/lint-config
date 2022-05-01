@@ -29,8 +29,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.cli = exports.init = void 0;
 const path = __importStar(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
-const tasks_1 = require("./tasks");
 const detect_1 = require("./utils/detect");
+const createTasks_1 = require("./createTasks");
 const init = async () => {
     process.chdir(process.cwd());
     const pkgPath = path.join(process.cwd(), 'package.json');
@@ -38,7 +38,7 @@ const init = async () => {
         throw new Error(`No package.json find in ${process.cwd()}`);
     }
     const client = await (0, detect_1.detectClient)();
-    const tasks = await (0, tasks_1.createTasks)();
+    const tasks = await (0, createTasks_1.createTasks)();
     tasks.run({ client }).catch((err) => {
         console.error(err);
     });
