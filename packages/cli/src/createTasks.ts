@@ -1,32 +1,51 @@
+import inquirer from 'inquirer'
 import Lister from 'listr'
-import { commitlint } from './tasks/commilint'
-import { commitizen } from './tasks/commitizen'
-import { eslint } from './tasks/eslint'
-import { gitHooks } from './tasks/githooks'
-import { lintStaged } from './tasks/lint-staged'
-import { prettier } from './tasks/prettier'
-import { stylelint } from './tasks/stylelint'
 import type { ListerCtx } from './types'
 import { createRootPath } from './utils/file'
 import { createListrTask } from './utils/generate'
-import type { Task } from './utils/types'
-
+import type { Task, TaskReturn } from './utils/types'
+import { camelize } from './utils/F'
 interface TodoItem {
   name: string
   task: Task
 }
 
-const createTodoList = () => {
+const TASK_LIST = [
+  'eslint',
+  'prettier',
+  'stylelint',
+  'commitlint',
+  'lint-staged',
+  'commitizen',
+  'gitHooks',
+]
+
+const generateTaskList = async () => {
+  const list = await inquirer.prompt<{ tasks: string[] }>([
+    {
+      type: 'checkbox',
+      name: 'tasks',
+      message: 'What tasks do you want to run?',
+      choices: TASK_LIST,
+      default: TASK_LIST,
+    },
+  ])
+
+  const tasks = await Promise.all(
+    list.tasks.map<Promise<() => TaskReturn>>(async (name) => {
+      const task = await import(`./tasks/${name}`)
+      return task[camelize(name)]
+    }),
+  )
+
+  return tasks
+}
+
+const createTodoList = async () => {
   const todoList: TodoItem[] = []
-  ;[
-    eslint,
-    prettier,
-    stylelint,
-    commitlint,
-    lintStaged,
-    commitizen,
-    gitHooks,
-  ].forEach((cfgFn) => {
+  const tasks = await generateTaskList()
+
+  tasks.forEach((cfgFn) => {
     const cfg = cfgFn()
     const name = cfg.name
 
@@ -54,7 +73,7 @@ const createTodoList = () => {
 }
 
 export const createTasks = async () => {
-  const todoList = createTodoList()
+  const todoList = await createTodoList()
 
   return new Lister<ListerCtx>(
     todoList.map((todo) => {
