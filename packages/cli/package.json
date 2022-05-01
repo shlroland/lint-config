@@ -38,7 +38,7 @@
     "@shlroland/lint-staged": "workspace:^0.1.1",
     "@shlroland/prettier-config": "workspace:^0.1.1",
     "@shlroland/stylelint-config": "workspace:^0.1.1",
-    "chalk": "^5.0.1",
+    "chalk": "^4.1.2",
     "commander": "^9.2.0",
     "debug": "^4.3.4",
     "execa": "^5.1.1",

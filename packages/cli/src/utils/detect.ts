@@ -1,4 +1,6 @@
+import path from 'path'
 import inquirer from 'inquirer'
+import fs from 'fs-extra'
 import type { ClientType } from '../types'
 import { Client } from '../types'
 
@@ -25,4 +27,8 @@ export const detectClientInstall = (client: ClientType): string => {
     default:
       return 'npm install'
   }
+}
+
+export const isGitSync = (dir: string) => {
+  return fs.existsSync(path.join(dir, '.git'))
 }

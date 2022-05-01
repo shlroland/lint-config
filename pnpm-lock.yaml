@@ -70,7 +70,7 @@ importers:
       '@types/listr': ^0.14.4
       '@types/lodash': ^4.14.181
       '@types/semver': ^7.3.9
-      chalk: ^5.0.1
+      chalk: ^4.1.2
       commander: ^9.2.0
       debug: ^4.3.4
       execa: ^5.1.1
@@ -94,7 +94,7 @@ importers:
       '@shlroland/lint-staged': link:../lint-staged
       '@shlroland/prettier-config': link:../prettier
       '@shlroland/stylelint-config': link:../stylelint
-      chalk: 5.0.1
+      chalk: 4.1.2
       commander: 9.2.0
       debug: 4.3.4
       execa: 5.1.1
@@ -1259,11 +1259,6 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
-
-  /chalk/5.0.1:
-    resolution: {integrity: sha512-Fo07WOYGqMfCWHOzSXOt2CxDbC6skS/jO9ynEcmpANMoPrD+W1r1K6Vx7iNm+AQmETU1Xr2t+n8nzkV9t6xh3w==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: false
 
   /chardet/0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}

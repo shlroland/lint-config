@@ -5,6 +5,7 @@ interface AddFileItem {
 }
 export interface TaskReturn {
   name: string
+  predecessorTasks?: Fn[]
   toRemoveDeps?: string[]
   toInstallDeps: DepWithVersion[]
   toRemoveFiles?: string[]
@@ -17,6 +18,7 @@ export declare type DepWithVersion<
 > = `${Dep}@${Version}`
 export declare type Fn = (...args: any[]) => void
 export interface Task {
+  predecessorTasks?: Fn[]
   installDepsList: DepWithVersion[]
   removeFileList: string[]
   addFileList: {
