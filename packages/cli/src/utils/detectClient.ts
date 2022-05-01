@@ -1,17 +1,19 @@
+import inquirer from 'inquirer'
 import type { ClientType } from '../types'
 import { Client } from '../types'
-import { parseUserAgent } from './userAgentParser'
 
-export const detectClient = (): ClientType => {
-  const current = parseUserAgent(process.env.npm_config_user_agent || '')
-  const keys = Object.keys(current)
-  const client = keys.includes(Client.pnpm)
-    ? 'pnpm'
-    : keys.includes('yarn')
-    ? 'yarn'
-    : 'npm'
+export const detectClient = async (): Promise<ClientType> => {
+  const client = await inquirer.prompt<{ client: ClientType }>([
+    {
+      type: 'list',
+      name: 'client',
+      message: 'Which client do you want to use?',
+      choices: [Client.pnpm, Client.yarn, Client.npm],
+      default: Client.pnpm,
+    },
+  ])
 
-  return client
+  return client.client
 }
 
 export const detectClientInstall = (client: ClientType): string => {

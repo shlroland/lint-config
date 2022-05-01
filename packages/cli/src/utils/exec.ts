@@ -11,5 +11,6 @@ export async function exec(cmd: string, options: Options = {}) {
 
 export const installDep = async (client: ClientType, dep: string) => {
   const installCmd = detectClientInstall(client)
+  console.warn(installCmd)
   return exec(`${installCmd} -D ${dep}`)
 }
