@@ -58,7 +58,7 @@ export const createListrTask = (
   }
 
   const addFilesTask: ListrTask<ListerCtx> | false = task.addFileList && {
-    title: `RemoveFileList  about ${name}`,
+    title: `addFilesList  about ${name}`,
     task: () =>
       Promise.all(
         task.addFileList.map((item) => createFile(item.path, item.content)),
@@ -70,7 +70,17 @@ export const createListrTask = (
     task: () => Promise.all(task.extraTasks.map((item) => item())),
   }
 
-  return [installTask, removeFilesTask, addFilesTask, extraTasksTask].filter(
-    BooleanT(),
-  )
+  const predecessorTasks: ListrTask<ListerCtx> | false =
+    task.predecessorTasks && {
+      title: `Execute predecessor tasks about ${name}`,
+      task: () => Promise.all(task.predecessorTasks.map((item) => item())),
+    }
+
+  return [
+    predecessorTasks,
+    installTask,
+    removeFilesTask,
+    addFilesTask,
+    extraTasksTask,
+  ].filter(BooleanT())
 }

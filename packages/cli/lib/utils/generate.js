@@ -53,7 +53,7 @@ const createListrTask = (name, task, ctx) => {
     task: () => Promise.all(task.removeFileList.map(file_1.removeFile)),
   }
   const addFilesTask = task.addFileList && {
-    title: `RemoveFileList  about ${name}`,
+    title: `addFilesList  about ${name}`,
     task: () =>
       Promise.all(
         task.addFileList.map((item) =>
@@ -65,8 +65,16 @@ const createListrTask = (name, task, ctx) => {
     title: `Execute tasks about ${name}`,
     task: () => Promise.all(task.extraTasks.map((item) => item())),
   }
-  return [installTask, removeFilesTask, addFilesTask, extraTasksTask].filter(
-    (0, F_1.BooleanT)(),
-  )
+  const predecessorTasks = task.predecessorTasks && {
+    title: `Execute predecessor tasks about ${name}`,
+    task: () => Promise.all(task.predecessorTasks.map((item) => item())),
+  }
+  return [
+    predecessorTasks,
+    installTask,
+    removeFilesTask,
+    addFilesTask,
+    extraTasksTask,
+  ].filter((0, F_1.BooleanT)())
 }
 exports.createListrTask = createListrTask

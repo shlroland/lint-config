@@ -5,8 +5,10 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod }
   }
 Object.defineProperty(exports, '__esModule', { value: true })
-exports.detectClientInstall = exports.detectClient = void 0
+exports.isGitSync = exports.detectClientInstall = exports.detectClient = void 0
+const path_1 = __importDefault(require('path'))
 const inquirer_1 = __importDefault(require('inquirer'))
+const fs_extra_1 = __importDefault(require('fs-extra'))
 const types_1 = require('../types')
 const detectClient = async () => {
   const client = await inquirer_1.default.prompt([
@@ -32,3 +34,7 @@ const detectClientInstall = (client) => {
   }
 }
 exports.detectClientInstall = detectClientInstall
+const isGitSync = (dir) => {
+  return fs_extra_1.default.existsSync(path_1.default.join(dir, '.git'))
+}
+exports.isGitSync = isGitSync

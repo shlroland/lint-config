@@ -7,7 +7,7 @@ var __importDefault =
 Object.defineProperty(exports, '__esModule', { value: true })
 exports.installDep = exports.exec = void 0
 const execa_1 = __importDefault(require('execa'))
-const detectClient_1 = require('./detectClient')
+const detect_1 = require('./detect')
 async function exec(cmd, options = {}) {
   const [shell, ...args] = cmd.split(' ')
   const child = await (0, execa_1.default)(shell, args, { ...options })
@@ -15,7 +15,8 @@ async function exec(cmd, options = {}) {
 }
 exports.exec = exec
 const installDep = async (client, dep) => {
-  const installCmd = (0, detectClient_1.detectClientInstall)(client)
+  const installCmd = (0, detect_1.detectClientInstall)(client)
+  console.warn(installCmd)
   return exec(`${installCmd} -D ${dep}`)
 }
 exports.installDep = installDep

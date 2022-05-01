@@ -1,7 +1,7 @@
 import type { Options } from 'execa'
 import execa from 'execa'
 import type { ClientType } from '../types'
-import { detectClientInstall } from './detectClient'
+import { detectClientInstall } from './detect'
 
 export async function exec(cmd: string, options: Options = {}) {
   const [shell, ...args] = cmd.split(' ')
@@ -11,5 +11,6 @@ export async function exec(cmd: string, options: Options = {}) {
 
 export const installDep = async (client: ClientType, dep: string) => {
   const installCmd = detectClientInstall(client)
+  console.warn(installCmd)
   return exec(`${installCmd} -D ${dep}`)
 }

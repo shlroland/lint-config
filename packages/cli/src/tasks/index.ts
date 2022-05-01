@@ -30,6 +30,7 @@ const createTodoList = () => {
     const cfg = cfgFn()
     const name = cfg.name
 
+    const predecessorTasks = cfg.predecessorTasks
     const installDepsList = cfg.toInstallDeps
     const removeFileList = cfg.toRemoveFiles
     const addFileList: Task['addFileList'] = cfg.toAddFiles?.map((item) => ({
@@ -40,6 +41,7 @@ const createTodoList = () => {
     todoList.push({
       name,
       task: {
+        predecessorTasks,
         installDepsList,
         removeFileList,
         addFileList,
