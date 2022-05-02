@@ -16,7 +16,9 @@ const chalk_1 = __importDefault(require('chalk'))
 const generate_1 = require('../utils/generate')
 const file_1 = require('../utils/file')
 const detect_1 = require('../utils/detect')
-const gitHooks = () => {
+const F_1 = require('../utils/F')
+const gitHooks = (_ctx, tasks) => {
+  const taskNames = tasks.map((task) => (0, F_1.kebabize)(task.name))
   return {
     name: 'gitHooks',
     predecessorTasks: [
@@ -42,9 +44,11 @@ const gitHooks = () => {
           const hookDirPath = `.githooks/${hookName}`
           for (let j = 0; j < hook.length; j++) {
             const { name, content } = hook[j]
-            const filePath = `${hookDirPath}/${name}.sh`
-            await (0, file_1.createFile)(filePath, content)
-            await fs_extra_1.default.chmod(filePath, 0o755)
+            if (taskNames.includes(name)) {
+              const filePath = `${hookDirPath}/${name}.sh`
+              await (0, file_1.createFile)(filePath, content)
+              await fs_extra_1.default.chmod(filePath, 0o755)
+            }
           }
         }
       },

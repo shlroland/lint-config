@@ -84,12 +84,12 @@ const generateTaskList = async () => {
   )
   return tasks
 }
-const createTodoList = async () => {
+const createTodoList = async (ctx) => {
   const todoList = []
   const tasks = await generateTaskList()
   tasks.forEach((cfgFn) => {
     var _a
-    const cfg = cfgFn()
+    const cfg = cfgFn(ctx, tasks)
     const name = cfg.name
     const predecessorTasks = cfg.predecessorTasks
     const installDepsList = cfg.toInstallDeps
@@ -115,8 +115,8 @@ const createTodoList = async () => {
   })
   return todoList
 }
-const createTasks = async () => {
-  const todoList = await createTodoList()
+const createTasks = async (ctx) => {
+  const todoList = await createTodoList(ctx)
   return new listr_1.default(
     todoList.map((todo) => {
       const { name, task } = todo

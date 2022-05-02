@@ -1,3 +1,4 @@
+import type { ListerCtx } from '../types'
 interface AddFileItem {
   name: string
   path?: string
@@ -12,6 +13,7 @@ export interface TaskReturn {
   toAddFiles?: AddFileItem[]
   extraTasks?: Fn[]
 }
+export declare type TaskFn = (ctx: ListerCtx, cfgFn: TaskFn[]) => TaskReturn
 export declare type DepWithVersion<
   Dep extends string = string,
   Version extends string = string,

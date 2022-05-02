@@ -10,7 +10,7 @@ export interface Config {
 const config: Config = {
   hooks: {
     'commit-msg': [
-      { name: 'commitlint', content: 'commitlint -E HUSKY_GIT_PARAMS' },
+      { name: 'commitlint', content: `npx --no -- commitlint --edit "\${1}"` },
     ],
     'pre-commit': [{ name: 'lint-staged', content: 'lint-staged' }],
   },

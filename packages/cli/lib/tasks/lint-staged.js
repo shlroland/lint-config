@@ -13,7 +13,7 @@ const generate_1 = require('../utils/generate')
 const file_1 = require('../utils/file')
 const lintStaged = () => {
   return {
-    name: 'lintStaged',
+    name: 'lint-staged',
     toInstallDeps: [
       ...(0, generate_1.createDepsNameWithVersion)(package_json_1.default),
     ],

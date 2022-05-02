@@ -1,2 +1,2 @@
-import type { TaskReturn } from '../utils/types'
-export declare const stylelint: () => TaskReturn
+import type { TaskFn } from '../utils/types'
+export declare const stylelint: TaskFn

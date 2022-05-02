@@ -1,13 +1,13 @@
 import pkg from '@shlroland/prettier-config/package.json'
 import type { PackageJson } from 'type-fest'
-import type { TaskReturn } from '../utils/types'
+import type { TaskFn } from '../utils/types'
 import {
   createDepsNameWithVersion,
   deletePropAboutPkg,
   jointConfigurationExt,
 } from '../utils/generate'
 
-export const prettier = (): TaskReturn => {
+export const prettier: TaskFn = () => {
   return {
     name: 'prettier',
     toInstallDeps: [...createDepsNameWithVersion(pkg as PackageJson)],

@@ -3,7 +3,7 @@ import Lister from 'listr'
 import type { ListerCtx } from './types'
 import { createRootPath } from './utils/file'
 import { createListrTask } from './utils/generate'
-import type { Task, TaskReturn } from './utils/types'
+import type { Task, TaskFn } from './utils/types'
 import { camelize } from './utils/F'
 interface TodoItem {
   name: string
@@ -32,7 +32,7 @@ const generateTaskList = async () => {
   ])
 
   const tasks = await Promise.all(
-    list.tasks.map<Promise<() => TaskReturn>>(async (name) => {
+    list.tasks.map<Promise<TaskFn>>(async (name) => {
       const task = await import(`./tasks/${name}`)
       return task[camelize(name)]
     }),
@@ -41,12 +41,12 @@ const generateTaskList = async () => {
   return tasks
 }
 
-const createTodoList = async () => {
+const createTodoList = async (ctx: ListerCtx) => {
   const todoList: TodoItem[] = []
   const tasks = await generateTaskList()
 
   tasks.forEach((cfgFn) => {
-    const cfg = cfgFn()
+    const cfg = cfgFn(ctx, tasks)
     const name = cfg.name
 
     const predecessorTasks = cfg.predecessorTasks
@@ -72,8 +72,8 @@ const createTodoList = async () => {
   return todoList
 }
 
-export const createTasks = async () => {
-  const todoList = await createTodoList()
+export const createTasks = async (ctx: ListerCtx) => {
+  const todoList = await createTodoList(ctx)
 
   return new Lister<ListerCtx>(
     todoList.map((todo) => {

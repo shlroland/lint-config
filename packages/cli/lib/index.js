@@ -38,8 +38,9 @@ const init = async () => {
         throw new Error(`No package.json find in ${process.cwd()}`);
     }
     const client = await (0, detect_1.detectClient)();
-    const tasks = await (0, createTasks_1.createTasks)();
-    tasks.run({ client }).catch((err) => {
+    const ctx = { client };
+    const tasks = await (0, createTasks_1.createTasks)(ctx);
+    tasks.run(ctx).catch((err) => {
         console.error(err);
     });
 };
