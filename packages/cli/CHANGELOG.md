@@ -1,5 +1,13 @@
 # @shlroland/lint-config-cli
 
+## 1.0.1
+
+### Patch Changes
+
+- 1638857: 修复某些包为安装但是 githooks 却安装了命令的问题
+- Updated dependencies [1638857]
+  - @shlroland/git-hooks@1.0.0
+
 ## 1.0.0
 
 ### Major Changes
