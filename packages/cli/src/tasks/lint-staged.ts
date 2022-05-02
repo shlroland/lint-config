@@ -1,16 +1,16 @@
 import pkg from '@shlroland/lint-staged/package.json'
 import type { PackageJson } from 'type-fest'
-import type { TaskReturn } from '../utils/types'
 import {
   createDepsNameWithVersion,
   deletePropAboutPkg,
   jointConfigurationExt,
 } from '../utils/generate'
 import { modifyPkg } from '../utils/file'
+import type { TaskFn } from '../utils/types'
 
-export const lintStaged = (): TaskReturn => {
+export const lintStaged: TaskFn = () => {
   return {
-    name: 'lintStaged',
+    name: 'lint-staged',
     toInstallDeps: [...createDepsNameWithVersion(pkg as PackageJson)],
     toRemoveFiles: jointConfigurationExt([
       '.lintstagedrc',

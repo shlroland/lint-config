@@ -1,2 +1,2 @@
-import type { TaskReturn } from '../utils/types';
-export declare const eslint: () => TaskReturn;
+import type { TaskFn } from '../utils/types'
+export declare const eslint: TaskFn

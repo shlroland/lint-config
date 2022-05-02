@@ -5,12 +5,14 @@ import type { HookItem } from '@shlroland/git-hooks'
 import config from '@shlroland/git-hooks'
 import fs from 'fs-extra'
 import chalk from 'chalk'
-import type { TaskReturn } from '../utils/types'
 import { createDepsNameWithVersion } from '../utils/generate'
 import { createFile } from '../utils/file'
 import { isGitSync } from '../utils/detect'
+import type { TaskFn } from '../utils/types'
+import { kebabize } from '../utils/F'
 
-export const gitHooks = (): TaskReturn => {
+export const gitHooks: TaskFn = (_ctx, tasks) => {
+  const taskNames = tasks.map((task) => kebabize(task.name))
   return {
     name: 'gitHooks',
     predecessorTasks: [
@@ -33,9 +35,11 @@ export const gitHooks = (): TaskReturn => {
           const hookDirPath = `.githooks/${hookName}`
           for (let j = 0; j < hook.length; j++) {
             const { name, content } = hook[j] as HookItem
-            const filePath = `${hookDirPath}/${name}.sh`
-            await createFile(filePath, content)
-            await fs.chmod(filePath, 0o755)
+            if (taskNames.includes(name)) {
+              const filePath = `${hookDirPath}/${name}.sh`
+              await createFile(filePath, content)
+              await fs.chmod(filePath, 0o755)
+            }
           }
         }
       },

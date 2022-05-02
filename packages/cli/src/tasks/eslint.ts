@@ -5,9 +5,9 @@ import {
   deletePropAboutPkg,
   jointConfigurationExt,
 } from '../utils/generate'
-import type { TaskReturn } from '../utils/types'
+import type { TaskFn } from '../utils/types'
 
-export const eslint = (): TaskReturn => {
+export const eslint: TaskFn = () => {
   return {
     name: 'eslint',
     toInstallDeps: [...createDepsNameWithVersion(pkg as PackageJson)],

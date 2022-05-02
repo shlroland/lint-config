@@ -1,2 +1,2 @@
-import type { TaskReturn } from '../utils/types'
-export declare const commitlint: () => TaskReturn
+import type { TaskFn } from '../utils/types'
+export declare const commitlint: TaskFn
