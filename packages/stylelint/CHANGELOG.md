@@ -1,5 +1,11 @@
 # @shlroland/stylelint-config
 
+## 1.0.1
+
+### Patch Changes
+
+- adb5f90: 调整 stylelint 策略
+
 ## 1.0.0
 
 ### Major Changes
