@@ -1,5 +1,11 @@
 # @shlroland/stylelint-config
 
+## 1.0.0
+
+### Major Changes
+
+- 46884c0: 按实际需求调整配置
+
 ## 0.1.2
 
 ### Patch Changes
