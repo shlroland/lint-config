@@ -1,5 +1,13 @@
 # @shlroland/lint-config-cli
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [46884c0]
+  - @shlroland/lint-staged@1.0.0
+  - @shlroland/stylelint-config@1.0.0
+
 ## 1.0.2
 
 ### Patch Changes
