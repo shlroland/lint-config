@@ -387,6 +387,7 @@ const config: Config = {
     'selector-pseudo-class-parentheses-space-inside': 'never',
     'selector-list-comma-space-after': 'always-single-line',
     'selector-list-comma-space-before': 'never',
+    'selector-class-pattern': null,
   },
 }
 
