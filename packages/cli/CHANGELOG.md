@@ -1,5 +1,13 @@
 # @shlroland/lint-config-cli
 
+## 1.0.4
+
+### Patch Changes
+
+- 232ca5f: 改进 lint-staged 的执行方案
+- Updated dependencies [232ca5f]
+  - @shlroland/lint-staged@1.0.1
+
 ## 1.0.3
 
 ### Patch Changes

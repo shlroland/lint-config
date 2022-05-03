@@ -1,5 +1,11 @@
 # @shlroland/lint-staged
 
+## 1.0.1
+
+### Patch Changes
+
+- 232ca5f: 改进 lint-staged 的执行方案
+
 ## 1.0.0
 
 ### Major Changes
