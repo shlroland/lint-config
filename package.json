@@ -31,7 +31,7 @@
     "@shlroland/eslint-config-ts": "workspace:^0.1.2",
     "@shlroland/lint-staged": "workspace:^1.0.1",
     "@shlroland/prettier-config": "workspace:^0.1.1",
-    "@shlroland/stylelint-config": "workspace:^1.0.0",
+    "@shlroland/stylelint-config": "workspace:^1.0.1",
     "@types/eslint": "^8.4.1",
     "@types/node": "^17.0.31",
     "commitizen": "^4.2.4",
