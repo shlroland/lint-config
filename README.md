@@ -20,13 +20,7 @@ a collection of
 pnpm create @shlroland/lint-config-cli init
 ```
 
-> 😅 there are some errors when using npm and yarn, it will be fixed
-
-> 🚨 this command will override your current configuration in your config file or `package.json`
-
-### Manual Setup
-
-> 😢 the cli mode is developing , please install packages manually
+> Certainly, you can also use `yarn` or `npm`
 
 #### eslint
 
@@ -126,21 +120,17 @@ config
 create `lint-staged.config.js`
 
 ```js
-module.exports = require('@shlroland/lint-staged')
+module.exports = require('@shlroland/lint-staged')()
 ```
 
-#### husky
+> if you want use `stylelint` to lint stylesheets , please give a true param
 
-install
+#### git-hooks-pure
 
-```bash
-pnpm add -D husky
-```
+you visit [git-hook-pure](https://www.npmjs.com/package/git-hook-pure) to install
 
-```bash
-pnpm husky install
+Inspired by
 
-pnpm husky add .husky/commit-msg "pnpm commitlint -E HUSKY_GIT_PARAMS"
-
-pnpm husky add .husky/pre-commit "pnpm lint-staged"
-```
+- [@c4605/toolconfs](https://www.npmjs.com/package/@c4605/toolconfs)
+- [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+- [@fantasticit/code-lint](https://github.com/fantasticit/code-lint)
