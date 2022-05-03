@@ -7,8 +7,10 @@ import {
 } from '../utils/generate'
 import { modifyPkg } from '../utils/file'
 import type { TaskFn } from '../utils/types'
+import { kebabize } from '../utils/F'
 
-export const lintStaged: TaskFn = () => {
+export const lintStaged: TaskFn = (_ctx, tasks) => {
+  const taskNames = tasks.map((task) => kebabize(task.name))
   return {
     name: 'lint-staged',
     toInstallDeps: [...createDepsNameWithVersion(pkg as PackageJson)],
@@ -19,7 +21,9 @@ export const lintStaged: TaskFn = () => {
     toAddFiles: [
       {
         name: 'lint-staged.config.js',
-        content: `module.exports = require('@shlroland/lint-staged')`,
+        content: `module.exports = require('@shlroland/lint-staged')(${taskNames.includes(
+          'stylelint',
+        )})`,
       },
     ],
     extraTasks: [

@@ -1,1 +1,1 @@
-module.exports = require('@shlroland/lint-staged')
+module.exports = require('@shlroland/lint-staged')(false)
