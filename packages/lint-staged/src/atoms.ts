@@ -6,7 +6,7 @@ export const prettier = wrap((filenames: string[]) => {
 
   const cliFileNames = fileNamesToCliArg(filenames)
 
-  return [`pnpm prettier --write ${cliFileNames}`]
+  return [`npx prettier --write ${cliFileNames}`]
 })
 
 export const eslint = wrap((filenames) => {
@@ -16,7 +16,7 @@ export const eslint = wrap((filenames) => {
     filenames.filter((f) => !f.includes('eslint')),
   )
 
-  return [`pnpm eslint ${cliFileNames}`]
+  return [`npx eslint ${cliFileNames}`]
 })
 
 export const stylelint = wrap((filenames) => {
@@ -24,6 +24,6 @@ export const stylelint = wrap((filenames) => {
   const cliFileNames = fileNamesToCliArg(filenames)
 
   return [
-    `stylelint --fix --formatter verbose --allow-empty-input ${cliFileNames}`,
+    `npx stylelint --fix --formatter verbose --allow-empty-input ${cliFileNames}`,
   ]
 })
