@@ -1,6 +1,6 @@
 {
   "name": "@shlroland/lint-config-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
@@ -35,7 +35,7 @@
     "@shlroland/eslint-config-vue": "workspace:^0.1.2",
     "@shlroland/git-hooks": "workspace:^1.0.1",
     "@shlroland/husky-config": "workspace:^0.1.2",
-    "@shlroland/lint-staged": "workspace:^1.0.0",
+    "@shlroland/lint-staged": "workspace:^1.0.1",
     "@shlroland/prettier-config": "workspace:^0.1.1",
     "@shlroland/stylelint-config": "workspace:^1.0.0",
     "chalk": "^4.1.2",
