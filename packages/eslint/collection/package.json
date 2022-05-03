@@ -22,7 +22,7 @@
     "prettier": ">=2.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.13.0"
+    "eslint": "^8.14.0"
   },
   "dependencies": {
     "@shlroland/eslint-config-prettier": "workspace:^0.1.2",
