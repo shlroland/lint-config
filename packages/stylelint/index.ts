@@ -388,6 +388,9 @@ const config: Config = {
     'selector-list-comma-space-after': 'always-single-line',
     'selector-list-comma-space-before': 'never',
     'selector-class-pattern': null,
+    'no-descending-specificity': null,
+    'font-family-no-missing-generic-family-keyword': null,
+    'selector-pseudo-element-no-unknown': null,
   },
 }
 
