@@ -330,7 +330,7 @@ const config = {
         // Disallow extra semicolons (Autofixable).
         'no-invalid-double-slash-comments': true,
         // Disallow double-slash comments (//...) which are not supported by CSS.
-        'color-named': 'never',
+        'color-named': 'always-where-possible',
         // Colors must never be named.
         indentation: 2,
         // indent 2 spaces
