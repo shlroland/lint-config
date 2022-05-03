@@ -1,5 +1,15 @@
 # @shlroland/eslint-config
 
+## 0.1.2
+
+### Patch Changes
+
+- 1f2a3c0: 升级依赖
+- Updated dependencies [1f2a3c0]
+  - @shlroland/eslint-config-prettier@0.1.2
+  - @shlroland/eslint-config-react@0.1.2
+  - @shlroland/eslint-config-vue@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes

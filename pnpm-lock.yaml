@@ -51,19 +51,19 @@ importers:
 
   packages/cli:
     specifiers:
-      '@shlroland/commitizen-config': workspace:^0.1.1
-      '@shlroland/commitlint-config': workspace:^0.1.1
-      '@shlroland/eslint-config': workspace:^0.1.1
-      '@shlroland/eslint-config-basic': workspace:^0.1.1
-      '@shlroland/eslint-config-prettier': workspace:^0.1.1
-      '@shlroland/eslint-config-react': workspace:^0.1.1
-      '@shlroland/eslint-config-ts': workspace:^0.1.1
-      '@shlroland/eslint-config-vue': workspace:^0.1.1
-      '@shlroland/git-hooks': workspace:^1.0.0
-      '@shlroland/husky-config': workspace:^0.1.1
-      '@shlroland/lint-staged': workspace:^0.1.1
+      '@shlroland/commitizen-config': workspace:^0.1.2
+      '@shlroland/commitlint-config': workspace:^0.1.2
+      '@shlroland/eslint-config': workspace:^0.1.2
+      '@shlroland/eslint-config-basic': workspace:^0.1.2
+      '@shlroland/eslint-config-prettier': workspace:^0.1.2
+      '@shlroland/eslint-config-react': workspace:^0.1.2
+      '@shlroland/eslint-config-ts': workspace:^0.1.2
+      '@shlroland/eslint-config-vue': workspace:^0.1.2
+      '@shlroland/git-hooks': workspace:^1.0.1
+      '@shlroland/husky-config': workspace:^0.1.2
+      '@shlroland/lint-staged': workspace:^0.1.2
       '@shlroland/prettier-config': workspace:^0.1.1
-      '@shlroland/stylelint-config': workspace:^0.1.1
+      '@shlroland/stylelint-config': workspace:^0.1.2
       '@types/debug': ^4.1.7
       '@types/fs-extra': ^9.0.13
       '@types/inquirer': ^8.2.1
@@ -135,7 +135,7 @@ importers:
 
   packages/create-cli:
     specifiers:
-      '@shlroland/lint-config-cli': workspace:^1.0.0
+      '@shlroland/lint-config-cli': workspace:^1.0.2
     dependencies:
       '@shlroland/lint-config-cli': link:../cli
 
@@ -170,9 +170,9 @@ importers:
 
   packages/eslint/collection:
     specifiers:
-      '@shlroland/eslint-config-prettier': workspace:^0.1.1
-      '@shlroland/eslint-config-react': workspace:^0.1.1
-      '@shlroland/eslint-config-vue': workspace:^0.1.1
+      '@shlroland/eslint-config-prettier': workspace:^0.1.2
+      '@shlroland/eslint-config-react': workspace:^0.1.2
+      '@shlroland/eslint-config-vue': workspace:^0.1.2
       eslint: ^8.13.0
     dependencies:
       '@shlroland/eslint-config-prettier': link:../prettier
@@ -196,7 +196,7 @@ importers:
 
   packages/eslint/react:
     specifiers:
-      '@shlroland/eslint-config-ts': workspace:^0.1.1
+      '@shlroland/eslint-config-ts': workspace:^0.1.2
       eslint: ^8.13.0
       eslint-plugin-react: ^7.29.4
       eslint-plugin-react-hooks: ^4.4.0
@@ -213,7 +213,7 @@ importers:
 
   packages/eslint/typescript:
     specifiers:
-      '@shlroland/eslint-config-basic': workspace:^0.1.1
+      '@shlroland/eslint-config-basic': workspace:^0.1.2
       '@typescript-eslint/eslint-plugin': ^5.19.0
       '@typescript-eslint/parser': ^5.19.0
       eslint: ^8.13.0
@@ -228,7 +228,7 @@ importers:
 
   packages/eslint/vue:
     specifiers:
-      '@shlroland/eslint-config-ts': workspace:^0.1.1
+      '@shlroland/eslint-config-ts': workspace:^0.1.2
       eslint: ^8.13.0
       eslint-plugin-vue: ^8.6.0
     dependencies:
@@ -633,6 +633,7 @@ packages:
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
+    dev: false
 
   /@commitlint/load/16.2.4:
     resolution: {integrity: sha512-HjANm3/29ROV+zt4yfaY/K6gpr9Dbzgtlp0kSwZGW0poDXlD/yqVYgPQ6JolJzZii5FUz5R4yVLC15hVL/w60w==}
@@ -642,17 +643,16 @@ packages:
       '@commitlint/execute-rule': 16.2.1
       '@commitlint/resolve-extends': 16.2.1
       '@commitlint/types': 16.2.1
-      '@types/node': 17.0.31
+      '@types/node': 17.0.24
       chalk: 4.1.2
       cosmiconfig: 7.0.1
-      cosmiconfig-typescript-loader: 1.0.9_5f3e12794cebfbf3197131903b74d233
+      cosmiconfig-typescript-loader: 1.0.9_17a82b5ac88a5de7094eac76b4edda13
       lodash: 4.17.21
       resolve-from: 5.0.0
-      typescript: 4.6.4
+      typescript: 4.6.3
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
-    dev: true
 
   /@commitlint/message/16.2.1:
     resolution: {integrity: sha512-2eWX/47rftViYg7a3axYDdrgwKv32mxbycBJT6OQY/MJM7SUfYNYYvbMFOQFaA4xIVZt7t2Alyqslbl6blVwWw==}
@@ -1593,22 +1593,6 @@ packages:
       - '@swc/core'
       - '@swc/wasm'
 
-  /cosmiconfig-typescript-loader/1.0.9_5f3e12794cebfbf3197131903b74d233:
-    resolution: {integrity: sha512-tRuMRhxN4m1Y8hP9SNYfz7jRwt8lZdWxdjg/ohg5esKmsndJIn4yT96oJVcf5x0eA11taXl+sIp+ielu529k6g==}
-    engines: {node: '>=12', npm: '>=6'}
-    peerDependencies:
-      '@types/node': '*'
-      typescript: '>=3'
-    dependencies:
-      '@types/node': 17.0.31
-      cosmiconfig: 7.0.1
-      ts-node: 10.7.0_5f3e12794cebfbf3197131903b74d233
-      typescript: 4.6.4
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-    dev: true
-
   /cosmiconfig/7.0.1:
     resolution: {integrity: sha512-a1YWNUV2HwGimB7dU2s1wUMurNKjpx60HxBB6xUM8Re+2s1g1IIfJvFR0/iCF+XHdE0GMTKTuLR32UQff4TEyQ==}
     engines: {node: '>=10'}
@@ -1682,7 +1666,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 16.2.3
+      '@commitlint/load': 16.2.4
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -4856,6 +4840,7 @@ packages:
     resolution: {integrity: sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: false
 
   /unbox-primitive/1.0.1:
     resolution: {integrity: sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw==}

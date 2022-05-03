@@ -1,5 +1,11 @@
 # @shlroland/commitizen-config
 
+## 0.1.2
+
+### Patch Changes
+
+- 1f2a3c0: 升级依赖
+
 ## 0.1.1
 
 ### Patch Changes
