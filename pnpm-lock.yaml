@@ -135,7 +135,7 @@ importers:
 
   packages/create-cli:
     specifiers:
-      '@shlroland/lint-config-cli': workspace:^1.0.1
+      '@shlroland/lint-config-cli': workspace:^1.0.2
     dependencies:
       '@shlroland/lint-config-cli': link:../cli
 
