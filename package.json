@@ -5,7 +5,7 @@
   "description": "前端lint工具大集合",
   "main": "index.js",
   "scripts": {
-    "build": "pnpm run build --stream --parallel --filter {packages}",
+    "build": "./scripts/build.sh",
     "dev": "pnpm run dev --stream --parallel --filter {packages}",
     "fix:lint": "eslint packages --ext .ts  --fix",
     "fix:prettier": "prettier \"packages/**/*.ts\" --write",
