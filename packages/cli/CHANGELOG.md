@@ -1,5 +1,24 @@
 # @shlroland/lint-config-cli
 
+## 1.0.2
+
+### Patch Changes
+
+- 1f2a3c0: 升级依赖
+- Updated dependencies [1f2a3c0]
+  - @shlroland/commitizen-config@0.1.2
+  - @shlroland/commitlint-config@0.1.2
+  - @shlroland/eslint-config-basic@0.1.2
+  - @shlroland/eslint-config@0.1.2
+  - @shlroland/eslint-config-prettier@0.1.2
+  - @shlroland/eslint-config-react@0.1.2
+  - @shlroland/eslint-config-ts@0.1.2
+  - @shlroland/eslint-config-vue@0.1.2
+  - @shlroland/git-hooks@1.0.1
+  - @shlroland/husky-config@0.1.2
+  - @shlroland/lint-staged@0.1.2
+  - @shlroland/stylelint-config@0.1.2
+
 ## 1.0.1
 
 ### Patch Changes

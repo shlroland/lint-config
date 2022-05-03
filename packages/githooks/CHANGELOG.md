@@ -1,5 +1,11 @@
 # @shlroland/git-hooks
 
+## 1.0.1
+
+### Patch Changes
+
+- 1f2a3c0: 升级依赖
+
 ## 1.0.0
 
 ### Major Changes
