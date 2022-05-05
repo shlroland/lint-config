@@ -1,5 +1,11 @@
 # @shlroland/eslint-config-react
 
+## 0.1.3
+
+### Patch Changes
+
+- 171ba1a: 修订 react 规则,标签自闭合
+
 ## 0.1.2
 
 ### Patch Changes
