@@ -18,9 +18,9 @@
     "access": "public"
   },
   "peerDependencies": {
-    "lint-staged": "^12.3.4"
+    "lint-staged": "^13.2.3"
   },
   "devDependencies": {
-    "lint-staged": "^12.4.1"
+    "lint-staged": "^13.2.3"
   }
 }

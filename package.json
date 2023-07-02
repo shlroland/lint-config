@@ -2,8 +2,8 @@
   "name": "@shlroland/lint-config",
   "private": true,
   "version": "0.0.1",
-  "description": "前端lint工具大集合",
-  "main": "index.js",
+  "description": "a collection for lint config",
+  "author": "shlroland <shlroland1995@gmail.com>",
   "scripts": {
     "build": "./scripts/build.sh",
     "dev": "pnpm run dev --stream --parallel --filter {packages}",
@@ -16,15 +16,14 @@
     "changeset-publish": "changeset publish",
     "changeset-tag": "changeset tag"
   },
-  "author": "",
   "license": "MIT",
   "dependencies": {
-    "typescript": "^4.6.4"
+    "typescript": "^5.1.6"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.22.0",
-    "@commitlint/cli": "^16.2.4",
-    "@commitlint/config-conventional": "^16.2.4",
+    "@changesets/cli": "^2.26.2",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@shlroland/commitizen-config": "workspace:^0.1.2",
     "@shlroland/commitlint-config": "workspace:^0.1.2",
     "@shlroland/eslint-config-prettier": "workspace:^0.1.2",
@@ -32,15 +31,15 @@
     "@shlroland/lint-staged": "workspace:^1.0.1",
     "@shlroland/prettier-config": "workspace:^0.1.1",
     "@shlroland/stylelint-config": "workspace:^1.0.1",
-    "@types/eslint": "^8.4.1",
-    "@types/node": "^17.0.31",
-    "commitizen": "^4.2.4",
-    "cz-git": "^1.2.8",
-    "eslint": "^8.14.0",
-    "git-hook-pure": "^3.2.0",
-    "lint-staged": "^12.4.1",
-    "prettier": "^2.6.2",
-    "stylelint": "^14.8.1",
-    "ts-node": "^10.7.0"
+    "@types/eslint": "^8.40.2",
+    "@types/node": "^20.3.3",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.6.1",
+    "eslint": "^8.44.0",
+    "git-hook-pure": "^3.2.1",
+    "lint-staged": "^13.2.3",
+    "prettier": "^2.8.8",
+    "stylelint": "^15.9.0",
+    "ts-node": "^10.9.1"
   }
 }

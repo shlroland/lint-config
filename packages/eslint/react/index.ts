@@ -3,7 +3,7 @@ const config = {
   plugins: ['react-hooks'],
   settings: {
     react: {
-      version: '17.0',
+      version: 'detect',
     },
   },
   rules: {
