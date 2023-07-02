@@ -1,5 +1,19 @@
 # @shlroland/eslint-config
 
+## 1.0.0
+
+### Major Changes
+
+- fed67109: first major version
+
+### Patch Changes
+
+- Updated dependencies [fed67109]
+- Updated dependencies [171ba1a4]
+  - @shlroland/eslint-config-prettier@1.0.0
+  - @shlroland/eslint-config-react@1.0.0
+  - @shlroland/eslint-config-vue@1.0.0
+
 ## 0.1.2
 
 ### Patch Changes

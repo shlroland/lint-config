@@ -1,5 +1,11 @@
 # @shlroland/prettier-config
 
+## 1.0.0
+
+### Major Changes
+
+- fed67109: first major version
+
 ## 0.1.1
 
 ### Patch Changes
