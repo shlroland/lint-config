@@ -1,0 +1,12 @@
+(undo-tree-save-format-version . 1)
+"8c049d1ddc3f6df17ef7adae871b9270136163e2"
+[nil nil nil nil (25171 36731 832240 0) 0 nil]
+([nil nil ((#("install" 0 7 (fontified t face font-lock-string-face)) . 264) (t 24232 54608 0 0)) nil (25171 36731 832237 0) 0 nil])
+([nil nil ((#("." 0 1 (fontified t face font-lock-string-face)) . 264)) nil (25171 36731 832234 0) 0 nil])
+([nil nil ((#("s" 0 1 (fontified t face font-lock-string-face)) . 264)) nil (25171 36731 832232 0) 0 nil])
+([nil nil ((#("h" 0 1 (fontified t face font-lock-string-face)) . 264)) nil (25171 36731 832229 0) 0 nil])
+([nil nil ((280 . 288) (nil rear-nonsticky nil 279 . 280) (nil fontified nil 264 . 280) (264 . 280)) nil (25171 36731 832226 0) 0 nil])
+([nil nil ((#("." 0 1 (fontified t face font-lock-string-face)) . 323)) nil (25171 36731 832222 0) 0 nil])
+([nil nil ((#("sh" 0 2 (fontified t face font-lock-string-face)) . 323)) nil (25171 36731 832219 0) 0 nil])
+([nil current ((330 . 331) (nil rear-nonsticky nil 329 . 330) (nil fontified nil 314 . 330) (314 . 330) (#("sh" 0 1 (fontified t face font-lock-string-face) 1 2 (fontified t rear-nonsticky t face font-lock-string-face)) . -314) (undo-tree-id0 . -2) 316 (nil rear-nonsticky nil 315 . 316) (nil fontified nil 314 . 316) (314 . 316)) nil (25171 36731 832212 0) 0 nil])
+nil

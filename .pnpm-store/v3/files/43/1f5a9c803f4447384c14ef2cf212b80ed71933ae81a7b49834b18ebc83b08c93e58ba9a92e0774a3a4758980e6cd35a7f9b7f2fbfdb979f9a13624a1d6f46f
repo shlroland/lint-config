@@ -1,0 +1,16 @@
+{
+  "name": "git-hook-pure",
+  "version": "3.2.1",
+  "description": "git hook more freely and quickly",
+  "author": "c4605 <bolasblack@gmail.com>",
+  "license": "MIT",
+  "main": null,
+  "scripts": {
+    "test": "./tests/test-clean-code.sh",
+    "postinstall": "./git-hook-pure.sh install",
+    "preuninstall": "./git-hook-pure.sh uninstall"
+  },
+  "devDependencies": {
+    "git-hook-pure": "file:."
+  }
+}

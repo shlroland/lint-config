@@ -1,0 +1,11 @@
+(undo-tree-save-format-version . 1)
+"389243c047b801f88fa5a339e21023b8f3cfeeae"
+[nil nil nil nil (25171 35191 55040 0) 0 nil]
+([nil nil ((34 . 38) (#("l" 0 1 (fontified t)) . -34) (undo-tree-id4 . -1) (#("i" 0 1 (fontified t)) . -35) (undo-tree-id5 . -1) 36 (22 . 36) (21 . 22) (20 . 21) (t 24216 24512 0 0) 1) nil (25171 35191 55036 0) 0 nil])
+([nil nil ((27 . 29) (#("oux" 0 3 (fontified t)) . -27) (undo-tree-id3 . -3) 30) nil (25171 35191 55026 0) 0 nil])
+([nil nil ((37 . 38) 29) nil (25171 35191 55021 0) 0 nil])
+([nil nil ((29 . 30)) nil (25171 35191 55018 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 39)) nil (25171 35191 55014 0) 0 nil])
+([nil current ((37 . 39) (#("l" 0 1 (fontified t)) . -37) (undo-tree-id0 . -1) 38 (36 . 38) (#("u" 0 1 (fontified t)) . -36) (undo-tree-id1 . -1) 37 (31 . 37) (#("pipline" 0 7 (fontified t)) . -31) (undo-tree-id2 . -7) 38) nil (25171 35191 55005 0) 0 nil])
+nil
