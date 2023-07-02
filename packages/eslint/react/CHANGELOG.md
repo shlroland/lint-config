@@ -1,5 +1,17 @@
 # @shlroland/eslint-config-react
 
+## 1.0.0
+
+### Major Changes
+
+- fed67109: first major version
+
+### Patch Changes
+
+- 171ba1a4: 修订 react 规则,标签自闭合
+- Updated dependencies [fed67109]
+  - @shlroland/eslint-config-ts@1.0.0
+
 ## 0.1.2
 
 ### Patch Changes
