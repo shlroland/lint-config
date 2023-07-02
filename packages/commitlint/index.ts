@@ -20,6 +20,8 @@ const config: UserConfig = {
       customFooterPrefixs: 'Input ISSUES Prefix:',
       footer: 'List any ISSUES by this change. E.g.: #31, #34, #I972S:\n',
       confirmCommit: 'Are you sure you want to proceed with the commit above ?',
+      generatedSelectByAI: '',
+      generatingByAI: '',
     },
     types: [
       {
@@ -93,7 +95,7 @@ const config: UserConfig = {
     customIssuePrefixsAlias: 'custom',
     confirmColorize: true,
     maxHeaderLength: Infinity,
-    maxSubjectLength: Infinity,
+    maxSubjectLength: 80,
     minSubjectLength: 0,
     scopeOverrides: undefined,
     defaultBody: '',
