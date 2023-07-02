@@ -9,21 +9,27 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   GIT_HOOK_PURE_SKIP_INSTALL: 1
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
 jobs:
   version:
     timeout-minutes: 15
     runs-on: macos-latest
     steps:
       - name: checkout code repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: setup node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: install pnpm
-        run: npm i pnpm@6.x -g
+        run: npm i pnpm@latest -g
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+      - name: setup pnpm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
       - name: install dependencies
         run: pnpm install
       - name: create and publish versions
