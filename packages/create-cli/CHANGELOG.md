@@ -1,5 +1,13 @@
 # @shlroland/create-lint-config-cli
 
+## 0.1.5
+
+### Patch Changes
+
+- 68ed4036: update deps
+- Updated dependencies [68ed4036]
+  - @shlroland/lint-config-cli@1.0.6
+
 ## 0.1.4
 
 ### Patch Changes

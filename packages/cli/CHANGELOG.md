@@ -1,5 +1,25 @@
 # @shlroland/lint-config-cli
 
+## 1.0.6
+
+### Patch Changes
+
+- 68ed4036: update deps
+- Updated dependencies [68ed4036]
+  - @shlroland/commitizen-config@1.0.1
+  - @shlroland/commitlint-config@1.0.1
+  - @shlroland/eslint-config-basic@1.0.1
+  - @shlroland/eslint-config@1.0.1
+  - @shlroland/eslint-config-prettier@1.0.1
+  - @shlroland/eslint-config-react@1.0.1
+  - @shlroland/eslint-config-ts@1.0.1
+  - @shlroland/eslint-config-vue@1.0.1
+  - @shlroland/git-hooks@1.0.2
+  - @shlroland/husky-config@1.0.1
+  - @shlroland/lint-staged@2.0.1
+  - @shlroland/prettier-config@1.0.1
+  - @shlroland/stylelint-config@2.0.1
+
 ## 1.0.5
 
 ### Patch Changes
