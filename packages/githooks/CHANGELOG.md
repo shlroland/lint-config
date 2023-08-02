@@ -1,5 +1,11 @@
 # @shlroland/git-hooks
 
+## 1.0.2
+
+### Patch Changes
+
+- 68ed4036: update deps
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @shlroland/eslint-config-ts
 
+## 1.0.1
+
+### Patch Changes
+
+- 68ed4036: update deps
+- Updated dependencies [68ed4036]
+  - @shlroland/eslint-config-basic@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

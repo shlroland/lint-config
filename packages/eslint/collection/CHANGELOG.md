@@ -1,5 +1,15 @@
 # @shlroland/eslint-config
 
+## 1.0.1
+
+### Patch Changes
+
+- 68ed4036: update deps
+- Updated dependencies [68ed4036]
+  - @shlroland/eslint-config-prettier@1.0.1
+  - @shlroland/eslint-config-react@1.0.1
+  - @shlroland/eslint-config-vue@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
