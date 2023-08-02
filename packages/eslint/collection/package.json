@@ -19,10 +19,10 @@
   },
   "peerDependencies": {
     "eslint": ">=8.10.0",
-    "prettier": ">=2.5.1"
+    "prettier": ">=3.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.14.0"
+    "eslint": "^8.46.0"
   },
   "dependencies": {
     "@shlroland/eslint-config-prettier": "workspace:^1.0.0",
