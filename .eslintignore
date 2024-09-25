@@ -1,3 +1,0 @@
-*.d.ts
-packages/**/lib/
-node_modules
