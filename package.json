@@ -14,21 +14,23 @@
     "ci:version": "changeset version && pnpm update -w && pnpm install --no-frozen-lockfile && git add .",
     "ci:publish": "pnpm build && pnpm changeset-publish && pnpm changeset-tag",
     "changeset-publish": "changeset publish",
-    "changeset-tag": "changeset tag"
+    "changeset-tag": "changeset tag",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^19.5.0",
-    "@commitlint/config-conventional": "^17.6.6",
     "@shlroland/commitlint-config": "workspace:^",
     "@shlroland/eslint-config": "workspace:^",
     "@shlroland/lint-staged": "workspace:^",
     "@types/node": "^20.3.3",
+    "cz-git": "^1.7.0",
     "czg": "^1.9.4",
     "eslint": "^9.11.1",
     "eslint-plugin-format": "^0.1.2",
-    "git-hook-pure": "^3.2.1",
+    "husky": "^9.1.6",
     "lint-staged": "^13.2.3",
+    "tsup": "^8.3.0",
     "typescript": "^5.6.2"
   }
 }

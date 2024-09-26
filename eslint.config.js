@@ -1,3 +1,3 @@
-import { shlroland } from '@shlroland/eslint-config'
+import { shlroland } from "@shlroland/eslint-config";
 
-export default shlroland()
+export default shlroland();

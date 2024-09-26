@@ -1,1 +1,1 @@
-module.exports = require('@shlroland/lint-staged')(false)
+export { default } from "@shlroland/lint-staged";

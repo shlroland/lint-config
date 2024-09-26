@@ -1,9 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "lib",
-    "module": "commonjs",
-    "types": ["node"]
-  },
-  "include": ["./src"]
+  "include": ["index.ts"]
 }

@@ -1,10 +1,9 @@
-import type { Options } from './types'
+import type { Options } from "./types";
 
 const config: Options = {
   singleQuote: true,
-  trailingComma: 'all',
+  trailingComma: "all",
   semi: false,
-}
+};
 
-export default config
-module.exports = config
+export default config;

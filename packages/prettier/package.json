@@ -1,26 +1,29 @@
 {
   "name": "@shlroland/prettier-config",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/index.js",
+  "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
+  "license": "MIT",
+  "keywords": [],
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
+    }
+  },
+  "main": "./lib/index.cjs",
   "types": "./lib/index.d.ts",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "tsc -p tsconfig.json -w"
+    "build": "tsup"
   },
-  "keywords": [],
-  "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "prettier": ">=3.0.0"
-  },
   "devDependencies": {
-    "prettier": "^3.0.0"
+    "tsup": "^8.3.0"
   }
 }
