@@ -1,6 +1,7 @@
 import type { Answers } from '../types'
 import { parseNi, run } from '@antfu/ni'
-import { CodeLintTools, GitLintTools } from '../enum'
+import c from 'picocolors'
+import { CodeLintTools, GitLintTools } from '../constants'
 
 const codeLintToolsPkgs = {
   [CodeLintTools.ESLINT_DEFAULT]: ['eslint', '@shlroland/eslint-config'],
@@ -16,6 +17,14 @@ const gitLintToolsPkgs = {
   [GitLintTools.HUSKY]: ['husky'],
 }
 
+export const defaultInstallPkgs = [
+  ...codeLintToolsPkgs[CodeLintTools.ESLINT_DEFAULT],
+  ...gitLintToolsPkgs[GitLintTools.COMMITLINT],
+  ...gitLintToolsPkgs[GitLintTools.CZG],
+  ...gitLintToolsPkgs[GitLintTools.LINT_STAGED],
+  ...gitLintToolsPkgs[GitLintTools.HUSKY],
+]
+
 export async function install(answers: Answers) {
   const { codeLintTools, gitLintTools } = answers
   const codeLintTool = codeLintToolsPkgs[codeLintTools]
@@ -25,5 +34,6 @@ export async function install(answers: Answers) {
   }, [] as string[])
 
   const tools = [...codeLintTool, ...gitLintTool]
+  console.log(`${c.whiteBright('will install packages')}: ${c.greenBright(tools.join(' ,'))}\n`)
   await run(parseNi, ['-D', ...tools])
 }

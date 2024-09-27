@@ -6,5 +6,9 @@ export default defineConfig(
     entry: ['src/cli.ts'],
     format: ['esm'],
     outDir: 'dist',
+    esbuildOptions: (options) => {
+      options.charset = 'utf8'
+    },
+    minify: true,
   }),
 )

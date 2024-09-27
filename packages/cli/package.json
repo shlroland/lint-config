@@ -12,14 +12,16 @@
   "files": [
     "dist"
   ],
-
   "scripts": {
     "dev": "esno src/cli.ts",
     "build": "tsup"
   },
   "dependencies": {
     "@antfu/ni": "^0.23.0",
+    "cosmiconfig": "^9.0.0",
     "inquirer": "^11.0.2",
+    "picocolors": "^1.1.0",
+    "restore-cursor": "^5.1.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
