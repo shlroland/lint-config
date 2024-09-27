@@ -1,3 +1,3 @@
-import config from "@shlroland/commitlint-config";
-
-export default config;
+export default {
+  extends: ['@shlroland/commitlint-config'],
+}

@@ -6,8 +6,6 @@
     "shlroland-lint": "./dist/cli.js"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "ts-node src/cli.ts"
   },
   "dependencies": {
     "inquirer": "^11.0.2",

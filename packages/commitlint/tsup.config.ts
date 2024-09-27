@@ -1,9 +1,10 @@
-import { defineConfig } from "tsup";
-import { config } from "../../tsup.config";
+import { defineConfig } from 'tsup'
+import { config } from '../../tsup.config'
 
-export default defineConfig({
-  ...config(),
-  esbuildOptions: (options) => {
-    options.charset = "utf8";
-  },
-});
+export default defineConfig(
+  config({
+    esbuildOptions: (options) => {
+      options.charset = 'utf8'
+    },
+  }),
+)

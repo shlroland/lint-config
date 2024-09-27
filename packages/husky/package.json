@@ -11,8 +11,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "dev": "tsc -p tsconfig.json -w"
+    "build": "tsup"
   },
   "publishConfig": {
     "access": "public"

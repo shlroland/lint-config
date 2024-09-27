@@ -7,7 +7,7 @@
   "author": "shlroland <shlroland1995@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "./scripts/build.sh",
+    "build": "pnpm --parallel --filter \"./packages/**\" build",
     "fix:lint": "eslint packages --ext .ts  --fix",
     "fix:prettier": "prettier \"packages/**/*.ts\" --write",
     "lint-staged": "lint-staged",
@@ -25,7 +25,7 @@
     "@shlroland/lint-staged": "workspace:^",
     "@types/node": "^20.3.3",
     "cz-git": "^1.7.0",
-    "czg": "^1.9.4",
+    "czg": "next",
     "eslint": "^9.11.1",
     "eslint-plugin-format": "^0.1.2",
     "husky": "^9.1.6",

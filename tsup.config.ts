@@ -1,11 +1,12 @@
-import type { Options } from "tsup";
+import type { Options } from 'tsup'
 
-export function config() {
+export function config(options?: Options) {
   return {
-    entry: ["index.ts"],
-    format: ["esm", "cjs"],
-    outDir: "lib",
+    entry: ['index.ts'],
+    format: ['esm', 'cjs'],
+    outDir: 'lib',
     dts: true,
     clean: true,
-  } satisfies Options;
+    ...options,
+  } satisfies Options
 }
