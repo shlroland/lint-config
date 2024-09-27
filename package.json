@@ -15,7 +15,8 @@
     "ci:publish": "pnpm build && pnpm changeset-publish && pnpm changeset-tag",
     "changeset-publish": "changeset publish",
     "changeset-tag": "changeset tag",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "pnpm build"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
