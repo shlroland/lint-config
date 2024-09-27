@@ -7,7 +7,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "shlroland-lint": "bin/cli.js"
+    "shlroland-lint": "bin/index.mjs"
   },
   "files": [
     "dist"

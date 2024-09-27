@@ -57,7 +57,6 @@ function deleteConfig(filePath: string) {
 
 export async function writeConfig(configs: CheckConfigResult[]) {
   const cwd = process.cwd()
-  console.log(configs)
   for (const config of configs) {
     if (config.shouldOverride && config.exitedFilePath) {
       await deleteConfig(config.exitedFilePath)

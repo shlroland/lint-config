@@ -43,7 +43,6 @@ yargs(hideBin(process.argv))
     if (argv.interactive) {
       const answers = await configPrompt()
       const configResult = await checkConfig(answers)
-      console.log(configResult)
       await writeConfig(configResult)
     }
   })

@@ -23,16 +23,19 @@ async function ensureConfig(moduleName: string) {
         `)
         process.exit(10)
       }
-      process.exit(1)
+      throw error
     }
   }
 }
 
-const commonjsError = 'Unexpected token \'export\''
+const commonjsError = [
+  'Unexpected token \'export\'',
+  'SyntaxError: Cannot use import statement outside a module',
+]
 const esmError = 'module is not defined in ES module scope'
 
 function isPackageModuleError(error: Error) {
-  return error.message.includes(commonjsError) || error.message.includes(esmError)
+  return commonjsError.some(msg => error.message.includes(msg)) || error.message.includes(esmError)
 }
 
 function checkEslint(choice: CodeLintTools): () => Promise<CheckConfigResult> {
@@ -149,6 +152,5 @@ export async function checkConfig(answers: Answers) {
       results.push({ ...result })
     }
   }
-  console.log(results)
   return results
 }
