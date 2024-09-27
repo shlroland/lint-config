@@ -1,5 +1,11 @@
 # @shlroland/husky-config
 
+## 2.0.0
+
+### Major Changes
+
+- c177dd3: new version new bundle
+
 ## 1.0.0
 
 ### Major Changes
