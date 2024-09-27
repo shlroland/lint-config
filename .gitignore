@@ -1,4 +1,7 @@
 node_modules
 tsconfig.tsbuildinfo
-packages/**/lib
+
+lib
+dist
+
 .pnpm-store/

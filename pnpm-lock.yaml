@@ -53,6 +53,9 @@ importers:
 
   packages/cli:
     dependencies:
+      '@antfu/ni':
+        specifier: ^0.23.0
+        version: 0.23.0
       inquirer:
         specifier: ^11.0.2
         version: 11.0.2
@@ -166,6 +169,10 @@ packages:
 
   '@antfu/install-pkg@0.4.1':
     resolution: {integrity: sha512-T7yB5QNG29afhWVkVq7XeIMBa5U/vs9mX69YqayXypPRmYzUmzwnYltplHmPtZ4HPCn+sQKeXW8I47wCbuBOjw==}
+
+  '@antfu/ni@0.23.0':
+    resolution: {integrity: sha512-R5/GkA3PfGewAXLzz6lN5XagunF6PKeDtWt8dbZQXvHfebLS0qEczV+Azg/d+tKgSh6kRBpxvu8oSjARdPtw0A==}
+    hasBin: true
 
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
@@ -2863,6 +2870,8 @@ snapshots:
     dependencies:
       package-manager-detector: 0.2.0
       tinyexec: 0.3.0
+
+  '@antfu/ni@0.23.0': {}
 
   '@antfu/utils@0.7.10': {}
 
