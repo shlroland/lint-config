@@ -1,5 +1,11 @@
 # @shlroland/lint-staged
 
+## 3.0.0
+
+### Major Changes
+
+- c177dd3: new version new bundle
+
 ## 2.0.0
 
 ### Major Changes
