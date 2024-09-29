@@ -21,7 +21,7 @@ export enum ShouldOverride {
   NO = 'no',
 }
 
-export const defaultInstallAnswers = {
+export const defaultConfigAnswers = {
   codeLintTools: CodeLintTools.ESLINT_DEFAULT,
   gitLintTools: [GitLintTools.COMMITLINT, GitLintTools.CZG, GitLintTools.LINT_STAGED, GitLintTools.HUSKY],
 }

@@ -4,11 +4,11 @@ import restoreCursor from 'restore-cursor'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { version } from '../package.json'
-import { defaultInstallAnswers } from './constants'
-import { configPrompt, installPrompt } from './prompts'
-import { checkConfig } from './tasks/check-config'
+import { defaultConfigAnswers } from './constants'
+import { configPrompt, installPrompt, shouldConfigPrompt } from './prompts'
+import { config } from './tasks/config'
+import { getConfigFilesWillWriteList } from './tasks/config/write-config'
 import { defaultInstallPkgs, install } from './tasks/installer'
-import { writeConfig } from './tasks/write-config'
 
 yargs(hideBin(process.argv))
   .scriptName('shlroland-lint')
@@ -26,10 +26,20 @@ yargs(hideBin(process.argv))
       if (argv.interactive) {
         const answers = await installPrompt()
         await install(answers)
+        const shouldConfig = await shouldConfigPrompt()
+        if (shouldConfig === 'accept-all') {
+          await config(answers)
+        }
+        else if (shouldConfig === 'accept-some') {
+          const configAnswers = await configPrompt()
+          await config(configAnswers)
+        }
       }
       else {
-        console.log(`${c.whiteBright('will install default packages')}: ${c.cyan(defaultInstallPkgs.join(' ,'))}`)
-        await install(defaultInstallAnswers)
+        console.log(`${c.whiteBright('will install default packages')}: \n ${c.cyan(defaultInstallPkgs.join(' ,'))}`)
+        await install(defaultConfigAnswers)
+        console.log(`${c.whiteBright('will config default lint tool')}: \n ${c.cyan(getConfigFilesWillWriteList(defaultConfigAnswers))}`)
+        await config(defaultConfigAnswers)
       }
     },
   )
@@ -42,8 +52,7 @@ yargs(hideBin(process.argv))
   }, async (argv) => {
     if (argv.interactive) {
       const answers = await configPrompt()
-      const configResult = await checkConfig(answers)
-      await writeConfig(configResult)
+      await config(answers)
     }
   })
   .alias('v', 'version')

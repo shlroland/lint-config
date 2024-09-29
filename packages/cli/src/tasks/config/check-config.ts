@@ -1,9 +1,9 @@
-import type { Answers, CheckConfigResult } from '../types'
+import type { Answers, CheckConfigResult } from '../../types'
 import process from 'node:process'
 import { cosmiconfig } from 'cosmiconfig'
 import c from 'picocolors'
-import { CodeLintTools, FormatTools, GitLintTools } from '../constants'
-import { shouldOverridePrompt } from '../prompts'
+import { CodeLintTools, FormatTools, GitLintTools } from '../../constants'
+import { shouldOverridePrompt } from '../../prompts'
 
 async function ensureConfig(moduleName: string) {
   try {

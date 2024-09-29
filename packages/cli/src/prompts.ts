@@ -6,7 +6,7 @@ export async function installPrompt(): Promise<Answers> {
   return await inquirer
     .prompt([
       {
-        type: 'list',
+        type: 'select',
         name: 'codeLintTools',
         message:
         'Please select the linter and formatter tool to install:',
@@ -74,6 +74,24 @@ export async function configPrompt() {
       ],
     },
   ])
+}
+
+export async function shouldConfigPrompt(): Promise<'accept-all' | 'accept-some' | 'reject-all'> {
+  const { shouldConfig } = await inquirer.prompt([
+    {
+      type: 'select',
+      name: 'shouldConfig',
+      message: 'Do you want to config lint tools?',
+      choices: [
+        { name: 'Accept all', value: 'accept-all', description: 'Configure based on the installed tools.' },
+        { name: 'Accept some', value: 'accept-some', description: 'Select which tools to configure.' },
+        { name: 'Reject all', value: 'reject-all', description: 'Do not configure any tools.' },
+      ],
+      default: 'accept-all',
+    },
+  ])
+
+  return shouldConfig
 }
 
 export async function shouldOverridePrompt(tool: string) {

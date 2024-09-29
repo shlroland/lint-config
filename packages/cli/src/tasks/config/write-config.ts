@@ -1,12 +1,12 @@
 import type { PackageJson } from 'type-fest'
-import type { CheckConfigResult, ConfigChoice, ConfigOptions } from '../types'
+import type { Answers, CheckConfigResult, ConfigChoice, ConfigOptions } from '../../types'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import {
   CodeLintTools,
   FormatTools,
   GitLintTools,
-} from '../constants'
+} from '../../constants'
 
 const configFilePaths = {
   eslint: 'eslint.config.js',
@@ -204,4 +204,30 @@ async function writeCjsConfig(cwd: string, config: CheckConfigResult) {
     const content = cjsConfigFactory(c.exportContent, c.importContent)
     await fs.writeFile(configFilePath, content)
   }
+}
+
+export function getConfigFilesWillWriteList(answers: Answers) {
+  const configFiles = new Set<string>()
+  const { codeLintTools, gitLintTools } = answers
+  const lintTools = [...codeLintTools, ...gitLintTools]
+  for (const lintTool of lintTools) {
+    switch (lintTool) {
+      case CodeLintTools.ESLINT_DEFAULT:
+      case CodeLintTools.ESLINT_NO_EXTERNAL:
+      case CodeLintTools.ESLINT_NO_FORMATTER:
+        configFiles.add(configFilePaths.eslint)
+        break
+      case CodeLintTools.ESLINT_PRETTIER:
+        configFiles.add(configFilePaths.eslint)
+        configFiles.add(configFilePaths.prettier)
+        break
+      case GitLintTools.COMMITLINT:
+        configFiles.add(configFilePaths.commitlint)
+        break
+      case GitLintTools.LINT_STAGED:
+        configFiles.add(configFilePaths.lintStaged)
+        break
+    }
+  }
+  return Array.from(configFiles).join(', ')
 }
