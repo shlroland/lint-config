@@ -36,7 +36,7 @@ yargs(hideBin(process.argv))
         }
       }
       else {
-        console.log(`${c.whiteBright('will install default packages')}: \n ${c.cyan(defaultInstallPkgs.join(' ,'))}`)
+        console.log(`${c.whiteBright('will install default packages')}: \n ${c.cyan(defaultInstallPkgs.join('\n'))}`)
         await install(defaultConfigAnswers)
         console.log(`${c.whiteBright('will config default lint tool')}: \n ${c.cyan(getConfigFilesWillWriteList(defaultConfigAnswers))}`)
         await config(defaultConfigAnswers)

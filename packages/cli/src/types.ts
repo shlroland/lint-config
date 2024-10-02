@@ -10,7 +10,7 @@ export type ConfigChoice =
   | CodeLintTools.ESLINT_NO_EXTERNAL
   | CodeLintTools.ESLINT_NO_FORMATTER
   | CodeLintTools.ESLINT_PRETTIER
-  // | GitLintTools.HUSKY
+  | GitLintTools.HUSKY
   | GitLintTools.COMMITLINT
   | GitLintTools.LINT_STAGED
   | FormatTools.PRETTIER
@@ -22,8 +22,10 @@ export interface CheckConfigResult {
   choice: ConfigChoice
 }
 
-export interface ConfigOptions {
+export type ConfigOptions = {
   filePath: string
   importContent: string
   exportContent: string
+} | {
+  selfProcess: () => void | Promise<void>
 }

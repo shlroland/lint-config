@@ -35,5 +35,6 @@ export async function install(answers: Answers) {
 
   const tools = [...codeLintTool, ...gitLintTool]
   console.log(`${c.whiteBright('will install packages')}: ${c.greenBright(tools.join(' ,'))}\n`)
+
   await run(parseNi, ['-D', ...tools])
 }

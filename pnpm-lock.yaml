@@ -56,6 +56,9 @@ importers:
       '@antfu/ni':
         specifier: ^0.23.0
         version: 0.23.0
+      '@shlroland/husky-config':
+        specifier: latest
+        version: 2.0.0
       cosmiconfig:
         specifier: ^9.0.0
         version: 9.0.0(typescript@5.6.2)
@@ -742,6 +745,9 @@ packages:
     resolution: {integrity: sha512-+lvL/4mQxSV8MukpkKyyvfwhH266COcWlXE/1qxwN08ajovta3459zrjLghYMgDerlzNwLAcFpvU+WWE5y6nAQ==}
     cpu: [x64]
     os: [win32]
+
+  '@shlroland/husky-config@2.0.0':
+    resolution: {integrity: sha512-z1An/Gb+mvqVq1uj6ML+yKNU4M/o+IO9k+bWPhLI7Y8RN2aMA9AyVWbSTL+VZjYq/cvWZHBqdn75dHouAi5eUg==}
 
   '@stylistic/eslint-plugin@2.8.0':
     resolution: {integrity: sha512-Ufvk7hP+bf+pD35R/QfunF793XlSRIC7USr3/EdgduK9j13i2JjmsM0LUz3/foS+jDYp2fzyWZA9N44CPur0Ow==}
@@ -3535,6 +3541,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.22.5':
     optional: true
+
+  '@shlroland/husky-config@2.0.0': {}
 
   '@stylistic/eslint-plugin@2.8.0(eslint@9.11.1(jiti@1.21.6))(typescript@5.6.2)':
     dependencies:

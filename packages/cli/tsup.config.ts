@@ -10,5 +10,6 @@ export default defineConfig(
       options.charset = 'utf8'
     },
     minify: true,
+    noExternal: ['@shlroland/husky-config'],
   }),
 )

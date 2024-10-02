@@ -1,4 +1,6 @@
 import type { Answers, CheckConfigResult } from '../../types'
+import fs from 'node:fs'
+import path from 'node:path'
 import process from 'node:process'
 import { cosmiconfig } from 'cosmiconfig'
 import c from 'picocolors'
@@ -122,6 +124,18 @@ function checkLintStaged(): () => Promise<CheckConfigResult> {
   }
 }
 
+function checkHusky() {
+  return async () => {
+    const huskyDir = path.resolve(process.cwd(), '.husky')
+    const exists = await fs.promises.access(huskyDir).then(() => true).catch(() => false)
+    return {
+      moduleName: 'husky',
+      shouldOverride: exists ? await shouldOverridePrompt('husky') : 'none',
+      choice: GitLintTools.HUSKY,
+    } as const
+  }
+}
+
 const codeLintToolsPkgs = {
   [CodeLintTools.ESLINT_DEFAULT]: [checkEslint(CodeLintTools.ESLINT_DEFAULT)],
   [CodeLintTools.ESLINT_NO_EXTERNAL]: [checkEslint(CodeLintTools.ESLINT_NO_EXTERNAL)],
@@ -133,7 +147,7 @@ const gitLintToolsPkgs = {
   [GitLintTools.COMMITLINT]: [checkCommitlint()],
   [GitLintTools.LINT_STAGED]: [checkLintStaged()],
   [GitLintTools.CZG]: [],
-  [GitLintTools.HUSKY]: [],
+  [GitLintTools.HUSKY]: [checkHusky()],
 }
 
 export async function checkConfig(answers: Answers) {
