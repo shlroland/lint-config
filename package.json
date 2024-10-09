@@ -15,8 +15,7 @@
     "ci:publish": "pnpm build && pnpm changeset-publish && pnpm changeset-tag",
     "changeset-publish": "changeset publish",
     "changeset-tag": "changeset tag",
-    "prepare": "husky",
-    "postinstall": "pnpm build"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.8",
@@ -25,13 +24,15 @@
     "@shlroland/eslint-config": "workspace:^",
     "@shlroland/lint-staged": "workspace:^",
     "@types/node": "^20.16.10",
-    "cz-git": "^1.9.4",
-    "czg": "next",
+    "cz-git": "^1.7.0",
+    "czg": "1.10.1",
     "eslint": "^9.11.1",
     "eslint-plugin-format": "^0.1.2",
     "husky": "^9.1.6",
-    "lint-staged": "^13.3.0",
+    "jiti": "^2.3.3",
+    "lint-staged": "^13.2.3",
     "tsup": "^8.3.0",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.2"
   }
 }

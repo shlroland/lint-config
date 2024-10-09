@@ -1,3 +1,5 @@
-import { shlroland } from "@shlroland/eslint-config";
+import { tsImport } from 'tsx/esm/api'
 
-export default shlroland();
+const { shlroland } = (await tsImport('./packages/eslint/index.ts', import.meta.url))
+
+export default shlroland()
