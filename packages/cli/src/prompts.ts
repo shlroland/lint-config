@@ -107,4 +107,17 @@ export async function shouldOverridePrompt(tool: string) {
   return !!shouldOverride
 }
 
-// export
+export async function shouldInitGitPrompt() {
+  const { shouldInitGit } = await inquirer.prompt<{ shouldInitGit: boolean }>(
+    [
+      {
+        type: 'confirm',
+        name: 'shouldInitGit',
+        message: 'Current directory is not a git repository, do you want to initialize it?',
+        default: true,
+      },
+    ],
+  )
+
+  return shouldInitGit
+}

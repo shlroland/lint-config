@@ -23,6 +23,7 @@
     "inquirer": "^11.0.2",
     "picocolors": "^1.1.0",
     "restore-cursor": "^5.1.0",
+    "tinyexec": "^0.3.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

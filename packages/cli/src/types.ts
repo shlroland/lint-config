@@ -22,10 +22,13 @@ export interface CheckConfigResult {
   choice: ConfigChoice
 }
 
-export type ConfigOptions = {
+export interface ConfigOptions {
   filePath: string
   importContent: string
   exportContent: string
-} | {
-  selfProcess: () => void | Promise<void>
 }
+
+export type Configs = Record<ConfigChoice, {
+  preInit?: () => Promise<void | 'skip'>
+  options: ConfigOptions[]
+}>
