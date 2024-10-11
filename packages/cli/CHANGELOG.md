@@ -1,5 +1,13 @@
 # @shlroland/lint-cli
 
+## 0.3.1
+
+### Patch Changes
+
+- 5b590c9: Perfect package instructions
+- Updated dependencies [5b590c9]
+  - @shlroland/husky-config@2.1.1
+
 ## 0.3.0
 
 ### Minor Changes
