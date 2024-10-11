@@ -29,6 +29,10 @@ pnpm dlx @shlroland/lint-cli
   - `-I`: config lint tools interactively.
   - `-f`: skip all prompts and override the existing configuration.
 
+> [!IMPORTANT]
+> Wizard Setup only install default lint tools and configure them according to the default settings.
+> After executing the completion command, adjustments may need to be made according to project requirements
+
 ### Manual Setup
 
 #### eslint
