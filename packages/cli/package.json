@@ -46,7 +46,7 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/node": "^16.11.7",
+    "@types/node": "^20.0.0",
     "@types/yargs": "^17.0.33",
     "esno": "^4.7.0",
     "type-fest": "^4.26.1",
