@@ -23,6 +23,7 @@ pnpm dlx @shlroland/lint-cli
 #### parameters
 
 - `None` : no parameters means default lint tools will be installed and configured automatically.
+  - `-I`: select lint tools interactively instead of using default settings automatically.
 - `install` : only install lint tools.
   - `-I`: install lint tools interactively.
 - `config` : only config lint tools.
