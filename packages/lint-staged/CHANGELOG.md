@@ -1,5 +1,11 @@
 # @shlroland/lint-staged
 
+## 3.1.0
+
+### Minor Changes
+
+- 3e15f19: add and modify README.md
+
 ## 3.0.0
 
 ### Major Changes
