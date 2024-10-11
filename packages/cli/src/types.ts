@@ -1,25 +1,20 @@
-import type { CodeLintTools, FormatTools, GitLintTools } from './constants'
+import type { LintTools } from './constants'
 
 export interface Answers {
-  codeLintTools: CodeLintTools
-  gitLintTools: GitLintTools[]
+  lintTools: LintTools[]
 }
 
 export type ConfigChoice =
-  | CodeLintTools.ESLINT_DEFAULT
-  | CodeLintTools.ESLINT_NO_EXTERNAL
-  | CodeLintTools.ESLINT_NO_FORMATTER
-  | CodeLintTools.ESLINT_PRETTIER
-  | GitLintTools.HUSKY
-  | GitLintTools.COMMITLINT
-  | GitLintTools.LINT_STAGED
-  | FormatTools.PRETTIER
+  | LintTools.ESLINT
+  | LintTools.CZG
+  | LintTools.COMMITLINT
+  | LintTools.LINT_STAGED
+  | LintTools.HUSKY
 
 export interface CheckConfigResult {
-  moduleName: string
+  moduleName: ConfigChoice
   shouldOverride: boolean | 'none'
   exitedFilePath?: string
-  choice: ConfigChoice
 }
 
 export interface ConfigOptions {

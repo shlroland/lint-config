@@ -1,5 +1,4 @@
 /* eslint-disable ts/no-unused-expressions */
-import c from 'picocolors'
 import restoreCursor from 'restore-cursor'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
@@ -7,13 +6,12 @@ import { version } from '../package.json'
 import { defaultConfigAnswers } from './constants'
 import { configPrompt, installPrompt, shouldConfigPrompt } from './prompts'
 import { config } from './tasks/config'
-import { getConfigFilesWillWriteList } from './tasks/config/write-config'
-import { defaultInstallPkgs, install } from './tasks/installer'
+import { install } from './tasks/installer'
 
 yargs(hideBin(process.argv))
   .scriptName('shlroland-lint')
   .command(
-    '$0',
+    ['$0', '$0 init'],
     'cli tool to setup lint tool',
     (yargs) => {
       return yargs.option('interactive', {
@@ -36,9 +34,7 @@ yargs(hideBin(process.argv))
         }
       }
       else {
-        console.log(`${c.whiteBright('will install default packages')}: \n ${c.cyan(defaultInstallPkgs.join('\n'))}`)
         await install(defaultConfigAnswers)
-        console.log(`${c.whiteBright('will config default lint tool')}: \n ${c.cyan(getConfigFilesWillWriteList(defaultConfigAnswers))}`)
         await config(defaultConfigAnswers)
       }
     },

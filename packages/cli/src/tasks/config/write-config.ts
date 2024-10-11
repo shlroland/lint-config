@@ -1,11 +1,7 @@
-import type { Answers, CheckConfigResult, Configs } from '../../types'
+import type { CheckConfigResult, Configs } from '../../types'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import {
-  CodeLintTools,
-  FormatTools,
-  GitLintTools,
-} from '../../constants'
+import { LintTools } from '../../constants'
 import { deleteFile, getModuleType } from '../../utils'
 import {
   configFilePaths,
@@ -16,12 +12,10 @@ import {
   HUSKY_COMMIT_MSG_PATH,
   HUSKY_PRE_COMMIT_CONTENT,
   HUSKY_PRE_COMMIT_PATH,
-  PRETTIER_CJS_IMPORT_CONTENT,
-  PRETTIER_ESM_IMPORT_CONTENT,
 } from './config-content'
 
 const esmConfigs: Configs = {
-  [CodeLintTools.ESLINT_DEFAULT]: {
+  [LintTools.ESLINT]: {
     options: [
       {
         filePath: configFilePaths.eslint,
@@ -30,43 +24,7 @@ const esmConfigs: Configs = {
       },
     ],
   },
-  [CodeLintTools.ESLINT_NO_EXTERNAL]: {
-    options: [
-      {
-        filePath: configFilePaths.eslint,
-        importContent: ESLINT_ESM_IMPORT_CONTENT,
-        exportContent: 'shlroland({ formatters: false })',
-      },
-    ],
-  },
-  [CodeLintTools.ESLINT_NO_FORMATTER]: {
-    options: [
-      {
-        filePath: configFilePaths.eslint,
-        importContent: ESLINT_ESM_IMPORT_CONTENT,
-        exportContent: 'shlroland({ formatters: false, stylistic: false })',
-      },
-    ],
-  },
-  [CodeLintTools.ESLINT_PRETTIER]: {
-    options: [
-      {
-        filePath: configFilePaths.eslint,
-        importContent: ESLINT_ESM_IMPORT_CONTENT,
-        exportContent: 'shlroland({ formatters: false, stylistic: false })',
-      },
-    ],
-  },
-  [FormatTools.PRETTIER]: {
-    options: [
-      {
-        filePath: configFilePaths.prettier,
-        importContent: PRETTIER_ESM_IMPORT_CONTENT,
-        exportContent: 'shlroland()',
-      },
-    ],
-  },
-  [GitLintTools.COMMITLINT]: {
+  [LintTools.CZG]: {
     options: [
       {
         filePath: configFilePaths.commitlint,
@@ -77,7 +35,18 @@ const esmConfigs: Configs = {
       },
     ],
   },
-  [GitLintTools.LINT_STAGED]: {
+  [LintTools.COMMITLINT]: {
+    options: [
+      {
+        filePath: configFilePaths.commitlint,
+        importContent: '',
+        exportContent: `{
+        extends: ['@shlroland/commitlint-config']
+    }`,
+      },
+    ],
+  },
+  [LintTools.LINT_STAGED]: {
     options: [
       {
         filePath: configFilePaths.lintStaged,
@@ -86,7 +55,7 @@ const esmConfigs: Configs = {
       },
     ],
   },
-  [GitLintTools.HUSKY]: {
+  [LintTools.HUSKY]: {
     preInit: executeHuskyInit,
     options: [
       {
@@ -104,7 +73,7 @@ const esmConfigs: Configs = {
 }
 
 const cjsConfigs: Configs = {
-  [CodeLintTools.ESLINT_DEFAULT]: {
+  [LintTools.ESLINT]: {
     options: [
       {
         filePath: configFilePaths.eslint,
@@ -113,43 +82,7 @@ const cjsConfigs: Configs = {
       },
     ],
   },
-  [CodeLintTools.ESLINT_NO_EXTERNAL]: {
-    options: [
-      {
-        filePath: configFilePaths.eslint,
-        importContent: ESLINT_CJS_IMPORT_CONTENT,
-        exportContent: 'shlroland({ formatters: false })',
-      },
-    ],
-  },
-  [CodeLintTools.ESLINT_NO_FORMATTER]: {
-    options: [
-      {
-        filePath: configFilePaths.eslint,
-        importContent: ESLINT_CJS_IMPORT_CONTENT,
-        exportContent: 'shlroland({ formatters: false, stylistic: false })',
-      },
-    ],
-  },
-  [CodeLintTools.ESLINT_PRETTIER]: {
-    options: [
-      {
-        filePath: configFilePaths.eslint,
-        importContent: ESLINT_CJS_IMPORT_CONTENT,
-        exportContent: 'shlroland({ formatters: false, stylistic: false })',
-      },
-    ],
-  },
-  [FormatTools.PRETTIER]: {
-    options: [
-      {
-        filePath: configFilePaths.prettier,
-        importContent: PRETTIER_CJS_IMPORT_CONTENT,
-        exportContent: 'shlroland()',
-      },
-    ],
-  },
-  [GitLintTools.COMMITLINT]: {
+  [LintTools.CZG]: {
     options: [
       {
         filePath: configFilePaths.commitlint,
@@ -160,7 +93,18 @@ const cjsConfigs: Configs = {
       },
     ],
   },
-  [GitLintTools.LINT_STAGED]: {
+  [LintTools.COMMITLINT]: {
+    options: [
+      {
+        filePath: configFilePaths.commitlint,
+        importContent: '',
+        exportContent: `{
+        extends: ['@shlroland/commitlint-config']
+    }`,
+      },
+    ],
+  },
+  [LintTools.LINT_STAGED]: {
     options: [
       {
         filePath: configFilePaths.lintStaged,
@@ -169,7 +113,7 @@ const cjsConfigs: Configs = {
       },
     ],
   },
-  [GitLintTools.HUSKY]: {
+  [LintTools.HUSKY]: {
     preInit: executeHuskyInit,
     options: [
       {
@@ -211,69 +155,44 @@ export async function writeConfig(configs: CheckConfigResult[]) {
       await deleteFile(config.exitedFilePath)
     }
 
-    if (moduleType === 'module') {
-      await writeEsmConfig(cwd, config)
-    }
-    else {
-      await writeCjsConfig(cwd, config)
-    }
+    await writeConfigFile(cwd, config, moduleType)
   }
 }
 
-async function writeEsmConfig(cwd: string, config: CheckConfigResult) {
-  const esmConfig = esmConfigs[config.choice]
-  if (esmConfig.preInit) {
-    const result = await esmConfig.preInit()
+async function writeConfigFile(cwd: string, config: CheckConfigResult, moduleType: 'module' | 'commonjs' | undefined) {
+  const configs = moduleType === 'module' ? esmConfigs : cjsConfigs
+  const factory = moduleType === 'module' ? esmConfigFactory : cjsConfigFactory
+  const pendingConfig = configs[config.moduleName]
+  if (pendingConfig.preInit) {
+    const result = await pendingConfig.preInit()
     if (result === 'skip') {
       return
     }
   }
 
-  for (const c of esmConfig.options) {
+  for (const c of pendingConfig.options) {
     const configFilePath = path.join(cwd, c.filePath)
-    const content = esmConfigFactory(c.exportContent, c.importContent)
+    const content = factory(c.exportContent, c.importContent)
     await fs.writeFile(configFilePath, content)
   }
 }
 
-async function writeCjsConfig(cwd: string, config: CheckConfigResult) {
-  const cjsConfig = cjsConfigs[config.choice]
-  if (cjsConfig.preInit) {
-    const result = await cjsConfig.preInit()
-    if (result === 'skip') {
-      return
-    }
-  }
-
-  for (const c of cjsConfig.options) {
-    const configFilePath = path.join(cwd, c.filePath)
-    const content = cjsConfigFactory(c.exportContent, c.importContent)
-    await fs.writeFile(configFilePath, content)
-  }
-}
-
-export function getConfigFilesWillWriteList(answers: Answers) {
+export function getConfigFilesWillWriteList(configResult: CheckConfigResult[]) {
   const configFiles = new Set<string>()
-  const { codeLintTools, gitLintTools } = answers
-  const lintTools = [codeLintTools, ...gitLintTools]
-  for (const lintTool of lintTools) {
-    switch (lintTool) {
-      case CodeLintTools.ESLINT_DEFAULT:
-      case CodeLintTools.ESLINT_NO_EXTERNAL:
-      case CodeLintTools.ESLINT_NO_FORMATTER:
+
+  for (const { moduleName } of configResult) {
+    switch (moduleName) {
+      case LintTools.ESLINT:
         configFiles.add(configFilePaths.eslint)
         continue
-      case CodeLintTools.ESLINT_PRETTIER:
-        configFiles.add(configFilePaths.eslint)
-        configFiles.add(configFilePaths.prettier)
-        continue
-      case GitLintTools.COMMITLINT:
+      case LintTools.CZG:
+      case LintTools.COMMITLINT:
         configFiles.add(configFilePaths.commitlint)
         continue
-      case GitLintTools.LINT_STAGED:
+      case LintTools.LINT_STAGED:
         configFiles.add(configFilePaths.lintStaged)
         continue
-      case GitLintTools.HUSKY:
+      case LintTools.HUSKY:
         configFiles.add(HUSKY_PRE_COMMIT_PATH)
         configFiles.add(HUSKY_COMMIT_MSG_PATH)
         continue

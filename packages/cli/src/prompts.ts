@@ -1,51 +1,20 @@
 import type { Answers } from './types'
 import inquirer from 'inquirer'
-import { CodeLintTools, GitLintTools } from './constants'
+import { LintTools } from './constants'
 
 export async function installPrompt(): Promise<Answers> {
   return await inquirer
     .prompt([
       {
-        type: 'select',
-        name: 'codeLintTools',
-        message:
-        'Please select the linter and formatter tool to install:',
-        choices: [
-          {
-            name: 'eslint (default)',
-            value: CodeLintTools.ESLINT_DEFAULT,
-            description:
-            'will install eslint with stylistic rules and external formatters',
-          },
-          {
-            name: 'eslint (no external)',
-            value: CodeLintTools.ESLINT_NO_EXTERNAL,
-            description:
-            'will install eslint without no external formatters',
-          },
-          {
-            name: 'eslint (no formatter)',
-            value: CodeLintTools.ESLINT_NO_FORMATTER,
-            description:
-            'will install eslint without stylistic and formatters',
-          },
-          {
-            name: 'eslint and prettier',
-            value: CodeLintTools.ESLINT_PRETTIER,
-            description:
-            'will install eslint without stylistic rules and prettier as formatter',
-          },
-        ],
-      },
-      {
         type: 'checkbox',
-        name: 'gitLintTools',
-        message: 'Please select the git related lint tools to install:',
+        name: 'lintTools',
+        message: 'Please select lint tools to install:',
         choices: [
-          { name: 'commitlint', value: GitLintTools.COMMITLINT, checked: true },
-          { name: 'czg', value: GitLintTools.CZG, checked: true },
-          { name: 'lint-staged', value: GitLintTools.LINT_STAGED, checked: true },
-          { name: 'husky', value: GitLintTools.HUSKY, checked: true },
+          { name: 'eslint', value: LintTools.ESLINT, checked: true },
+          { name: 'commitlint', value: LintTools.COMMITLINT, checked: true },
+          { name: 'czg', value: LintTools.CZG, checked: true },
+          { name: 'lint-staged', value: LintTools.LINT_STAGED, checked: true },
+          { name: 'husky', value: LintTools.HUSKY, checked: true },
         ],
       },
     ])
@@ -54,23 +23,12 @@ export async function installPrompt(): Promise<Answers> {
 export async function configPrompt() {
   return await inquirer.prompt([
     {
-      type: 'list',
-      name: 'codeLintTools',
-      message: 'Please select the linter and formatter tool to config:',
-      choices: [
-        { name: 'eslint (default)', value: CodeLintTools.ESLINT_DEFAULT },
-        { name: 'eslint (no external)', value: CodeLintTools.ESLINT_NO_EXTERNAL },
-        { name: 'eslint (no formatter)', value: CodeLintTools.ESLINT_NO_FORMATTER },
-        { name: 'eslint and prettier', value: CodeLintTools.ESLINT_PRETTIER },
-      ],
-    },
-    {
       type: 'checkbox',
-      name: 'gitLintTools',
-      message: 'Please select the git related lint tools to config:',
+      name: 'lintTools',
+      message: 'Please select the lint tools to config:',
       choices: [
-        { name: 'commitlint', value: GitLintTools.COMMITLINT, checked: true },
-        { name: 'lint-staged', value: GitLintTools.LINT_STAGED, checked: true },
+        { name: 'commitlint', value: LintTools.COMMITLINT, checked: true },
+        { name: 'lint-staged', value: LintTools.LINT_STAGED, checked: true },
       ],
     },
   ])

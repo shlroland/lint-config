@@ -1,19 +1,9 @@
-export enum CodeLintTools {
-  ESLINT_DEFAULT = 'eslint-default',
-  ESLINT_NO_EXTERNAL = 'eslint-no-external',
-  ESLINT_NO_FORMATTER = 'eslint-no-formatter',
-  ESLINT_PRETTIER = 'eslint-prettier',
-}
-
-export enum GitLintTools {
+export enum LintTools {
+  ESLINT = 'eslint',
   COMMITLINT = 'commitlint',
   CZG = 'czg',
   LINT_STAGED = 'lint-staged',
   HUSKY = 'husky',
-}
-
-export enum FormatTools {
-  PRETTIER = 'prettier',
 }
 
 export enum ShouldOverride {
@@ -22,6 +12,5 @@ export enum ShouldOverride {
 }
 
 export const defaultConfigAnswers = {
-  codeLintTools: CodeLintTools.ESLINT_DEFAULT,
-  gitLintTools: [GitLintTools.COMMITLINT, GitLintTools.CZG, GitLintTools.LINT_STAGED, GitLintTools.HUSKY],
+  lintTools: [LintTools.ESLINT, LintTools.CZG, LintTools.LINT_STAGED, LintTools.HUSKY],
 }

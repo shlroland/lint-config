@@ -1,11 +1,15 @@
 {
   "name": "@shlroland/husky-config",
+  "type": "module",
   "version": "2.0.0",
   "description": "",
   "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
   "license": "MIT",
   "keywords": [],
-  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "main": "./lib/index.cjs",
   "types": "./lib/index.d.ts",
   "files": [
     "lib"

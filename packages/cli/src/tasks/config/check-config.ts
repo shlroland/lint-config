@@ -4,7 +4,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { cosmiconfig } from 'cosmiconfig'
 import c from 'picocolors'
-import { CodeLintTools, FormatTools, GitLintTools } from '../../constants'
+import { LintTools } from '../../constants'
 import { shouldOverridePrompt } from '../../prompts'
 
 async function ensureConfig(moduleName: string) {
@@ -40,44 +40,21 @@ function isPackageModuleError(error: Error) {
   return commonjsError.some(msg => error.message.includes(msg)) || error.message.includes(esmError)
 }
 
-function checkEslint(choice: CodeLintTools): () => Promise<CheckConfigResult> {
+function checkEslint(): () => Promise<CheckConfigResult> {
   return async () => {
     const config = await ensureConfig('eslint')
     if (config) {
       const shouldOverride = await shouldOverridePrompt('eslint')
       return {
-        moduleName: 'eslint',
         shouldOverride,
         exitedFilePath: config.filepath,
-        choice,
+        moduleName: LintTools.ESLINT,
       }
     }
 
     return {
-      moduleName: 'eslint',
+      moduleName: LintTools.ESLINT,
       shouldOverride: 'none',
-      choice,
-    }
-  }
-}
-
-function checkPrettier(choice: FormatTools): () => Promise<CheckConfigResult> {
-  return async () => {
-    const config = await ensureConfig('prettier')
-    if (config) {
-      const shouldOverride = await shouldOverridePrompt('prettier')
-      return {
-        moduleName: 'prettier',
-        shouldOverride,
-        exitedFilePath: config.filepath,
-        choice,
-      }
-    }
-
-    return {
-      moduleName: 'prettier',
-      shouldOverride: 'none',
-      choice,
     }
   }
 }
@@ -88,17 +65,15 @@ function checkCommitlint(): () => Promise<CheckConfigResult> {
     if (config) {
       const shouldOverride = await shouldOverridePrompt('commitlint')
       return {
-        moduleName: 'commitlint',
+        moduleName: LintTools.COMMITLINT,
         shouldOverride,
         exitedFilePath: config.filepath,
-        choice: GitLintTools.COMMITLINT,
       }
     }
 
     return {
-      moduleName: 'commitlint',
+      moduleName: LintTools.COMMITLINT,
       shouldOverride: 'none',
-      choice: GitLintTools.COMMITLINT,
     }
   }
 }
@@ -109,17 +84,15 @@ function checkLintStaged(): () => Promise<CheckConfigResult> {
     if (config) {
       const shouldOverride = await shouldOverridePrompt('lint-staged')
       return {
-        moduleName: 'lint-staged',
+        moduleName: LintTools.LINT_STAGED,
         shouldOverride,
         exitedFilePath: config.filepath,
-        choice: GitLintTools.LINT_STAGED,
       }
     }
 
     return {
-      moduleName: 'lint-staged',
+      moduleName: LintTools.LINT_STAGED,
       shouldOverride: 'none',
-      choice: GitLintTools.LINT_STAGED,
     }
   }
 }
@@ -129,36 +102,29 @@ function checkHusky() {
     const huskyDir = path.resolve(process.cwd(), '.husky')
     const exists = await fs.promises.access(huskyDir).then(() => true).catch(() => false)
     return {
-      moduleName: 'husky',
+      moduleName: LintTools.HUSKY,
       shouldOverride: exists ? await shouldOverridePrompt('husky') : 'none',
-      choice: GitLintTools.HUSKY,
     } as const
   }
 }
 
-const codeLintToolsPkgs = {
-  [CodeLintTools.ESLINT_DEFAULT]: [checkEslint(CodeLintTools.ESLINT_DEFAULT)],
-  [CodeLintTools.ESLINT_NO_EXTERNAL]: [checkEslint(CodeLintTools.ESLINT_NO_EXTERNAL)],
-  [CodeLintTools.ESLINT_NO_FORMATTER]: [checkEslint(CodeLintTools.ESLINT_NO_FORMATTER)],
-  [CodeLintTools.ESLINT_PRETTIER]: [checkEslint(CodeLintTools.ESLINT_PRETTIER), checkPrettier(FormatTools.PRETTIER)],
-}
-
-const gitLintToolsPkgs = {
-  [GitLintTools.COMMITLINT]: [checkCommitlint()],
-  [GitLintTools.LINT_STAGED]: [checkLintStaged()],
-  [GitLintTools.CZG]: [],
-  [GitLintTools.HUSKY]: [checkHusky()],
+const lintToolsConfigs = {
+  [LintTools.ESLINT]: [checkEslint()],
+  [LintTools.CZG]: [checkCommitlint()],
+  [LintTools.COMMITLINT]: [checkCommitlint()],
+  [LintTools.LINT_STAGED]: [checkLintStaged()],
+  [LintTools.HUSKY]: [checkHusky()],
 }
 
 export async function checkConfig(answers: Answers) {
-  const { codeLintTools, gitLintTools } = answers
-  const codeLintTool = codeLintToolsPkgs[codeLintTools]
-  const gitLintTool = gitLintTools.reduce((acc, tool) => {
-    acc = [...acc, ...(gitLintToolsPkgs[tool] ?? [])]
+  const { lintTools } = answers
+
+  const lintToolConfigs = lintTools.reduce((acc, tool) => {
+    acc = [...acc, ...(lintToolsConfigs[tool] ?? [])]
     return acc
   }, [] as (() => Promise<CheckConfigResult>)[])
 
-  const tools = [...codeLintTool, ...gitLintTool]
+  const tools = [...lintToolConfigs]
   const results: CheckConfigResult[] = []
   for (const tool of tools) {
     const result = await tool()
