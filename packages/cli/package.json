@@ -16,6 +16,9 @@
     "dev": "esno src/cli.ts",
     "build": "tsup"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@antfu/ni": "^0.23.0",
     "@shlroland/husky-config": "workspace:*",

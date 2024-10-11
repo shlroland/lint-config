@@ -5,8 +5,8 @@ import { LintTools } from '../constants'
 
 const lintToolsPkgs = {
   [LintTools.ESLINT]: ['eslint', '@shlroland/eslint-config'],
-  [LintTools.CZG]: ['czg', '@shlroland/commitlint-config'],
-  [LintTools.COMMITLINT]: ['commitlint', '@shlroland/commitlint-config'],
+  [LintTools.CZG]: ['czg', '@shlroland/cz'],
+  [LintTools.COMMITLINT]: ['commitlint', '@shlroland/cz'],
   [LintTools.LINT_STAGED]: ['lint-staged'],
   [LintTools.HUSKY]: ['husky'],
 }

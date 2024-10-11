@@ -30,7 +30,7 @@ const esmConfigs: Configs = {
         filePath: configFilePaths.commitlint,
         importContent: '',
         exportContent: `{
-        extends: ['@shlroland/commitlint-config']
+        extends: ['@shlroland/cz/config']
     }`,
       },
     ],
@@ -41,7 +41,7 @@ const esmConfigs: Configs = {
         filePath: configFilePaths.commitlint,
         importContent: '',
         exportContent: `{
-        extends: ['@shlroland/commitlint-config']
+        extends: ['@shlroland/cz/commitlint']
     }`,
       },
     ],

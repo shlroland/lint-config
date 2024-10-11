@@ -14,15 +14,6 @@ importers:
       '@commitlint/cli':
         specifier: ^19.5.0
         version: 19.5.0(@types/node@20.16.10)(typescript@5.6.2)
-      '@shlroland/commitlint-config':
-        specifier: workspace:^
-        version: link:packages/commitlint
-      '@shlroland/eslint-config':
-        specifier: workspace:^
-        version: link:packages/eslint
-      '@shlroland/lint-staged':
-        specifier: workspace:^
-        version: link:packages/lint-staged
       '@types/node':
         specifier: ^20.16.10
         version: 20.16.10
@@ -100,7 +91,7 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
 
-  packages/commitlint:
+  packages/cz:
     dependencies:
       '@commitlint/config-conventional':
         specifier: ^19.5.0

@@ -20,9 +20,6 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.8",
     "@commitlint/cli": "^19.5.0",
-    "@shlroland/commitlint-config": "workspace:^",
-    "@shlroland/eslint-config": "workspace:^",
-    "@shlroland/lint-staged": "workspace:^",
     "@types/node": "^20.16.10",
     "cz-git": "^1.7.0",
     "czg": "1.10.1",
