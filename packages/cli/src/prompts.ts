@@ -26,8 +26,10 @@ export async function configPrompt() {
       name: 'lintTools',
       message: 'Please select the lint tools to config:',
       choices: [
+        { name: 'eslint', value: LintTools.ESLINT, checked: true },
         { name: 'commitlint and czg', value: LintTools.COMMITLINT_CZG, checked: true },
         { name: 'lint-staged', value: LintTools.LINT_STAGED, checked: true },
+        { name: 'husky', value: LintTools.HUSKY, checked: true },
       ],
     },
   ])
