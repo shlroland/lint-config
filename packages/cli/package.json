@@ -1,7 +1,7 @@
 {
   "name": "@shlroland/lint-cli",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Setup Wizard for lint tools",
   "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
   "license": "MIT",
