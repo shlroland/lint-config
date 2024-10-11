@@ -1,6 +1,6 @@
 import type { UserConfig } from 'cz-git'
 
-const config: UserConfig = {
+export const commitlintConfig: UserConfig = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'subject-case': [0],
@@ -111,4 +111,4 @@ const config: UserConfig = {
   },
 }
 
-export default config
+export default commitlintConfig

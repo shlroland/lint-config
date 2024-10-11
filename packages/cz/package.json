@@ -1,5 +1,5 @@
 {
-  "name": "@shlroland/commitlint-config",
+  "name": "@shlroland/cz",
   "type": "module",
   "version": "2.0.0",
   "description": "",
@@ -10,6 +10,14 @@
     ".": {
       "import": "./lib/index.js",
       "require": "./lib/index.cjs"
+    },
+    "./czg": {
+      "import": "./lib/czg.js",
+      "require": "./lib/czg.cjs"
+    },
+    "./commitlint": {
+      "import": "./lib/commitlint.js",
+      "require": "./lib/commitlint.cjs"
     }
   },
   "main": "./lib/index.cjs",
