@@ -61,7 +61,7 @@ importers:
         version: link:../husky
       cosmiconfig:
         specifier: ^9.0.0
-        version: 9.0.0(typescript@5.6.2)
+        version: 9.0.0(typescript@5.6.3)
       picocolors:
         specifier: ^1.1.0
         version: 1.1.0
@@ -89,7 +89,7 @@ importers:
         version: 4.26.1
       typescript:
         specifier: ^5.6.2
-        version: 5.6.2
+        version: 5.6.3
 
   packages/cz-config:
     dependencies:
@@ -2629,11 +2629,6 @@ packages:
     resolution: {integrity: sha512-yOGpmOAL7CkKe/91I5O3gPICmJNLJ1G4zFYVAsRHg7M64biSnPtRj0WNQt++bRkjYOqjWXrhnUw1utzmVErAdg==}
     engines: {node: '>=16'}
 
-  typescript@5.6.2:
-    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
   typescript@5.6.3:
     resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
     engines: {node: '>=14.17'}
@@ -3753,15 +3748,6 @@ snapshots:
       cosmiconfig: 9.0.0(typescript@5.6.3)
       jiti: 1.21.6
       typescript: 5.6.3
-
-  cosmiconfig@9.0.0(typescript@5.6.2):
-    dependencies:
-      env-paths: 2.2.1
-      import-fresh: 3.3.0
-      js-yaml: 4.1.0
-      parse-json: 5.2.0
-    optionalDependencies:
-      typescript: 5.6.2
 
   cosmiconfig@9.0.0(typescript@5.6.3):
     dependencies:
@@ -5471,8 +5457,6 @@ snapshots:
   type-fest@1.4.0: {}
 
   type-fest@4.26.1: {}
-
-  typescript@5.6.2: {}
 
   typescript@5.6.3: {}
 
