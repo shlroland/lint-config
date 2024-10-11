@@ -1,5 +1,11 @@
 # @shlroland/commitlint-config
 
+## 2.0.1
+
+### Patch Changes
+
+- d6124f2: publish lint-cli and rename commitlint-config
+
 ## 2.0.0
 
 ### Major Changes
