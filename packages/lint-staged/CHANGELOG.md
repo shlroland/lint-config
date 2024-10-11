@@ -1,5 +1,11 @@
 # @shlroland/lint-staged
 
+## 3.1.1
+
+### Patch Changes
+
+- 5b590c9: Perfect package instructions
+
 ## 3.1.0
 
 ### Minor Changes
