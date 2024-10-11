@@ -1,7 +1,6 @@
 export enum LintTools {
   ESLINT = 'eslint',
-  COMMITLINT = 'commitlint',
-  CZG = 'czg',
+  COMMITLINT_CZG = 'commitlint-czg',
   LINT_STAGED = 'lint-staged',
   HUSKY = 'husky',
 }
@@ -12,5 +11,5 @@ export enum ShouldOverride {
 }
 
 export const defaultConfigAnswers = {
-  lintTools: [LintTools.ESLINT, LintTools.CZG, LintTools.LINT_STAGED, LintTools.HUSKY],
+  lintTools: [LintTools.ESLINT, LintTools.COMMITLINT_CZG, LintTools.LINT_STAGED, LintTools.HUSKY],
 }

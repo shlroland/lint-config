@@ -6,8 +6,7 @@ export interface Answers {
 
 export type ConfigChoice =
   | LintTools.ESLINT
-  | LintTools.CZG
-  | LintTools.COMMITLINT
+  | LintTools.COMMITLINT_CZG
   | LintTools.LINT_STAGED
   | LintTools.HUSKY
 
@@ -19,8 +18,7 @@ export interface CheckConfigResult {
 
 export interface ConfigOptions {
   filePath: string
-  importContent: string
-  exportContent: string
+  fileContent: string
 }
 
 export type Configs = Record<ConfigChoice, {

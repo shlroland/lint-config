@@ -65,14 +65,14 @@ function checkCommitlint(): () => Promise<CheckConfigResult> {
     if (config) {
       const shouldOverride = await shouldOverridePrompt('commitlint')
       return {
-        moduleName: LintTools.COMMITLINT,
+        moduleName: LintTools.COMMITLINT_CZG,
         shouldOverride,
         exitedFilePath: config.filepath,
       }
     }
 
     return {
-      moduleName: LintTools.COMMITLINT,
+      moduleName: LintTools.COMMITLINT_CZG,
       shouldOverride: 'none',
     }
   }
@@ -110,8 +110,7 @@ function checkHusky() {
 
 const lintToolsConfigs = {
   [LintTools.ESLINT]: [checkEslint()],
-  [LintTools.CZG]: [checkCommitlint()],
-  [LintTools.COMMITLINT]: [checkCommitlint()],
+  [LintTools.COMMITLINT_CZG]: [checkCommitlint()],
   [LintTools.LINT_STAGED]: [checkLintStaged()],
   [LintTools.HUSKY]: [checkHusky()],
 }

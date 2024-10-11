@@ -9,7 +9,7 @@ export default defineConfig(
     esbuildOptions: (options) => {
       options.charset = 'utf8'
     },
-    minify: true,
+    // minify: true,
     noExternal: ['@shlroland/husky-config'],
   }),
 )
