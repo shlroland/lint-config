@@ -5,6 +5,7 @@
   "description": "Setup Wizard for lint tools",
   "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
   "license": "MIT",
+  "repository": "https://github.com/shlroland/lint-config",
   "keywords": [
     "lint",
     "setup",

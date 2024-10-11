@@ -1,1 +1,1 @@
-see [README.md](../../README.md#lint-staged)
+see [README.md](https://github.com/shlroland/lint-config#lint-staged)

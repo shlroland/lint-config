@@ -1,1 +1,1 @@
-see [README.md](../../README.md#prettier)
+see [README.md](https://github.com/shlroland/lint-config#prettier)

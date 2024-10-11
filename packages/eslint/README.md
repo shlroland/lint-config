@@ -1,1 +1,1 @@
-see [README.md](../../README.md#eslint)
+see [README.md](https://github.com/shlroland/lint-config#eslint)

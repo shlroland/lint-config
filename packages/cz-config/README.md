@@ -1,1 +1,1 @@
-see [README.md](<../../README.md#cz(czg)_+_commitlint>)
+see [README.md](<https://github.com/shlroland/lint-config#cz(czg)_+_commitlint>)
