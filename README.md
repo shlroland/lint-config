@@ -5,132 +5,120 @@
 a collection of
 
 - eslint
-- prettier
-- stylelint
-- commitlint
-- commitizen
+- cz(czg) + commitlint
 - lint-staged
 - husky
+- prettier
 
 ## Usage
 
-### Automatic Setup
+### Wizard Setup
+
+execute the following command in your terminal, the lint tools will be installed and configured automatically.
 
 ```bash
-pnpm create @shlroland/lint-config-cli init
+pnpm dlx @shlroland/lint-cli
 ```
 
-> Certainly, you can also use `yarn` or `npm`
+### Manual Setup
 
 #### eslint
 
-install
+`@shlroland/eslint-config` is based on [`@antfu/eslint-config`][antfu-eslint-config] and extends some rules.
+
+##### install
 
 ```bash
-pnpm add -D eslint @shlroland/eslint-config
+pnpm add -D eslint @shlroland/eslint-config eslint-plugin-format
 ```
 
-or you can install subpackage
+##### config
 
-- `@shlroland/eslint-config-basic`
-- `@shlroland/eslint-config-ts`
-- `@shlroland/eslint-config-vue`
-- `@shlroland/eslint-config-react`
-- `@shlroland/eslint-config-prettier`
-
-config
-create `.eslintrc.js`
+create `eslint.config.js`
 
 ```js
-module.exports = { extends: ['@shlroland'] }
+// for "type": "module"
+import { shlroland } from '@shlroland/eslint-config'
+export default shlroland()
 ```
-
-#### prettier
-
-install
-
-```bash
-pnpm add -D prettier @shlroland/prettier-config
-```
-
-config
-create `prettier.config.js`
 
 ```js
-module.exports = require('@shlroland/prettier-config')
+// for "type": "commonjs"
+const { shlroland } = require('@shlroland/eslint-config')
+module.exports = shlroland()
 ```
 
-#### stylelint
+#### cz(czg) + commitlint
 
-install
+use [`czg`](https://cz-git.qbb.sh/) to generate commit messages. And use [`commitlint`](https://commitlint.js.org/) to lint commit messages.
+
+##### install
 
 ```bash
-pnpm add -D stylelint stylelint-config-prettier stylelint-config-standard stylelint-order @shlroland/stylelint-config
+pnpm add -D @commitlint/cli czg @shlroland/cz-config
 ```
 
-config
-create `stylelint.config.js`
+##### config
 
-```js
-module.exports = require('@shlroland/stylelint-config')
-```
-
-#### commitlint
-
-install
-
-```bash
-pnpm add -D @commitlint/cli @commitlint/config-conventional @shlroland/commitlint-config
-```
-
-config
 create `commitlint.config.js`
 
 ```js
-module.exports = require('@shlroland/commitlint-config')
-```
+// for "type": "module"
+import { config } from '@shlroland/cz-config/commitlint'
+export default config
 
-#### commitizen
-
-install
-
-```bash
-pnpm add -D commitizen cz-git @shlroland/commitizen-config
-```
-
-config
-create `.czrc`
-
-```json
-{
-  "path": "node_modules/cz-git",
-  "useEmoji": true
-}
+// for "type": "commonjs"
+module.exports = require('@shlroland/cz-config')
 ```
 
 #### lint-staged
 
-install
+##### install
 
 ```bash
 pnpm add -D lint-staged @shlroland/lint-staged
 ```
 
-config
+##### config
+
 create `lint-staged.config.js`
 
 ```js
-module.exports = require('@shlroland/lint-staged')()
+// for "type": "module"
+import config from '@shlroland/lint-staged'
+export default config
+
+// for "type": "commonjs"
+module.exports = require('@shlroland/lint-staged')
 ```
 
-> if you want use `stylelint` to lint stylesheets , please give a true param
+#### prettier(not recommended)
 
-#### git-hooks-pure
+> it is not recommended use `prettier` to format code, since following the philosophy of [`@antfu/eslint-config`][antfu-eslint-config].
 
-you visit [git-hook-pure](https://www.npmjs.com/package/git-hook-pure) to install
+##### install
+
+```bash
+pnpm add -D prettier @shlroland/prettier-config
+```
+
+##### config
+
+create `prettier.config.js`
+
+```js
+// for "type": "module"
+import config from '@shlroland/prettier-config'
+export default config
+
+// for "type": "commonjs"
+module.exports = require('@shlroland/prettier-config')
+```
 
 Inspired by
 
 - [@c4605/toolconfs](https://www.npmjs.com/package/@c4605/toolconfs)
 - [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 - [@fantasticit/code-lint](https://github.com/fantasticit/code-lint)
+
+[antfu-eslint-config]: https://github.com/antfu/eslint-config
