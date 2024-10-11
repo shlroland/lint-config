@@ -11,6 +11,7 @@ env:
   GIT_HOOK_PURE_SKIP_INSTALL: 1
   CI: true
   PNPM_CACHE_FOLDER: .pnpm-store
+  HUSKY: 0
 jobs:
   version:
     timeout-minutes: 15
@@ -44,3 +45,4 @@ jobs:
             ${{ secrets.GITHUB_TOKEN }}
             # npm publish token required for publishing. Set this in secrets
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          HUSKY: 0
