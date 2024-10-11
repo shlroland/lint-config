@@ -4,7 +4,7 @@ import c from 'picocolors'
 import { LintTools } from '../constants'
 
 const lintToolsPkgs = {
-  [LintTools.ESLINT]: ['eslint', '@shlroland/eslint-config'],
+  [LintTools.ESLINT]: ['eslint', '@shlroland/eslint-config', 'eslint-plugin-format'],
   [LintTools.COMMITLINT_CZG]: ['czg', '@shlroland/cz-config'],
   [LintTools.LINT_STAGED]: ['lint-staged'],
   [LintTools.HUSKY]: ['husky'],

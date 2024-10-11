@@ -51,7 +51,11 @@ export async function shouldConfigPrompt(): Promise<'accept-all' | 'accept-some'
   return shouldConfig
 }
 
-export async function shouldOverridePrompt(tool: string) {
+export async function shouldOverridePrompt(tool: string, forceConfig = false) {
+  if (forceConfig) {
+    return true
+  }
+
   const { shouldOverride } = await inquirer.prompt([
     {
       type: 'confirm',

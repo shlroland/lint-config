@@ -40,11 +40,11 @@ function isPackageModuleError(error: Error) {
   return commonjsError.some(msg => error.message.includes(msg)) || error.message.includes(esmError)
 }
 
-function checkEslint(): () => Promise<CheckConfigResult> {
-  return async () => {
+function checkEslint(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+  return async (forceConfig) => {
     const config = await ensureConfig('eslint')
     if (config) {
-      const shouldOverride = await shouldOverridePrompt('eslint')
+      const shouldOverride = await shouldOverridePrompt('eslint', forceConfig)
       return {
         shouldOverride,
         exitedFilePath: config.filepath,
@@ -59,11 +59,11 @@ function checkEslint(): () => Promise<CheckConfigResult> {
   }
 }
 
-function checkCommitlint(): () => Promise<CheckConfigResult> {
-  return async () => {
+function checkCommitlint(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+  return async (forceConfig) => {
     const config = await ensureConfig('commitlint')
     if (config) {
-      const shouldOverride = await shouldOverridePrompt('commitlint')
+      const shouldOverride = await shouldOverridePrompt('commitlint', forceConfig)
       return {
         moduleName: LintTools.COMMITLINT_CZG,
         shouldOverride,
@@ -78,11 +78,11 @@ function checkCommitlint(): () => Promise<CheckConfigResult> {
   }
 }
 
-function checkLintStaged(): () => Promise<CheckConfigResult> {
-  return async () => {
+function checkLintStaged(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+  return async (forceConfig) => {
     const config = await ensureConfig('lint-staged') || await ensureConfig('lintstaged')
     if (config) {
-      const shouldOverride = await shouldOverridePrompt('lint-staged')
+      const shouldOverride = await shouldOverridePrompt('lint-staged', forceConfig)
       return {
         moduleName: LintTools.LINT_STAGED,
         shouldOverride,
@@ -97,13 +97,13 @@ function checkLintStaged(): () => Promise<CheckConfigResult> {
   }
 }
 
-function checkHusky() {
-  return async () => {
+function checkHusky(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+  return async (forceConfig) => {
     const huskyDir = path.resolve(process.cwd(), '.husky')
     const exists = await fs.promises.access(huskyDir).then(() => true).catch(() => false)
     return {
       moduleName: LintTools.HUSKY,
-      shouldOverride: exists ? await shouldOverridePrompt('husky') : 'none',
+      shouldOverride: exists ? await shouldOverridePrompt('husky', forceConfig) : 'none',
     } as const
   }
 }
@@ -115,18 +115,18 @@ const lintToolsConfigs = {
   [LintTools.HUSKY]: [checkHusky()],
 }
 
-export async function checkConfig(answers: Answers) {
+export async function checkConfig(answers: Answers, forceConfig = false) {
   const { lintTools } = answers
 
   const lintToolConfigs = lintTools.reduce((acc, tool) => {
     acc = [...acc, ...(lintToolsConfigs[tool] ?? [])]
     return acc
-  }, [] as (() => Promise<CheckConfigResult>)[])
+  }, [] as ((forceConfig: boolean) => Promise<CheckConfigResult>)[])
 
   const tools = [...lintToolConfigs]
   const results: CheckConfigResult[] = []
   for (const tool of tools) {
-    const result = await tool()
+    const result = await tool(forceConfig)
     if (result.shouldOverride !== false) {
       results.push({ ...result })
     }

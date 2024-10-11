@@ -18,6 +18,10 @@ yargs(hideBin(process.argv))
         alias: 'I',
         type: 'boolean',
         description: 'Interactive selection of packages to install',
+      }).option('force-config', {
+        alias: 'f',
+        type: 'boolean',
+        description: 'Force to write config if config is already existed',
       })
     },
     async (argv) => {
