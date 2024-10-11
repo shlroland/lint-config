@@ -74,15 +74,11 @@ export function configsFactory(moduleType: 'module' | 'commonjs' | undefined): C
       options: [
         {
           filePath: huskyConfigFilePaths.preCommit,
-          fileContent: moduleType === 'module'
-            ? esmConfigFactory(huskyConfig.hooks['pre-commit'], '')
-            : cjsConfigFactory(huskyConfig.hooks['pre-commit'], ''),
+          fileContent: huskyConfig.hooks['pre-commit'],
         },
         {
           filePath: huskyConfigFilePaths.commitMsg,
-          fileContent: moduleType === 'module'
-            ? esmConfigFactory(huskyConfig.hooks['commit-msg'], '')
-            : cjsConfigFactory(huskyConfig.hooks['commit-msg'], ''),
+          fileContent: huskyConfig.hooks['commit-msg'],
         },
       ],
     },

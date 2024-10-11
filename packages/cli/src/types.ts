@@ -21,7 +21,9 @@ export interface ConfigOptions {
   fileContent: string
 }
 
-export type Configs = Record<ConfigChoice, {
+export interface ConfigValue {
   preInit?: () => Promise<void | 'skip'>
   options: ConfigOptions[]
-}>
+}
+
+export type Configs = Record<ConfigChoice, ConfigValue>

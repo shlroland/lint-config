@@ -1,6 +1,7 @@
-import type { CheckConfigResult } from '../../types'
+import type { CheckConfigResult, ConfigValue } from '../../types'
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import c from 'picocolors'
 import { LintTools } from '../../constants'
 import { deleteFile, getModuleType } from '../../utils'
 import {
@@ -12,19 +13,24 @@ import {
 export async function writeConfig(configs: CheckConfigResult[]) {
   const cwd = process.cwd()
   const moduleType = await getModuleType(cwd)
+  const pendingConfigs = configsFactory(moduleType)
 
   for (const config of configs) {
     if (config.shouldOverride === true && config.exitedFilePath) {
       await deleteFile(config.exitedFilePath)
     }
+    else if (config.shouldOverride === false) {
+      console.log(`The ${c.cyan(config.moduleName)} config will not be written. You should check the config file manually.`)
+      continue
+    }
 
-    await writeConfigFile(cwd, config, moduleType)
+    const pendingConfig = pendingConfigs[config.moduleName]
+
+    await writeConfigFile(cwd, pendingConfig)
   }
 }
 
-async function writeConfigFile(cwd: string, config: CheckConfigResult, moduleType: 'module' | 'commonjs' | undefined) {
-  const configs = configsFactory(moduleType)
-  const pendingConfig = configs[config.moduleName]
+async function writeConfigFile(cwd: string, pendingConfig: ConfigValue) {
   if (pendingConfig.preInit) {
     const result = await pendingConfig.preInit()
     if (result === 'skip') {
