@@ -1,5 +1,11 @@
 # @shlroland/lint-cli
 
+## 0.4.0
+
+### Minor Changes
+
+- 457e0ff: fix `@commitlint/cli` missing
+
 ## 0.3.1
 
 ### Patch Changes
