@@ -20,6 +20,15 @@ execute the following command in your terminal, the lint tools will be installed
 pnpm dlx @shlroland/lint-cli
 ```
 
+#### parameters
+
+- `None` : no parameters means default lint tools will be installed and configured automatically.
+- `install` : only install lint tools.
+  - `-I`: install lint tools interactively.
+- `config` : only config lint tools.
+  - `-I`: config lint tools interactively.
+  - `-f`: skip all prompts and override the existing configuration.
+
 ### Manual Setup
 
 #### eslint
@@ -91,6 +100,13 @@ export default config
 // for "type": "commonjs"
 module.exports = require('@shlroland/lint-staged')
 ```
+
+### husky
+
+#### config
+
+follow the [husky](https://typicode.github.io/husky/) official documentation to config.
+And copy the husky config from [`@shlroland/husky-config`](./packages/husky/index.ts) to your project.
 
 #### prettier(not recommended)
 
