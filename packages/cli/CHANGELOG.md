@@ -1,5 +1,16 @@
 # @shlroland/lint-cli
 
+## 0.3.0
+
+### Minor Changes
+
+- 3e15f19: add and modify README.md
+
+### Patch Changes
+
+- Updated dependencies [3e15f19]
+  - @shlroland/husky-config@2.1.0
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@shlroland/lint-staged",
   "type": "module",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "lint-staged config for @shlroland/lint-config",
   "author": "shlroland <shlroland1995@gmail.com> (https://github.com/shlroland/)",
   "license": "MIT",
