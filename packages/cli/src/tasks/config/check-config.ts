@@ -4,8 +4,10 @@ import path from 'node:path'
 import process from 'node:process'
 import { cosmiconfig } from 'cosmiconfig'
 import c from 'picocolors'
+import { x } from 'tinyexec'
 import { LintTools } from '../../constants'
-import { shouldOverridePrompt } from '../../prompts'
+import { huskyNotConfiguredPrompt, shouldInitGitPrompt, shouldOverridePrompt } from '../../prompts'
+import { isGitRepository } from '../../utils'
 
 async function ensureConfig(moduleName: string) {
   try {
@@ -40,7 +42,7 @@ function isPackageModuleError(error: Error) {
   return commonjsError.some(msg => error.message.includes(msg)) || error.message.includes(esmError)
 }
 
-function checkEslint(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+function checkEslint(): (forceConfig: boolean) => Promise<CheckConfigResult | null> {
   return async (forceConfig) => {
     const config = await ensureConfig('eslint')
     if (config) {
@@ -59,7 +61,7 @@ function checkEslint(): (forceConfig: boolean) => Promise<CheckConfigResult> {
   }
 }
 
-function checkCommitlint(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+function checkCommitlint(): (forceConfig: boolean) => Promise<CheckConfigResult | null> {
   return async (forceConfig) => {
     const config = await ensureConfig('commitlint')
     if (config) {
@@ -78,7 +80,7 @@ function checkCommitlint(): (forceConfig: boolean) => Promise<CheckConfigResult>
   }
 }
 
-function checkLintStaged(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+function checkLintStaged(): (forceConfig: boolean) => Promise<CheckConfigResult | null> {
   return async (forceConfig) => {
     const config = await ensureConfig('lint-staged') || await ensureConfig('lintstaged')
     if (config) {
@@ -97,8 +99,19 @@ function checkLintStaged(): (forceConfig: boolean) => Promise<CheckConfigResult>
   }
 }
 
-function checkHusky(): (forceConfig: boolean) => Promise<CheckConfigResult> {
+function checkHusky(): (forceConfig: boolean) => Promise<CheckConfigResult | null> {
   return async (forceConfig) => {
+    const isGit = isGitRepository(process.cwd())
+    if (!isGit) {
+      const shouldInitGit = await shouldInitGitPrompt()
+      if (!shouldInitGit) {
+        await huskyNotConfiguredPrompt()
+        return null
+      }
+      else {
+        await x('git', ['init'])
+      }
+    }
     const huskyDir = path.resolve(process.cwd(), '.husky')
     const exists = await fs.promises.access(huskyDir).then(() => true).catch(() => false)
     return {
@@ -121,14 +134,14 @@ export async function checkConfig(answers: Answers, forceConfig = false) {
   const lintToolConfigs = lintTools.reduce((acc, tool) => {
     acc = [...acc, ...(lintToolsConfigs[tool] ?? [])]
     return acc
-  }, [] as ((forceConfig: boolean) => Promise<CheckConfigResult>)[])
+  }, [] as ((forceConfig: boolean) => Promise<CheckConfigResult | null>)[])
 
   const tools = [...lintToolConfigs]
   const results: CheckConfigResult[] = []
   for (const tool of tools) {
     const result = await tool(forceConfig)
-    if (result.shouldOverride !== false) {
-      results.push({ ...result })
+    if (result) {
+      results.push(result)
     }
   }
   return results

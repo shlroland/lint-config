@@ -1,6 +1,4 @@
-import type { Answers } from '../types'
 import { parseNi, run } from '@antfu/ni'
-import c from 'picocolors'
 import { LintTools } from '../constants'
 
 const lintToolsPkgs = {
@@ -17,16 +15,15 @@ export const defaultInstallPkgs = [
   ...lintToolsPkgs[LintTools.HUSKY],
 ]
 
-export async function install(answers: Answers) {
-  const { lintTools } = answers
+export async function getPendingPkgs(lintTools: LintTools[]) {
   const _pendingPkgs = lintTools.reduce((acc, tool) => {
     acc = [...acc, ...lintToolsPkgs[tool]]
     return acc
   }, [] as string[])
 
-  const pendingPkgs = [...new Set(_pendingPkgs)]
+  return [...new Set(_pendingPkgs)]
+}
 
-  console.log(`${c.yellowBright('🛠️  will install packages')}:\n${c.cyanBright(pendingPkgs.join('\n'))}\n`)
-
-  await run(parseNi, ['-D', ...pendingPkgs])
+export async function install(pendingPkgs: string[]) {
+  await run(parseNi, ['-D', ...pendingPkgs], { programmatic: true })
 }

@@ -1,8 +1,8 @@
 import type { CheckConfigResult, ConfigValue } from '../../types'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import c from 'picocolors'
 import { LintTools } from '../../constants'
+import { notOverrideWarningPrompt } from '../../prompts'
 import { deleteFile, getModuleType } from '../../utils'
 import {
   configFilePaths,
@@ -20,7 +20,7 @@ export async function writeConfig(configs: CheckConfigResult[]) {
       await deleteFile(config.exitedFilePath)
     }
     else if (config.shouldOverride === false) {
-      console.log(`The ${c.cyan(config.moduleName)} config will not be written. You should check the config file manually.`)
+      await notOverrideWarningPrompt(config.moduleName)
       continue
     }
 
@@ -65,5 +65,5 @@ export function getConfigFilesWillWriteList(configResult: CheckConfigResult[]) {
         continue
     }
   }
-  return Array.from(configFiles).join('\n')
+  return Array.from(configFiles)
 }

@@ -21,9 +21,9 @@
   },
   "dependencies": {
     "@antfu/ni": "^0.23.0",
+    "@clack/prompts": "^0.7.0",
     "@shlroland/husky-config": "workspace:*",
     "cosmiconfig": "^9.0.0",
-    "inquirer": "^11.0.2",
     "picocolors": "^1.1.0",
     "restore-cursor": "^5.1.0",
     "tinyexec": "^0.3.0",

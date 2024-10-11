@@ -1,10 +1,7 @@
 import type { Configs } from '../../types'
 import { parseNlx, run } from '@antfu/ni'
 import huskyConfig from '@shlroland/husky-config'
-import { x } from 'tinyexec'
 import { LintTools } from '../../constants'
-import { shouldInitGitPrompt } from '../../prompts'
-import { isGitRepository } from '../../utils'
 import { cjsConfigFactory, esmConfigFactory } from './helpers'
 
 export const configFilePaths = {
@@ -20,16 +17,6 @@ export const huskyConfigFilePaths = {
 }
 
 export async function executeHuskyInit() {
-  const isGit = isGitRepository(process.cwd())
-  if (!isGit) {
-    const shouldInitGit = await shouldInitGitPrompt()
-    if (shouldInitGit) {
-      await x('git', ['init'])
-    }
-    else {
-      return
-    }
-  }
   await run(parseNlx, ['husky', 'init'])
 }
 
@@ -45,7 +32,7 @@ export function configsFactory(moduleType: 'module' | 'commonjs' | undefined): C
           filePath: configFilePaths.eslint,
           fileContent: moduleType === 'module'
             ? esmConfigFactory('shlroland()', 'import { shlroland } from "@shlroland/eslint-config"')
-            : cjsConfigFactory('shlroland()', 'const shlroland = require("@shlroland/eslint-config")'),
+            : cjsConfigFactory('shlroland()', 'const { shlroland } = require("@shlroland/eslint-config")'),
         },
       ],
     },

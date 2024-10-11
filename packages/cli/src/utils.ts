@@ -17,3 +17,7 @@ export function isGitRepository(directory: string): boolean {
   const gitDir = path.join(directory, '.git')
   return fs.existsSync(gitDir) && fs.lstatSync(gitDir).isDirectory()
 }
+
+export function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}

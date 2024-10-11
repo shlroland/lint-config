@@ -1,56 +1,151 @@
 import type { Answers } from './types'
-import inquirer from 'inquirer'
-import { LintTools } from './constants'
+import * as p from '@clack/prompts'
+import c from 'picocolors'
+import { defaultConfigAnswers, LintTools } from './constants'
+import { checkConfig, getConfigFilesWillWriteList, writeConfig } from './tasks/config'
+import { getPendingPkgs, install } from './tasks/installer'
+import { sleep } from './utils'
 
-export async function installPrompt(): Promise<Answers> {
-  return await inquirer
-    .prompt([
-      {
-        type: 'checkbox',
-        name: 'lintTools',
-        message: 'Please select lint tools to install:',
-        choices: [
-          { name: 'eslint', value: LintTools.ESLINT, checked: true },
-          { name: 'commitlint and czg', value: LintTools.COMMITLINT_CZG, checked: true },
-          { name: 'lint-staged', value: LintTools.LINT_STAGED, checked: true },
-          { name: 'husky', value: LintTools.HUSKY, checked: true },
-        ],
-      },
-    ])
+function onCancel() {
+  p.cancel('Operation cancelled.')
+  process.exit(0)
 }
 
-export async function configPrompt() {
-  return await inquirer.prompt([
-    {
-      type: 'checkbox',
-      name: 'lintTools',
-      message: 'Please select the lint tools to config:',
-      choices: [
-        { name: 'eslint', value: LintTools.ESLINT, checked: true },
-        { name: 'commitlint and czg', value: LintTools.COMMITLINT_CZG, checked: true },
-        { name: 'lint-staged', value: LintTools.LINT_STAGED, checked: true },
-        { name: 'husky', value: LintTools.HUSKY, checked: true },
-      ],
-    },
-  ])
+export async function commandInstallPrompt(interactive = false): Promise<void> {
+  console.clear()
+
+  await sleep(1000)
+
+  p.intro(c.bgGreen(c.greenBright(`🧺 This command will install lint tools only but not config them.`)))
+
+  await sleep(1000)
+
+  p.log.step(c.cyan(('⏳ Installing packages...')))
+
+  await installPrompt(interactive)
+
+  p.outro(c.green(('🎉 Install lint tools successfully.')))
 }
 
-export async function shouldConfigPrompt(): Promise<'accept-all' | 'accept-some' | 'reject-all'> {
-  const { shouldConfig } = await inquirer.prompt([
-    {
-      type: 'select',
-      name: 'shouldConfig',
-      message: 'Do you want to config lint tools?',
-      choices: [
-        { name: 'Accept all', value: 'accept-all', description: 'Configure based on the installed tools.' },
-        { name: 'Accept some', value: 'accept-some', description: 'Select which tools to configure.' },
-        { name: 'Reject all', value: 'reject-all', description: 'Do not configure any tools.' },
-      ],
-      default: 'accept-all',
-    },
-  ])
+async function installPrompt(interactive = false) {
+  const answers = interactive ? await installOptionsPrompt() : defaultConfigAnswers
 
-  return shouldConfig
+  const pendingPkgs = await getPendingPkgs(answers.lintTools)
+
+  p.note(`${c.yellowBright('🛠️  will install packages')}:\n${pendingPkgs.map(pkg => c.cyanBright(pkg)).join('\n')}\n`)
+
+  await install(pendingPkgs)
+
+  return answers
+}
+
+export async function installOptionsPrompt(): Promise<Answers> {
+  const lintTools = await p.multiselect({
+    message: 'Please select lint tools to install:',
+    options: [
+      { value: LintTools.ESLINT, label: 'eslint' },
+      { value: LintTools.COMMITLINT_CZG, label: 'commitlint and czg' },
+      { value: LintTools.LINT_STAGED, label: 'lint-staged' },
+      { value: LintTools.HUSKY, label: 'husky' },
+    ],
+    initialValues: defaultConfigAnswers.lintTools,
+
+  }) as LintTools[]
+
+  if (p.isCancel(lintTools)) {
+    onCancel()
+  }
+
+  return { lintTools }
+}
+
+export async function commandConfigPrompt(interactive = false, forceConfig = false): Promise<void> {
+  console.clear()
+
+  await sleep(1000)
+
+  p.intro(c.bgBlack(c.bgBlackBright(`🧰 This command will config lint tools only but not install them.`)))
+
+  await sleep(1000)
+
+  await configPrompt({ interactive, forceConfig })
+
+  p.outro(c.green('🎉 Config lint tools successfully.'))
+}
+
+async function configPrompt({
+  interactive = false,
+  forceConfig = false,
+  defaultAnswers = defaultConfigAnswers,
+}:
+{
+  interactive?: boolean
+  forceConfig?: boolean
+  defaultAnswers?: Answers
+}) {
+  const answers = interactive ? await configOptionsPrompt() : defaultAnswers
+
+  const configResult = await checkConfig(answers, forceConfig)
+
+  p.note(`${c.yellowBright('🔧 will config default lint tool')}:\n${(getConfigFilesWillWriteList(configResult)
+    .map(file => c.cyanBright(file))
+    .join('\n'))}\n`)
+
+  const spinner = p.spinner()
+
+  spinner.start('⏳ Configuring lint tools...')
+
+  await writeConfig(configResult)
+
+  await sleep(1000)
+
+  spinner.stop('✅ Done!')
+}
+
+export async function configOptionsPrompt(): Promise<Answers> {
+  const lintTools = await p.multiselect({
+    message: 'Please select the lint tools to config:',
+    options: [
+      { value: LintTools.ESLINT, label: 'eslint' },
+      { value: LintTools.COMMITLINT_CZG, label: 'commitlint and czg' },
+      { value: LintTools.LINT_STAGED, label: 'lint-staged' },
+      { value: LintTools.HUSKY, label: 'husky' },
+    ],
+    initialValues: defaultConfigAnswers.lintTools,
+  }) as LintTools[]
+
+  if (p.isCancel(lintTools)) {
+    console.log(lintTools)
+    onCancel()
+  }
+
+  return { lintTools }
+}
+
+export async function commandInitPrompt(interactive = false, forceConfig = false) {
+  await sleep(500)
+
+  p.intro(c.bgMagenta(c.magentaBright(`🚀 This command will install lint tools and config them.`)))
+
+  await sleep(500)
+
+  p.log.step(c.cyan('📦  Install lint tools step'))
+
+  const answers = await installPrompt(interactive)
+
+  p.log.step(c.green('😋 Install lint tools successfully.'))
+
+  await sleep(500)
+
+  p.log.step(c.cyan('🛠️  Config lint tools step'))
+
+  await configPrompt({ interactive, forceConfig, defaultAnswers: answers })
+
+  p.log.step(c.green('🥳 Config lint tools successfully.'))
+
+  await sleep(500)
+
+  p.outro(c.magentaBright('🎉 Setup lint tools successfully.'))
 }
 
 export async function shouldOverridePrompt(tool: string, forceConfig = false) {
@@ -58,29 +153,31 @@ export async function shouldOverridePrompt(tool: string, forceConfig = false) {
     return true
   }
 
-  const { shouldOverride } = await inquirer.prompt([
-    {
-      type: 'confirm',
-      name: 'shouldOverride',
-      message: `${tool} configuration already exists, do you want to override it?`,
-      default: true,
-    },
-  ])
+  const shouldOverride = await p.confirm({
+    message: `${highlightPkg(tool)} configuration already exists, do you want to override it?`,
+    initialValue: true,
+  })
 
   return !!shouldOverride
 }
 
-export async function shouldInitGitPrompt() {
-  const { shouldInitGit } = await inquirer.prompt<{ shouldInitGit: boolean }>(
-    [
-      {
-        type: 'confirm',
-        name: 'shouldInitGit',
-        message: 'Current directory is not a git repository, do you want to initialize it?',
-        default: true,
-      },
-    ],
+export async function notOverrideWarningPrompt(tool: string) {
+  p.log.warn(
+    `The ${highlightPkg(tool)} config will not be written. You should check the config file manually.`,
   )
+}
 
-  return shouldInitGit
+export async function shouldInitGitPrompt() {
+  return p.confirm({
+    message: `Current directory is not a ${highlightPkg('git')} repository, do you want to initialize it?`,
+    initialValue: true,
+  })
+}
+
+export async function huskyNotConfiguredPrompt() {
+  p.log.warn(`${highlightPkg('husky')} will not be configured.`)
+}
+
+export function highlightPkg(pkg: string) {
+  return c.red(pkg)
 }
