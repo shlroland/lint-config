@@ -1,5 +1,11 @@
 # @shlroland/commitlint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- 3e15f19: add and modify README.md
+
 ## 2.0.1
 
 ### Patch Changes
