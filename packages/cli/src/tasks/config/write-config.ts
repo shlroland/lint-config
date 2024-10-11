@@ -30,7 +30,7 @@ const esmConfigs: Configs = {
         filePath: configFilePaths.commitlint,
         importContent: '',
         exportContent: `{
-        extends: ['@shlroland/cz/config']
+        extends: ['@shlroland/cz-config/czg']
     }`,
       },
     ],
@@ -41,7 +41,7 @@ const esmConfigs: Configs = {
         filePath: configFilePaths.commitlint,
         importContent: '',
         exportContent: `{
-        extends: ['@shlroland/cz/commitlint']
+        extends: ['@shlroland/cz-config/commitlint']
     }`,
       },
     ],
@@ -88,7 +88,7 @@ const cjsConfigs: Configs = {
         filePath: configFilePaths.commitlint,
         importContent: '',
         exportContent: `{
-        extends: ['@shlroland/commitlint-config']
+        extends: ['@shlroland/cz-config/czg']
     }`,
       },
     ],
@@ -99,7 +99,7 @@ const cjsConfigs: Configs = {
         filePath: configFilePaths.commitlint,
         importContent: '',
         exportContent: `{
-        extends: ['@shlroland/commitlint-config']
+        extends: ['@shlroland/cz-config/commitlint']
     }`,
       },
     ],
