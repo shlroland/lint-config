@@ -1,51 +1,21 @@
-/* eslint-disable ts/no-unused-expressions */
+import process from 'node:process'
 import restoreCursor from 'restore-cursor'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { version } from '../package.json'
 import { commandConfigPrompt, commandInitPrompt, commandInstallPrompt } from './prompts'
+/* eslint-disable ts/no-unused-expressions */
 
 yargs(hideBin(process.argv))
   .scriptName('shlroland-lint')
-  .command('install', 'install lint tools', (yargs) => {
-    return yargs.option('interactive', {
-      alias: 'I',
-      type: 'boolean',
-      description: 'Interactive selection of packages to install',
-    })
-  }, async (argv) => {
-    await commandInstallPrompt(argv.interactive)
-  })
-  .command('config', 'config lint tool', (yargs) => {
-    return yargs.option('interactive', {
-      alias: 'I',
-      type: 'boolean',
-      description: 'Interactive selection of config to write',
-    }).option('force-config', {
-      alias: 'f',
-      type: 'boolean',
-      description: 'Force to write config if config is already existed',
-    })
-  }, async (argv) => {
-    await commandConfigPrompt(argv.interactive, argv.forceConfig)
-  })
-
+  .command('install', 'install lint tools', yargs => yargs, () => commandInstallPrompt())
+  .command('config', 'config lint tool', yargs => yargs, () => commandConfigPrompt())
   .command(
     ['$0', '$0 init'],
     'cli tool to setup lint tool',
-    (yargs) => {
-      return yargs.option('interactive', {
-        alias: 'I',
-        type: 'boolean',
-        description: 'Interactive selection of packages to install',
-      }).option('force-config', {
-        alias: 'f',
-        type: 'boolean',
-        description: 'Force to write config if config is already existed',
-      })
-    },
-    async (argv) => {
-      await commandInitPrompt(argv.interactive, argv.forceConfig)
+    yargs => yargs,
+    async () => {
+      await commandInitPrompt()
     },
   )
   .alias('v', 'version')

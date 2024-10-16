@@ -8,7 +8,8 @@
   "repository": "https://github.com/shlroland/lint-config",
   "keywords": [],
   "exports": {
-    ".": "./lib/index.js"
+    "import": "./lib/index.js",
+    "require": "./lib/index.cjs"
   },
   "main": "./lib/index.cjs",
   "types": "./lib/index.d.ts",

@@ -3,7 +3,7 @@ import { config } from '../../tsup.config'
 
 export default defineConfig(
   config({
-    entry: ['src/cli.ts'],
+    entry: ['src/main.ts'],
     format: ['esm'],
     outDir: 'dist',
     esbuildOptions: (options) => {
