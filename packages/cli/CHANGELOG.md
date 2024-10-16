@@ -1,5 +1,11 @@
 # @shlroland/lint-cli
 
+## 0.5.0
+
+### Minor Changes
+
+- 4d25537: Reorganize the entire structure of the code to improve its organization
+
 ## 0.4.0
 
 ### Minor Changes
