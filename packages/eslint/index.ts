@@ -21,11 +21,6 @@ function shlroland(
       ...{
         formatters: true,
       },
-      ...{
-        rules: {
-          'node/prefer-global/process': 'off',
-        },
-      },
       ...options,
     },
     ...userConfigs,
