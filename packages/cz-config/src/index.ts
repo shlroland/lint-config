@@ -1,2 +1,2 @@
-export * from './commitlint'
+export * from './conventional'
 export * from './czg'
