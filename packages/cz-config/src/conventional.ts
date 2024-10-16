@@ -2,12 +2,8 @@ import type { UserConfig } from 'cz-git'
 
 export const commitlintConfig: UserConfig = {
   extends: ['@commitlint/config-conventional'],
-  rules: {
-    'subject-case': [0],
-    'scope-case': [0],
-  },
   prompt: {
-    alias: { fd: 'docs: fix typos' },
+    alias: { fd: 'docs: fix typos', uv: 'chore: update versions' },
     messages: {
       type: 'Select the type of change that you\'re committing:',
       scope: 'Denote the SCOPE of this change (optional):',

@@ -16,9 +16,9 @@
       "import": "./lib/czg.js",
       "require": "./lib/czg.cjs"
     },
-    "./commitlint": {
-      "import": "./lib/commitlint.js",
-      "require": "./lib/commitlint.cjs"
+    "./conventional": {
+      "import": "./lib/conventional.js",
+      "require": "./lib/conventional.cjs"
     }
   },
   "main": "./lib/index.cjs",
@@ -32,8 +32,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "@commitlint/config-conventional": ">= 19"
+  },
   "dependencies": {
-    "@commitlint/config-conventional": "^19.5.0"
+    "commitlint-config-gitmoji": "^2.3.1"
   },
   "devDependencies": {
     "cz-git": "^1.7.0",
