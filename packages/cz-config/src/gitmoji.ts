@@ -8,7 +8,7 @@ export const commitlintConfig: UserConfig = {
     'type-enum': [0],
   },
   prompt: {
-    alias: { fd: 'docs: fix typos', uv: 'chore: update versions' },
+    alias: { fd: '✏️: fix typos', uv: '🔖: update versions' },
     messages: {
       type: 'Select an emoji that represents a type of change that you\'re committing:',
       scope: 'Denote the SCOPE of this change (optional):',
@@ -58,11 +58,6 @@ export const commitlintConfig: UserConfig = {
         emoji: ':ambulance:',
       },
       {
-        value: 'initial begin',
-        name: '🎉: Begin a project',
-        emoji: ':tada:',
-      },
-      {
         value: 'style formatting whitespace',
         name: '💄: Improve formatting, white-space',
         emoji: ':lipstick:',
@@ -74,13 +69,23 @@ export const commitlintConfig: UserConfig = {
       },
       {
         value: 'remove',
-        name: '🔥: Remove code or files.',
+        name: '🔥: Remove code or files',
         emoji: ':fire:',
+      },
+      {
+        value: 'move rename',
+        name: '🚚: Move or rename resources (e.g.: files, paths, routes)',
+        emoji: ':truck:',
       },
       {
         value: 'perf Improve',
         name: '⚡️: Improve performance',
         emoji: ':zap:',
+      },
+      {
+        value: 'initial begin',
+        name: '🎉: Begin a project',
+        emoji: ':tada:',
       },
       {
         value: 'deploy',
@@ -109,19 +114,158 @@ export const commitlintConfig: UserConfig = {
       },
       {
         value: 'lint compiler warning',
-        name: '🚨: Fix compiler / linter warnings.',
+        name: '🚨: Fix compiler / linter warnings',
         emoji: ':rotating_light:',
       },
       {
         value: 'ci',
         name: '💚: Fix CI Build',
       },
-      // {
-      //   value: 'build',
-      //   name: '👷: Add or update build scripts',
-      //   emoji: ':construction:',
-      // },
-
+      {
+        value: 'upgrade dependencies',
+        name: '⬆️: Upgrade dependencies',
+        emoji: ':arrow_up:',
+      },
+      {
+        value: 'downgrade dependencies',
+        name: '⬇️: Downgrade dependencies',
+        emoji: ':arrow_down:',
+      },
+      {
+        value: 'pin dependencies',
+        name: '📌: Pin dependencies to specific versions',
+        emoji: ':pushpin:',
+      },
+      {
+        value: 'add dependencies',
+        name: '➕: Add dependencies',
+        emoji: ':heavy_plus_sign:',
+      },
+      {
+        value: 'remove dependencies',
+        name: '➖: Remove dependencies',
+        emoji: ':heavy_minus_sign:',
+      },
+      {
+        value: 'ci',
+        name: '👷: Add or update CI build system',
+        emoji: ':construction:',
+      },
+      {
+        value: 'config',
+        name: '🔧: Add or update configuration files',
+        emoji: ':wrench:',
+      },
+      {
+        value: 'dev scripts',
+        name: '🔨: Add or update development scripts',
+        emoji: ':hammer:',
+      },
+      {
+        value: 'i18n',
+        name: '🌐: Internationalization and localization',
+        emoji: ':globe_with_meridians:',
+      },
+      {
+        value: 'typo',
+        name: '✏️: Fix typos',
+        emoji: ':pencil2:',
+      },
+      {
+        value: 'bad wip',
+        name: '💩: Write bad code that needs to be improved',
+        emoji: ':poop:',
+      },
+      {
+        value: 'rewind',
+        name: '⏪️: Rewind changes',
+        emoji: ':rewind:',
+      },
+      {
+        value: 'merge',
+        name: '🔀: Merge branches',
+        emoji: ':twisted_rightwards_arrows:',
+      },
+      {
+        value: 'package',
+        name: '📦️: Add or update compiled files or packages',
+        emoji: ':package:',
+      },
+      {
+        value: 'external code',
+        name: '👽️: Update code due to external API changes.',
+        emoji: ':alien:',
+      },
+      {
+        value: 'license',
+        name: '📄: Add or update license',
+        emoji: ':page_facing_up:',
+      },
+      {
+        value: 'breaking',
+        name: '💥: Introduce breaking changes',
+        emoji: ':boom:',
+      },
+      {
+        value: 'assets',
+        name: '🍱: Add or update assets',
+        emoji: ':bento:',
+      },
+      {
+        value: 'accessibility a11y',
+        name: '♿️: Improve accessibility',
+        emoji: ':wheelchair:',
+      },
+      {
+        value: 'comment',
+        name: '💡: Add or update comments in source code',
+        emoji: ':bulb:',
+      },
+      {
+        value: 'drunken',
+        name: '🍻: Write code drunkenly',
+        emoji: ':beer:',
+      },
+      {
+        value: 'literal',
+        name: '💬: Add or update text and literals',
+        emoji: ':speech_balloon:',
+      },
+      {
+        value: 'database',
+        name: '🗃️: Perform database related changes',
+        emoji: ':card_file_box:',
+      },
+      {
+        value: 'log add update',
+        name: '🔊: Add or update logs',
+        emoji: ':loud_sound:',
+      },
+      {
+        value: 'log remove',
+        name: '🔇: Remove logs',
+        emoji: ':mute:',
+      },
+      {
+        value: 'responsive',
+        name: '📱: Work on responsive design',
+        emoji: ':iphone:',
+      },
+      {
+        value: 'mock',
+        name: '🤡: Mock things',
+        emoji: ':clown_face:',
+      },
+      {
+        value: 'egg',
+        name: '🥚: Add or update an easter egg',
+        emoji: ':egg:',
+      },
+      {
+        value: 'gitignore',
+        name: '🙈: Add or update a .gitignore file',
+        emoji: ':see_no_evil:',
+      },
     ],
     useEmoji: true,
     emojiAlign: 'left',
