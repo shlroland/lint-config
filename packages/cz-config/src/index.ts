@@ -1,2 +1,2 @@
 export * from './conventional'
-export * from './czg'
+export * from './gitmoji'

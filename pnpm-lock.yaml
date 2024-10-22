@@ -17,6 +17,9 @@ importers:
       '@types/node':
         specifier: ^20.16.11
         version: 20.16.11
+      commitlint-config-czg-gitmoji:
+        specifier: '*'
+        version: 0.0.2
       commitlint-config-gitmoji:
         specifier: ^2.3.1
         version: 2.3.1
@@ -95,17 +98,19 @@ importers:
         version: 5.6.3
 
   packages/cz-config:
-    dependencies:
+    devDependencies:
       '@commitlint/config-conventional':
         specifier: '>= 19'
         version: 19.5.0
-      commitlint-config-gitmoji:
-        specifier: ^2.3.1
-        version: 2.3.1
-    devDependencies:
+      commitlint-config-czg-gitmoji:
+        specifier: '*'
+        version: 0.0.2
       cz-git:
         specifier: ^1.7.0
         version: 1.10.1
+      cz-git-gitmoji-prompts:
+        specifier: '*'
+        version: 0.0.2
       tsup:
         specifier: ^8.3.0
         version: 8.3.0(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.5.1)
@@ -1050,6 +1055,9 @@ packages:
     resolution: {integrity: sha512-buhp5kePrmda3vhc5B9t7pUQXAb2Tnd0qgpkIhPhkHXxJpiPJ11H0ZEU0oBpJ2QztSbzG/ZxMj/CHsYJqRHmyg==}
     engines: {node: '>= 12.0.0'}
 
+  commitlint-config-czg-gitmoji@0.0.2:
+    resolution: {integrity: sha512-GoUhvy2Dfp0RbdVDbyLS4Lj6A8R/bi1xGLIg7dEwY546dicpXno30u+YvpUeG1rxSWWgQYR/Peu38UXMAo9Bfg==}
+
   commitlint-config-gitmoji@2.3.1:
     resolution: {integrity: sha512-T15ssbsyNc6szHlnGWo0/xvIA1mObqM70E9TwKNVTpksxhm+OdFht8hvDdKJAVi4nlZX5tcfTeILOi7SHBGH3w==}
 
@@ -1113,6 +1121,9 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  cz-git-gitmoji-prompts@0.0.2:
+    resolution: {integrity: sha512-17EP8Ik2w5C1o8g/1metKHvqv/p06tGPskac8IbONTjapqutKpIm6Uee406sDbtbyF7duA2Z5FTbNORQ2XjIXA==}
 
   cz-git@1.10.1:
     resolution: {integrity: sha512-pBudDYUEqSOgt5cAlAk6BDs/h99lxfiii+1KCxfuVNOgcpn+yz7AejDjdBEJ+XDt7MOeAvcpYW3gi7C7il+IFA==}
@@ -2212,6 +2223,9 @@ packages:
 
   picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
+
+  picocolors@1.1.1:
+    resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -3743,6 +3757,11 @@ snapshots:
 
   comment-parser@1.4.1: {}
 
+  commitlint-config-czg-gitmoji@0.0.2:
+    dependencies:
+      '@gitmoji/gitmoji-regex': 1.0.0
+      gitmojis: 3.14.0
+
   commitlint-config-gitmoji@2.3.1:
     dependencies:
       '@commitlint/types': 17.8.1
@@ -3815,6 +3834,11 @@ snapshots:
       which: 2.0.2
 
   cssesc@3.0.0: {}
+
+  cz-git-gitmoji-prompts@0.0.2:
+    dependencies:
+      gitmojis: 3.14.0
+      picocolors: 1.1.1
 
   cz-git@1.10.1: {}
 
@@ -5108,6 +5132,8 @@ snapshots:
 
   picocolors@1.1.0: {}
 
+  picocolors@1.1.1: {}
+
   picomatch@2.3.1: {}
 
   picomatch@4.0.2: {}
@@ -5143,7 +5169,7 @@ snapshots:
   postcss@8.4.47:
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.1.0
+      picocolors: 1.1.1
       source-map-js: 1.2.1
 
   prelude-ls@1.2.1: {}
