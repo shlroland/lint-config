@@ -1,5 +1,11 @@
 # @shlroland/commitlint-config
 
+## 2.1.2
+
+### Patch Changes
+
+- f97304e: add commitlint gitmoji configuration
+
 ## 2.1.1
 
 ### Patch Changes
