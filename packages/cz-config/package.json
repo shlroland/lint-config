@@ -12,9 +12,9 @@
       "import": "./lib/index.js",
       "require": "./lib/index.cjs"
     },
-    "./czg": {
-      "import": "./lib/czg.js",
-      "require": "./lib/czg.cjs"
+    "./gitmoji": {
+      "import": "./lib/gitmoji.js",
+      "require": "./lib/gitmoji.cjs"
     },
     "./conventional": {
       "import": "./lib/conventional.js",
@@ -32,14 +32,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "@commitlint/config-conventional": ">= 19"
-  },
-  "dependencies": {
-    "commitlint-config-gitmoji": "^2.3.1"
-  },
   "devDependencies": {
+    "@commitlint/config-conventional": ">= 19",
+    "commitlint-config-czg-gitmoji": "*",
     "cz-git": "^1.7.0",
+    "cz-git-gitmoji-prompts": "*",
     "tsup": "^8.3.0"
   }
 }
