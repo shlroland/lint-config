@@ -1,4 +1,4 @@
-import { parseNi, run } from '@antfu/ni'
+import { parseNi, parseNlx, run } from '@antfu/ni'
 import * as p from '@clack/prompts'
 import { x } from 'tinyexec'
 
@@ -11,4 +11,8 @@ export async function initGit() {
   spinner.start('Initializing git repository')
   await x('git', ['init'])
   spinner.stop('Git repository initialized')
+}
+
+export async function initHusky() {
+  await run(parseNlx, ['husky', 'init'], { programmatic: true })
 }

@@ -1,5 +1,5 @@
 import huskyConfig from '@shlroland/husky-config'
-import { deleteFile, initGit, isGitRepository, shouldInitGitPrompt, shouldOverridePrompt } from '../utils'
+import { deleteFile, initGit, initHusky, isGitRepository, isHuskyInstalled, shouldInitGitPrompt, shouldOverridePrompt } from '../utils'
 import { AbstractAnswer } from './abstract/answer'
 import { Config } from './abstract/config'
 import { CommonConfigOption } from './abstract/config-option'
@@ -35,6 +35,11 @@ export class HuskyAnswer extends AbstractAnswer {
         return
       }
       await initGit()
+    }
+
+    const hasHusky = await isHuskyInstalled(this.context.cwd)
+    if (!hasHusky) {
+      await initHusky()
     }
 
     const configs = this.config.pendingConfigs

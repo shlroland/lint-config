@@ -18,6 +18,11 @@ export function isGitRepository(directory: string): boolean {
   return fs.existsSync(gitDir) && fs.lstatSync(gitDir).isDirectory()
 }
 
+export function isHuskyInstalled(directory: string): boolean {
+  const huskyDir = path.join(directory, '.husky')
+  return fs.existsSync(huskyDir) && fs.lstatSync(huskyDir).isDirectory()
+}
+
 const commonjsError = [
   'Unexpected token \'export\'',
   'SyntaxError: Cannot use import statement outside a module',
