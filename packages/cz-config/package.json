@@ -33,10 +33,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": ">= 19",
+    "@commitlint/config-conventional": ">=19.5.0",
     "commitlint-config-czg-gitmoji": "*",
-    "cz-git": "^1.7.0",
+    "cz-git": "^1.10.1",
     "cz-git-gitmoji-prompts": "*",
-    "tsup": "^8.3.0"
+    "tsup": "^8.3.5"
   }
 }
