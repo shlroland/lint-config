@@ -27,8 +27,8 @@ importers:
         specifier: ^1.10.1
         version: 1.10.1
       czg:
-        specifier: 1.10.1
-        version: 1.10.1
+        specifier: 1.11.0
+        version: 1.11.0
       eslint:
         specifier: ^9.13.0
         version: 9.14.0(jiti@2.3.3)
@@ -1261,8 +1261,8 @@ packages:
     resolution: {integrity: sha512-pBudDYUEqSOgt5cAlAk6BDs/h99lxfiii+1KCxfuVNOgcpn+yz7AejDjdBEJ+XDt7MOeAvcpYW3gi7C7il+IFA==}
     engines: {node: '>=v12.20.0'}
 
-  czg@1.10.1:
-    resolution: {integrity: sha512-melR80u+GA4EWNexwiWkbAPkFkxBqtLMQU4ePmnkF4N9F//8lB9mo1i0PmxphTamhn0N6kRAmnrkFrkRteNW8g==}
+  czg@1.11.0:
+    resolution: {integrity: sha512-go39avnHPvDn1HF4LS1qxj5XPGCQexZ9+y8f+0VlE9plZgRyWUOl4rUCwE4vD1azouIhz/KaauB45A7jPfMxpw==}
     engines: {node: '>=v12.20.0'}
     hasBin: true
 
@@ -3975,7 +3975,7 @@ snapshots:
 
   cz-git@1.10.1: {}
 
-  czg@1.10.1: {}
+  czg@1.11.0: {}
 
   dargs@8.1.0: {}
 
