@@ -25,7 +25,7 @@ importers:
         version: 2.3.1
       cz-git:
         specifier: ^1.10.1
-        version: 1.10.1
+        version: 1.11.0
       czg:
         specifier: 1.10.1
         version: 1.10.1
@@ -107,7 +107,7 @@ importers:
         version: 0.0.2
       cz-git:
         specifier: ^1.10.1
-        version: 1.10.1
+        version: 1.11.0
       cz-git-gitmoji-prompts:
         specifier: '*'
         version: 0.0.2
@@ -1257,8 +1257,8 @@ packages:
   cz-git-gitmoji-prompts@0.0.2:
     resolution: {integrity: sha512-17EP8Ik2w5C1o8g/1metKHvqv/p06tGPskac8IbONTjapqutKpIm6Uee406sDbtbyF7duA2Z5FTbNORQ2XjIXA==}
 
-  cz-git@1.10.1:
-    resolution: {integrity: sha512-pBudDYUEqSOgt5cAlAk6BDs/h99lxfiii+1KCxfuVNOgcpn+yz7AejDjdBEJ+XDt7MOeAvcpYW3gi7C7il+IFA==}
+  cz-git@1.11.0:
+    resolution: {integrity: sha512-FCNkpyVmNPX0P8kHtX8uoFcXsJ4bjivMXVS5vc/qCyM8jj+Tuqo6CXQjGQKwKl0Lk9VNz7o6JfPoU/mM/XhxqA==}
     engines: {node: '>=v12.20.0'}
 
   czg@1.10.1:
@@ -3973,7 +3973,7 @@ snapshots:
       gitmojis: 3.14.0
       picocolors: 1.1.1
 
-  cz-git@1.10.1: {}
+  cz-git@1.11.0: {}
 
   czg@1.10.1: {}
 
